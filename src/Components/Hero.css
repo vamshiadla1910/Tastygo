@@ -1,0 +1,97 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+/* Background image */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transform: scale(1.1);
+  transition: background-image 1s ease-in-out, transform 1s ease-in-out;
+}
+
+/* Dark food color grading overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.75) 30%,
+    rgba(0, 0, 0, 0.3) 70%
+  );
+}
+
+/* Content */
+.hero-content {
+  position: relative;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 8%;
+  color: white;
+}
+
+/* Left text */
+.left {
+  max-width: 500px;
+}
+
+.left h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  line-height: 1.1;
+}
+
+.left h1 span {
+  color: #ffb703;
+}
+
+.left p {
+  margin-top: 15px;
+  font-size: 1.1rem;
+  color: #ddd;
+}
+
+/* Buttons */
+.buttons {
+  margin-top: 25px;
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  padding: 12px 22px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.primary {
+  background: #ff3d00;
+  color: white;
+}
+
+.primary:hover {
+  background: #ff6a00;
+  transform: scale(1.05);
+}
+
+.secondary {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+.secondary:hover {
+  background: white;
+  color: black;
+  transform: scale(1.05);
+}
