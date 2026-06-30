@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import "./Hero.css";
 
-
 const images = [
   "https://images.unsplash.com/photo-1601924582970-9238bcb495d9", // pizza
   "https://images.unsplash.com/photo-1550547660-d9450f859349", // burger
-  "https://images.openai.com/static-rsc-4/PF9zeZUpXFGAaJIrXlb2tsKVhARXyOWOE48bFD_mCDRgoRx4PT0tiUJ860NxpBPnFtglR38Six4qN-NnUx0p8VnxmUVptC9RRxPDbrtKvumTsHbqFtrc0EhbM6wxTwNJfR_RwFdxXFR8SOYnk2T7uIqsgNCHeIvPa4H31JvFpXzMNWewBUWv4_b6OzoS8sbl?purpose=fullsize"
+  "Flamebite/src/assets/cake.jpg",
 ];
 
 export default function Hero() {
