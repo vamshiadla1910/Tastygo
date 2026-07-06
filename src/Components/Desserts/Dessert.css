@@ -1,0 +1,62 @@
+.dessert-section {
+  padding: 30px 20px;
+  margin: auto;
+  width: 80%;
+}
+
+.dessert-title  {
+  text-align: center;
+  margin: 0 0 24px;
+ color: #e8562f;
+  font-family: "Brush Script MT", cursive;
+  font-size: 70px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.dessert-card {
+  background: #111111;
+  color: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease;
+}
+
+.dessert-card:hover {
+  transform: translateY(-5px);
+}
+
+.dessert-img {
+  width: 100%;
+  height: 220px;
+  display: block;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.dessert-info {
+  padding: 16px;
+}
+
+.dessert-info h3 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+}
+
+.price {
+  color: #ffcc00;
+  font-weight: bold;
+  margin: 0 0 8px;
+}
+
+.desc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #dddddd;
+  margin: 0;
+}

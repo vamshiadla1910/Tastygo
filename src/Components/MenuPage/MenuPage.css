@@ -1,0 +1,142 @@
+.menu-page {
+  min-height: 70vh;
+  padding: 50px 20px 70px;
+  width: 85%;
+  margin: 0 auto;
+  background: radial-gradient(circle at top, #181818 0%, #0d0d0d 55%);
+}
+
+.menu-page-heading {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.menu-eyebrow {
+  color: #ffcc00;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.menu-page-heading h1 {
+  color: #e8562f;
+  font-family: "Brush Script MT", cursive;
+  font-size: 64px;
+  margin: 0;
+}
+
+/* Category buttons */
+.menu-category-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.menu-cat-btn {
+  padding: 10px 28px;
+  border-radius: 30px;
+  border: 2px solid #e8562f;
+  background: transparent;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.menu-cat-btn:hover {
+  background: rgba(232, 86, 47, 0.15);
+}
+
+.menu-cat-btn.active {
+  background: #e8562f;
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(232, 86, 47, 0.4);
+}
+
+/* Card grid */
+.menu-page-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 30px;
+}
+
+.menu-page-card {
+  background: #111111;
+  color: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease;
+}
+
+.menu-page-card:hover {
+  transform: translateY(-5px);
+}
+
+.menu-page-img {
+  width: 100%;
+  height: 200px;
+  display: block;
+  object-fit: cover;
+}
+
+.menu-page-info {
+  padding: 16px;
+  position: relative;
+}
+
+.menu-page-tag {
+  display: inline-block;
+  background: #e8562f;
+  color: #fff;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+
+.menu-page-info h3 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+}
+
+.menu-page-desc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #dddddd;
+  margin: 0 0 12px;
+}
+
+.menu-page-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.menu-page-footer strong {
+  color: #ffcc00;
+  font-size: 16px;
+}
+
+.menu-page-add {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: #e8562f;
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.menu-page-add:hover {
+  background: #ff6b3d;
+}

@@ -1,0 +1,136 @@
+[
+  {
+    "id": 1,
+    "name": "Classic Veg Burger",
+    "price": "₹99",
+    "description": "A soft bun filled with a grilled veg patty, fresh lettuce, tomato, onion, and creamy mayo.",
+    "image": "/burger_imgs/Classic_Veg_Burger.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Cheese Burst Burger",
+    "price": "₹129",
+    "description": "A juicy veg patty topped with melted cheese, pickles, lettuce, and special burger sauce.",
+    "image": "/burger_imgs/Cheese_Burst_Burger.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Crispy Chicken Burger",
+    "price": "₹149",
+    "description": "A crunchy fried chicken patty served with lettuce, mayo, and fresh buns.",
+    "image": "/burger_imgs/Crispy_Chicken_Burger.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Spicy Chicken Burger",
+    "price": "₹159",
+    "description": "A bold chicken burger with spicy seasoning, onions, lettuce, and tangy sauce.",
+"image": "/burger_imgs/Classic_Veg_Burger.jpg"  },
+  {
+    "id": 5,
+    "name": "Double Cheese Burger",
+    "price": "₹169",
+    "description": "Two layers of cheese over a grilled patty, with fresh veggies and signature sauce.",
+    "image": "/burger_imgs/Cheese_Burst_Burger.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Paneer Tikka Burger",
+    "price": "₹139",
+    "description": "Grilled paneer tikka with onions, lettuce, and mint mayo in a toasted bun.",
+    "image": "/burger_imgs/Cheese_Burst_Burger.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Mexican Salsa Burger",
+    "price": "₹149",
+    "description": "A flavorful burger with a spicy veg patty, salsa, lettuce, and cheese.",
+    "image": "/burger_imgs/Crispy_Chicken_Burger.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Mushroom Melt Burger",
+    "price": "₹159",
+    "description": "A savory mushroom patty topped with melted cheese and creamy garlic sauce.",
+"image": "/burger_imgs/Classic_Veg_Burger.jpg"  },
+  {
+    "id": 9,
+    "name": "BBQ Chicken Burger",
+    "price": "₹169",
+    "description": "A smoky chicken burger with BBQ sauce, onions, lettuce, and cheese.",
+    "image": "/burger_imgs/Cheese_Burst_Burger.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Aloo Tikki Burger",
+    "price": "₹89",
+    "description": "A crispy potato patty with onions, tomato, and tangy chutney.",
+    "image": "/burger_imgs/Crispy_Chicken_Burger.jpg"
+  },
+  {
+    "id": 11,
+    "name": "Corn & Cheese Burger",
+    "price": "₹119",
+    "description": "A sweet corn and cheese patty with lettuce and creamy burger dressing.",
+"image": "/burger_imgs/Classic_Veg_Burger.jpg"  },
+  {
+    "id": 12,
+    "name": "Peri Peri Chicken Burger",
+    "price": "₹179",
+    "description": "A spicy chicken burger seasoned with peri peri masala and zesty sauce.",
+    "image": "/burger_imgs/Cheese_Burst_Burger.jpg"
+  },
+  {
+    "id": 13,
+    "name": "Gourmet Veg Burger",
+    "price": "₹149",
+    "description": "A premium veg patty with lettuce, tomato, onion rings, and cheese.",
+    "image": "/burger_imgs/Crispy_Chicken_Burger.jpg"
+  },
+  {
+    "id": 14,
+    "name": "Loaded Beef Burger",
+    "price": "₹199",
+    "description": "A juicy beef patty stacked with cheese, lettuce, onion, pickles, and special sauce.",
+"image": "/burger_imgs/Classic_Veg_Burger.jpg"  },
+  {
+    "id": 15,
+    "name": "Mushroom & Cheese Burger",
+    "price": "₹149",
+    "description": "A rich mushroom patty layered with melted cheese and fresh salad.",
+    "image": "/burger_imgs/Cheese_Burst_Burger.jpg"
+  },
+  {
+    "id": 16,
+    "name": "Smoky Chipotle Burger",
+    "price": "₹159",
+    "description": "A smoky-flavored burger with chipotle sauce, lettuce, and a crispy patty.",
+    "image": "/burger_imgs/Crispy_Chicken_Burger.jpg"
+  },
+  {
+    "id": 17,
+    "name": "Farmhouse Burger",
+    "price": "₹139",
+    "description": "A wholesome burger with fresh vegetables, a veg patty, and creamy dressing.",
+"image": "/burger_imgs/Classic_Veg_Burger.jpg"  },
+  {
+    "id": 18,
+    "name": "Crunchy Veggie Burger",
+    "price": "₹109",
+    "description": "A crispy vegetable patty with lettuce, tomato, onion, and mayo.",
+    "image": "/burger_imgs/Cheese_Burst_Burger.jpg"
+  },
+  {
+    "id": 19,
+    "name": "Supreme Chicken Burger",
+    "price": "₹189",
+    "description": "A fully loaded chicken burger with cheese, salad, and rich sauce.",
+    "image": "/burger_imgs/Crispy_Chicken_Burger.jpg"
+  },
+  {
+    "id": 20,
+    "name": "Royal Deluxe Burger",
+    "price": "₹209",
+    "description": "A premium burger with a thick patty, double cheese, fresh veggies, and deluxe sauce.",
+"image": "/burger_imgs/Classic_Veg_Burger.jpg"  }
+]

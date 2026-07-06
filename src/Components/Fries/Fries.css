@@ -1,0 +1,61 @@
+.fries-section {
+  padding: 30px 20px;
+  width: 80%;
+  margin: auto;
+}
+
+.fries-title {
+  font-size: 2rem;
+  text-align: center;
+  margin: 0 0 24px;
+  color: #ffffff;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.fries-card {
+  background: #111111;
+  color: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s ease;
+}
+
+.fries-card:hover {
+  transform: translateY(-5px);
+}
+
+.fries-img {
+  width: 100%;
+  height: 220px;
+  display: block;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.fries-info {
+  padding: 16px;
+}
+
+.fries-info h3 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+}
+
+.price {
+  color: #ffcc00;
+  font-weight: bold;
+  margin: 0 0 8px;
+}
+
+.desc {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #dddddd;
+  margin: 0;
+}

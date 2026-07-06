@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "French Fries",
+    "price": 99,
+    "description": "Classic crispy potato fries seasoned with salt.",
+    "image": "/fries/French_Fries.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Peri Peri Fries",
+    "price": 119,
+    "description": "Spicy fries tossed in zesty peri peri seasoning.",
+    "image": "/fries/Peri_Peri_Fries.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Cheese Fries",
+    "price": 139,
+    "description": "Golden fries topped with melted cheese sauce.",
+    "image": "/fries/Peri_Peri_Fries.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Loaded Fries",
+    "price": 159,
+    "description": "Fries loaded with cheese, sauces, and herbs.",
+    "image": "/fries/Loaded_Fries.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Masala Fries",
+    "price": 109,
+    "description": "Crispy fries coated with spicy Indian masala.",
+    "image": "/fries/Masala_Fries.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Garlic Fries",
+    "price": 129,
+    "description": "Fries tossed with garlic butter and herbs.",
+    "image": "/fries/Garlic_Fries.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Chili Cheese Fries",
+    "price": 149,
+    "description": "Fries topped with spicy chili and cheese sauce.",
+    "image": "/fries/Chili_Cheese_Fries.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Curly Fries",
+    "price": 119,
+    "description": "Crispy spiral fries seasoned to perfection.",
+    "image": "/fries/Curly_Fries.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Waffle Fries",
+    "price": 129,
+    "description": "Crispy waffle-cut fries with a crunchy texture.",
+    "image": "/fries/waffle-fries.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Sweet Potato Fries",
+    "price": 149,
+    "description": "Sweet and crispy fries made from sweet potatoes.",
+    "image": "/fries/sweet-potato-fries.jpg"
+  }
+]

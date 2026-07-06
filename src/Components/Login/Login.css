@@ -1,0 +1,88 @@
+.loginpage{
+    position: relative;
+    box-sizing: border-box;
+    width: 400px;
+    /* height was a fixed 300px, which clipped the form once the submit
+       button was added below the inputs. Using min-height + auto padding
+       lets the box grow to fit its content instead. */
+    min-height: 300px;
+    margin: auto;
+    padding: 50px 40px 40px;
+    border-radius: 30px;
+background: radial-gradient(
+  circle at top left,
+  #e8562f 0%,
+  rgb(180, 20, 20,) 25%,
+  rgb(120, 0, 0) 67%,
+  rgb(40, 0, 0) 90%,
+  rgb(0, 0, 0) 100%
+);    box-shadow:5px 5px 15px black; ;
+}
+
+.login-heading{
+    color: white;
+    text-align: center;
+    margin: 0 0 20px;
+    font-family: "inter", sans-serif;
+}
+
+.login-close-btn{
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.login-submit-btn{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 15px;
+    background: #ffcc00;
+    color: #1a0000;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 5px 5px 15px black;
+    margin-bottom: 10px;
+}
+
+.login-submit-btn:hover{
+    background: #ffd633;
+}
+
+
+label{
+    font-size: 20px;
+    font-family: "inter",sans-serif;
+    font-weight: bolder;
+    padding-bottom: 30px;
+    color: white;
+}
+
+.loginpage input{
+    box-sizing: border-box;
+    padding: 10px;
+    width: 100%;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 5px 5px 15px black;
+    background: white;
+    margin: 10px 0px 20px 0px;
+}
+
+p{
+    color: wheat;
+    text-align: center;
+}
+
+.loginpage span{
+    color: yellow;
+    font-weight: bold;
+    cursor: pointer;
+}

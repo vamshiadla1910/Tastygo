@@ -1,0 +1,132 @@
+.footer {
+  padding: 28px 0 18px;
+  background: #0b0b0b;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: #f4f1eb;
+}
+
+.footer .container {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.footer-top.footer-social-only {
+  display: grid;
+  grid-template-columns: 0.5fr 1.5fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.footer-top h3 {
+  margin: 0 0 14px;
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.socials a {
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  color: #f4f1eb;
+  text-decoration: none;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.socials a:hover {
+  transform: translateY(-2px);
+  background: rgba(232, 86, 47, 0.12);
+  border-color: rgba(232, 86, 47, 0.45);
+  color: #ffffff;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo.small-logo {
+  font-size: 1.25rem;
+  margin: 0;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.logo.small-logo span {
+  color: #e8562f;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-links a {
+  color: #b6aea4;
+  text-decoration: none;
+  transition: 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+}
+
+.footer-bottom {
+  display: grid;
+  place-items: center;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: #b6aea4;
+  text-align: center;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+@media (max-width: 820px) {
+  .footer-top.footer-social-only {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-nav {
+    align-items: flex-start;
+  }
+
+  .footer-links {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .footer {
+    padding: 24px 0 16px;
+  }
+
+  .socials {
+    gap: 10px;
+  }
+
+  .socials a {
+    width: 40px;
+    height: 40px;
+  }
+}
