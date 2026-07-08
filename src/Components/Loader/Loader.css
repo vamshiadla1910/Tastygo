@@ -1,0 +1,240 @@
+/* Loader.css */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.loader{
+    position:fixed;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    background:linear-gradient(180deg,#1b0b05,#2b1208,#3a1708);
+    z-index:9999;
+}
+
+/* Background Glow */
+
+.backgroundGlow{
+    position:absolute;
+    width:700px;
+    height:700px;
+    background:radial-gradient(circle,#ff6b00 0%,transparent 70%);
+    filter:blur(120px);
+    opacity:.45;
+    animation:glow 4s ease-in-out infinite alternate;
+}
+
+@keyframes glow{
+    from{
+        transform:scale(.9);
+    }
+
+    to{
+        transform:scale(1.2);
+    }
+}
+
+/* Logo */
+
+.logo{
+    font-size:58px;
+    font-weight:800;
+    color:white;
+    letter-spacing:2px;
+    margin-bottom:20px;
+    z-index:5;
+    text-shadow:0 0 18px orange;
+}
+
+/* Chef */
+
+.chef{
+    width:170px;
+    margin-bottom:20px;
+    z-index:5;
+    filter:drop-shadow(0 12px 20px rgba(0,0,0,.4));
+}
+
+/* Food */
+
+.foodContainer{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:70px;
+    margin-bottom:40px;
+    perspective:1000px;
+    z-index:5;
+}
+
+.pizza{
+    width:120px;
+    filter:drop-shadow(0 15px 18px rgba(0,0,0,.4));
+}
+
+.burger{
+    width:95px;
+    filter:drop-shadow(0 12px 18px rgba(0,0,0,.4));
+}
+
+.dessert{
+    width:90px;
+    filter:drop-shadow(0 12px 18px rgba(0,0,0,.4));
+}
+
+/* Loading Text */
+
+.loadingTitle{
+    color:white;
+    font-size:30px;
+    font-weight:700;
+    margin-bottom:20px;
+    z-index:5;
+    text-shadow:0 0 10px orange;
+}
+
+.loadingText{
+    color:#ffe3c4;
+    margin-top:18px;
+    font-size:18px;
+    z-index:5;
+}
+
+/* Progress */
+
+.progressBar{
+    width:420px;
+    height:16px;
+    background:rgba(255,255,255,.15);
+    border-radius:40px;
+    overflow:hidden;
+    z-index:5;
+}
+
+.progress{
+    height:100%;
+    background:linear-gradient(
+    90deg,
+    #ff5a00,
+    #ff9900,
+    #ffd000,
+    #ff5a00
+    );
+    background-size:300%;
+    animation:shine 2s linear infinite;
+}
+
+@keyframes shine{
+
+    from{
+        background-position:0%;
+    }
+
+    to{
+        background-position:300%;
+    }
+
+}
+
+/* ==============================
+   Chef
+============================== */
+
+.chefContainer{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    margin-bottom:20px;
+    z-index:5;
+}
+
+.chefImage {
+  width: 220px;
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.4));
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Floating Particles */
+
+.particles{
+    position:absolute;
+    inset:0;
+    pointer-events:none;
+}
+
+.particles span{
+    position:absolute;
+    bottom:-20px;
+    width:8px;
+    height:8px;
+    background:#ffb300;
+    border-radius:50%;
+    animation:particle 8s linear infinite;
+}
+
+@keyframes particle{
+
+    0%{
+        transform:translateY(0);
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    100%{
+        transform:translateY(-110vh);
+        opacity:0;
+    }
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+.logo{
+    font-size:40px;
+}
+
+.chef{
+    width:120px;
+}
+
+.foodContainer{
+    gap:30px;
+}
+
+.pizza{
+    width:80px;
+}
+
+.burger{
+    width:65px;
+}
+
+.dessert{
+    width:65px;
+}
+
+.loadingTitle{
+    font-size:22px;
+}
+
+.progressBar{
+    width:280px;
+}
+
+.loadingText{
+    font-size:16px;
+}
+
+}
