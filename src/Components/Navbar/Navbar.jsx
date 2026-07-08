@@ -22,13 +22,13 @@ const NAV_LINKS = [
 
 function Navbar() {
   // Controls whether the login overlay is visible
-  const [isLoginOpen, setIsLoginOpen] = useState(false);
+  
 
   // cartCount comes from the shared CartContext, so it updates the
   // instant addToCart() is called from MenuPage, even though MenuPage
   // and Navbar are separate components.
   const { cartCount } = useCart();
-
+const [isLoginOpen, setIsLoginOpen] = useState(false);
   // Controls the short "bump" animation on the cart icon whenever an
   // item is added. useRef holds the previous count without causing a
   // re-render itself (unlike useState).
@@ -94,12 +94,7 @@ function Navbar() {
         <img src={img} alt="Tastygo logo" />
       </div>
 
-      <div className="searchbar">
-        <input type="search" placeholder="pizzaa...!" />
-        <button>
-          <FaSearch />
-        </button>
-      </div>
+      
 
       <div className="links">
         {/* Rendered with .map so every link goes through the same
@@ -113,8 +108,6 @@ function Navbar() {
       </div>
 
       <div className="cp">
-        <FaUser className="icon" onClick={() => setIsLoginOpen(true)} />
-
         <div
           className={`cart-icon-wrapper ${isCartBumping ? "cart-bump" : ""}`}
           onClick={() => navigate("/cart")}
@@ -122,11 +115,12 @@ function Navbar() {
           <FaShoppingCart className="icon" />
           {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
         </div>
+        <FaUser className="icon" onClick={() => setIsLoginOpen(true)} />
+
+        
       </div>
 
-      {/* Login overlay: rendered on top of whatever page is currently
-          showing. Clicking the dark backdrop (but not the form itself)
-          closes it. */}
+      
       {isLoginOpen && (
         <div
           className="login-overlay-backdrop"

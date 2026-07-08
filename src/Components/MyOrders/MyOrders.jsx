@@ -86,8 +86,8 @@ function MyOrders() {
                   <p className="detail-value">{order.paymentMethod}</p>
                 </div>
               </div>
-
-              <div className="order-items-list">
+              <div className="order-details-grid">
+                <div className="order-items-list">
                 <p className="list-title">Items Ordered:</p>
                 {order.items.map((item, idx) => (
                   <div key={idx} className="item-row">
@@ -110,7 +110,7 @@ function MyOrders() {
                 <p className="contact-text">{order.contact.mobileNumber}</p>
                 <p className="contact-text">{order.contact.email}</p>
               </div>
-
+            </div>
               <div className="order-footer">
                 <button
                   className="btn-primary"

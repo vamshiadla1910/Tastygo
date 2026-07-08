@@ -205,7 +205,7 @@ function Checkout() {
                 {errors.street && <p className="field-error">{errors.street}</p>}
               </div>
 
-              <div className="field-row">
+              
                 <div className="field-group half">
                   <label htmlFor="city">City</label>
                   <input
@@ -228,7 +228,7 @@ function Checkout() {
                   />
                   {errors.state && <p className="field-error">{errors.state}</p>}
                 </div>
-              </div>
+              
 
               <div className="field-group">
                 <label htmlFor="pincode">Pincode</label>
@@ -242,30 +242,7 @@ function Checkout() {
                 {errors.pincode && <p className="field-error">{errors.pincode}</p>}
               </div>
 
-              <div className="field-group payment-group">
-                <label>Payment Method</label>
-                <div className="payment-options">
-                  {["Cash on Delivery", "UPI", "Credit/Debit Card"].map((method) => (
-                    <label key={method} className="payment-option">
-                      <input
-                        type="radio"
-                        name="paymentMethod"
-                        value={method}
-                        checked={form.paymentMethod === method}
-                        onChange={handleChange}
-                      />
-                      {method}
-                    </label>
-                  ))}
-                </div>
-                {errors.paymentMethod && (
-                  <p className="field-error">{errors.paymentMethod}</p>
-                )}
-              </div>
-
-              <button type="submit" className="place-order-btn">
-                Place Order
-              </button>
+              
             </form>
           </div>
         </main>
@@ -287,6 +264,7 @@ function Checkout() {
                   </div>
                 );
               })}
+              
             </div>
 
             <div className="checkout-totals">
@@ -306,6 +284,30 @@ function Checkout() {
                 <span>Grand Total</span>
                 <strong>{formatPrice(grandTotal)}</strong>
               </div>
+              <div className="field-group payment-group">
+                <label>Payment Method</label>
+                <div className="payment-options">
+                  {["Cash on Delivery", "UPI Payment", "Credit/Debit Card"].map((method) => (
+                    <label key={method} className="payment-option">
+                      <input
+                        type="radio"
+                        name="paymentMethod"
+                        value={method}
+                        checked={form.paymentMethod === method}
+                        onChange={handleChange}
+                      />
+                      {method}
+                    </label>
+                  ))}
+                </div>
+                {errors.paymentMethod && (
+                  <p className="field-error">{errors.paymentMethod}</p>
+                )}
+              </div>
+
+              <button type="submit" className="place-order-btn">
+                Place Order
+              </button>
             </div>
           </div>
         </aside>

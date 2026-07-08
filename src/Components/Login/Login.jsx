@@ -1,80 +1,98 @@
 import { useState } from "react";
-import "./Login.css"
+import "./Login.css";
+import SignupPage from "../Signup/Signup";
 
-// onClose is passed in by Navbar when this is shown inside the overlay.
-// The prop is optional so Loginpage can still be rendered on its own
-// (e.g. if you ever want a dedicated /login route) without crashing.
 function Loginpage({ onClose }) {
-    // useState keeps the form fields controlled, so their values live in
-    // React state instead of only in the DOM.
-    const [formData, setFormData] = useState({
-        phone: "",
-        name: "",
-        password: "",
-    });
+  const [showSignup, setShowSignup] = useState(false);
 
-    const handleChange = (event) => {
-        const { id, value } = event.target;
-        setFormData((prev) => ({ ...prev, [id]: value }));
-    };
+  const [formData, setFormData] = useState({
+    phone: "",
+    name: "",
+    password: "",
+  });
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        // Hook this up to your real authentication call when it's ready.
-        console.log("Login submitted:", formData);
-        onClose?.();
-    };
+  const handleChange = (event) => {
+    const { id, value } = event.target;
+    setFormData((prev) => ({ ...prev, [id]: value }));
+  };
 
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("Login submitted:", formData);
+    onClose?.();
+  };
+
+  if (showSignup) {
     return (
-        <div className="loginpage">
-            {onClose && (
-                <button
-                    type="button"
-                    className="login-close-btn"
-                    onClick={onClose}
-                    aria-label="Close login"
-                >
-                    &times;
-                </button>
-            )}
+      <SignupPage
+        onClose={onClose}
+        onShowLogin={() => setShowSignup(false)}
+      />
+    );
+  }
 
-            <h2 className="login-heading">Login</h2>
+  return (
+    <div className="loginpage">
+      {onClose && (
+        <button
+          type="button"
+          className="login-close-btn"
+          onClick={onClose}
+          aria-label="Close login"
+        >
+          &times;
+        </button>
+      )}
 
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="phone">Mobile Number</label><br/>
-                <input
-                    type="tel"
-                    name="phone"
-                    id="phone"
-                    placeholder="89193XXXX"
-                    value={formData.phone}
-                    onChange={handleChange}
-                /><br/>
+      <h2 className="login-heading">Login</h2>
 
-                <label htmlFor="name">Name</label><br/>
-                <input
-                    type="text"
-                    id="name"
-                    placeholder="Enter your name"
-                    value={formData.name}
-                    onChange={handleChange}
-                /><br/>
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="phone" className="login-label">Mobile Number</label>
+        <input
+          type="tel"
+          name="phone"
+          id="phone"
+          placeholder="89193XXXX"
+          value={formData.phone}
+          onChange={handleChange}
+        />
 
-                <label htmlFor="password">Password</label><br/>
-                <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="Enter your password"
-                    value={formData.password}
-                    onChange={handleChange}
-                /><br/>
+        <label htmlFor="name" className="login-label">Name</label>
+        <input
+          type="text"
+          id="name"
+          placeholder="Enter your name"
+          value={formData.name}
+          onChange={handleChange}
+        />
 
-                <button type="submit" className="login-submit-btn">Login</button>
-            </form>
+        <label htmlFor="password" className="login-label">Password</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          placeholder="Enter your password"
+          value={formData.password}
+          onChange={handleChange}
+        />
 
-            <p>Not having account! <span>SignUp</span></p>
-        </div>
-    )
+        <button type="submit" className="login-submit-btn">
+          Login
+        </button>
+      </form>
+
+      <p className="fp">Forgotten password?</p>
+      <p className="login-switch-text">
+        Not having account!{" "}
+        <span
+          className="login-switch-link"
+          onClick={() => setShowSignup(true)}
+        >
+          SignUp
+        </span>
+      </p>
+    </div>
+  );
 }
+
 export default Loginpage;
