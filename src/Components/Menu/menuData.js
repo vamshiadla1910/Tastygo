@@ -1,12 +1,80 @@
 export const menuCategories = ['Pizza', 'Burgers', 'Cakes', 'Drinks', 'Combos'];
 
+const defaultDetails = {
+  serves: '1 Person',
+  pieces: '1',
+  calories: '500 kcal',
+  prepTime: '10 mins',
+  rating: '4.5',
+  type: 'Veg',
+  spice: 'Mild'
+};
+
+const detailsMap = {
+  Pizza: {
+    serves: '1 Person',
+    pieces: '8 Slices',
+    calories: '850 kcal',
+    prepTime: '20 mins',
+    rating: '4.8',
+    type: 'Veg',
+    spice: 'Medium'
+  },
+  Burgers: {
+    serves: '1 Person',
+    pieces: '1 Burger',
+    calories: '720 kcal',
+    prepTime: '15 mins',
+    rating: '4.7',
+    type: 'Non-Veg',
+    spice: 'Medium'
+  },
+  Fries: {
+    serves: '1 Person',
+    pieces: '250 g',
+    calories: '430 kcal',
+    prepTime: '10 mins',
+    rating: '4.6',
+    type: 'Veg',
+    spice: 'Mild'
+  },
+  Cakes: {
+    serves: '2 Persons',
+    pieces: '2 Scoops',
+    calories: '390 kcal',
+    prepTime: '8 mins',
+    rating: '4.9',
+    type: 'Veg',
+    spice: 'None'
+  },
+  Drinks: {
+    serves: '1 Person',
+    pieces: '1 Glass',
+    calories: '150 kcal',
+    prepTime: '2 mins',
+    rating: '4.5',
+    type: 'Veg',
+    spice: 'None'
+  },
+  Combos: {
+    serves: '1 Person',
+    pieces: 'Full Plate',
+    calories: '950 kcal',
+    prepTime: '18 mins',
+    rating: '4.6',
+    type: 'Non-Veg',
+    spice: 'Medium'
+  }
+};
+
 const buildItems = (category, prefix, descriptions, startPrice, image) =>
   Array.from({ length: 15 }, (_, index) => ({
     category,
     name: `${prefix} ${index + 1}`,
     desc: descriptions[index % descriptions.length],
     price: `₹${(startPrice + index * 0.4).toFixed(2)}`,
-    img: `${image}?v=${index + 1}`
+    img: `${image}?v=${index + 1}`,
+    ...((detailsMap[category]) ? detailsMap[category] : defaultDetails)
   }));
 
 export const allMenuItems = [

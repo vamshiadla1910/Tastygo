@@ -1,5 +1,5 @@
 .pizza-section {
-  padding: 30px 20px;
+  padding: 10px 20px;
   margin: auto;
   width: 80%;
 }
@@ -23,8 +23,10 @@
   color: #ffffff;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 1px rgba(0, 0, 0, 0.25);
   transition: transform 0.2s ease;
+  max-width: 320px;
+  padding: 16px;
 }
 
 .pizza-card:hover {
@@ -33,9 +35,10 @@
 
 .pizza-img {
   width: 100%;
-  height: 220px;
+  height: 210px;
   display: block;
   object-fit: cover;
+   
 }
 
 .pizza-info {
@@ -58,4 +61,80 @@
   line-height: 1.5;
   color: #dddddd;
   margin: 0;
+}
+
+/* Food details section matching app theme */
+.food-details{
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+    margin:10px 0;
+}
+
+.food-detail{
+    display:flex;
+    align-items:center;
+    gap:5px;
+}
+
+.food-detail .icon{
+    color:#ff6b35;
+    font-size:12px;
+}
+
+.food-detail span{
+    color:#d8d8d8;
+    font-size:12px;
+    font-weight:500;
+}
+
+@media (max-width: 480px) {
+
+  .menu-page {
+    padding: 25px 12px 40px;
+  }
+
+  .menu-page-heading h1 {
+    font-size: 34px;
+  }
+
+  .menu-category-row {
+    gap: 8px;
+  }
+
+  .menu-cat-btn {
+    padding: 7px 14px;
+    font-size: 13px;
+  }
+
+  .menu-page-card,
+  .pizza-card {
+    max-width: 100%;
+    border-radius: 14px;
+  }
+
+  .menu-page-img,
+  .pizza-img {
+    height: 180px;
+  }
+
+  .food-details {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .food-detail {
+    width: 100%;
+  }
+
+  .menu-page-footer strong,
+  .price {
+    font-size: 15px;
+  }
+
+  .menu-page-add {
+    width: 34px;
+    height: 34px;
+    font-size: 18px;
+  }
 }

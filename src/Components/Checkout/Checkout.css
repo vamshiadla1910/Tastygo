@@ -9,11 +9,13 @@
   color: #ffcc00;
   font-weight: 700;
   margin-bottom: 8px;
+  text-align: center;
 }
 
 .checkout-heading h1 {
   margin: 0;
   font-size: clamp(2rem, 2.5vw, 3rem);
+  text-align: center;
 }
 
 .checkout-layout {
@@ -28,6 +30,8 @@
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 22px;
   padding: 28px;
+  width: 550px;
+  text-align: center;
 }
 
 .checkout-card h2 {
@@ -40,27 +44,33 @@
   display: grid;
   gap: 8px;
   margin-bottom: 16px;
+  text-align: center;
 }
 
 .field-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  width: 400px;
+  margin: auto;
 }
 
 .field-group label {
   color: #dcdcdc;
   font-weight: 600;
+  text-align: left;
+  margin-left: 60px;
 }
 
 .field-group input {
-  width: 100%;
+  width: 60%;
   padding: 14px 16px;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 18px;
   color: #fff;
   outline: none;
+  margin: auto;
+  width: 400px;
 }
 
 .field-group input:focus {
@@ -75,7 +85,7 @@
 
 .payment-group .payment-options {
   display: grid;
-  gap: 12px;
+  width: 400px;
 }
 
 .payment-option {
@@ -86,10 +96,13 @@
   background: rgba(255, 255, 255, 0.06);
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  width: 400px;
+  margin-left: 0;
 }
 
 .payment-option input {
   accent-color: #ff8a3d;
+  
 }
 
 .place-order-btn {
@@ -103,6 +116,7 @@
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
+  width: 200px;
 }
 
 .checkout-summary-panel {

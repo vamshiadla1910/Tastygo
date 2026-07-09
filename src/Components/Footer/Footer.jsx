@@ -16,11 +16,9 @@ function Footer() {
         <div className="footer-nav">
           <div className="logo small-logo">Tasty<span>go</span></div>
           <div className="footer-links">
-            <a href="#hero">Home</a>
+            <a href="#home">Home</a>
             <a href="#specials">Our Specials</a>
-            <a href="#hot-deals">Hot &amp; Happy Deals</a>
-            <a href="#menu">Menu</a>
-            <a href="#delivery">Delivery</a>
+            <a href="/menu">Menu</a>
           </div>
         </div>
       </div>

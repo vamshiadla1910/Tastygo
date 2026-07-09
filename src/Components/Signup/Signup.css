@@ -1,8 +1,8 @@
-.loginpage {
+.signuppage {
   position: relative;
   box-sizing: border-box;
-  width: 400px;
-  min-height: 300px;
+  width: 420px;
+  min-height: 420px;
   margin: auto;
   padding: 50px 40px 40px;
   border-radius: 30px;
@@ -10,14 +10,14 @@
   box-shadow: 5px 5px 15px black;
 }
 
-.login-heading {
+.signup-heading {
   color: white;
   text-align: center;
   margin: 0 0 20px;
   font-family: "Inter", sans-serif;
 }
 
-.login-close-btn {
+.signup-close-btn {
   position: absolute;
   top: 14px;
   right: 18px;
@@ -29,7 +29,7 @@
   cursor: pointer;
 }
 
-.login-label {
+.signup-label {
   display: block;
   font-size: 18px;
   font-family: "Inter", sans-serif;
@@ -38,7 +38,7 @@
   margin-bottom: 8px;
 }
 
-.loginpage input {
+.signuppage input {
   box-sizing: border-box;
   padding: 10px;
   width: 100%;
@@ -50,11 +50,11 @@
   outline: none;
 }
 
-.loginpage input:focus {
+.signuppage input:focus {
   outline: 3px solid #e8562f;
 }
 
-.login-submit-btn {
+.signup-submit-btn {
   width: 100%;
   padding: 10px;
   border: none;
@@ -65,35 +65,28 @@
   font-size: 16px;
   cursor: pointer;
   box-shadow: 5px 5px 15px black;
-  margin-bottom: 10px;
+  margin: 10px 0;
 }
 
-.login-submit-btn:hover {
+.signup-submit-btn:hover {
   background: #ffd633;
 }
 
-.fp {
-  margin: 0 0 10px 0;
-  cursor: pointer;
+.signup-switch-text {
   color: wheat;
   text-align: center;
+  margin-top: 10px;
 }
 
-.fp:hover {
-  color: #e8562f;
-}
-
-.login-switch-text {
-  color: wheat;
-  text-align: center;
-}
-
-.login-switch-link {
+.signup-login-btn {
+  background: none;
+  border: none;
   color: #ffd633;
   font-weight: bold;
   cursor: pointer;
+  font-size: 16px;
 }
 
-.login-switch-link:hover {
+.signup-login-btn:hover {
   color: #e8562f;
 }

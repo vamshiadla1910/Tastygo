@@ -1,187 +1,135 @@
-import { useEffect, useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
-import { updateOrderStatusInLocalStorage } from "../../services/orderService";
-import "./OrderSuccess.css";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-function OrderSuccess() {
-  const [order, setOrder] = useState(null);
-  const [statusTimeline, setStatusTimeline] = useState([]);
-  const [currentStatus, setCurrentStatus] = useState("Preparing Food");
+export default function OrderSuccess() {
   const navigate = useNavigate();
-  const location = useLocation();
+  const [order, setOrder] = useState(null);
 
   useEffect(() => {
-    // Try navigation state first (best method)
-    if (location.state) {
-      setOrder(location.state);
-      setStatusTimeline(location.state.statusTimeline || []);
-      setCurrentStatus(location.state.status || "Preparing Food");
-      startStatusSimulation(location.state.statusTimeline || []);
-      return;
+    // Read latest order (saved by Checkout)
+    const latest = localStorage.getItem("latestOrder");
+    if (latest) {
+      setOrder(JSON.parse(latest));
+      // keep orders history intact (do not remove orders)
+    } else {
+      // fallback to most recent from orders array
+      const orders = JSON.parse(localStorage.getItem("orders") || "[]");
+      if (orders.length > 0) setOrder(orders[0]);
     }
 
-    // Fallback to localStorage
-    const stored = localStorage.getItem("latestOrder");
-    if (stored) {
-      try {
-        const orderData = JSON.parse(stored);
-        setOrder(orderData);
-        setStatusTimeline(orderData.statusTimeline || []);
-        setCurrentStatus(orderData.status || "Preparing Food");
-        startStatusSimulation(orderData.statusTimeline || []);
-      } catch (err) {
-        console.error("Invalid order data");
-      }
-    }
-  }, [location.state]);
-
-  // Simulate status updates for demo
-  const startStatusSimulation = (timeline) => {
-    const timers = [];
-
-    // After 5 seconds → Preparing Food (already default)
-    timers.push(
-      setTimeout(() => {
-        updateTimeline(timeline, "Preparing Food");
-      }, 5000)
-    );
-
-    // After 10 seconds → Out for Delivery
-    timers.push(
-      setTimeout(() => {
-        updateTimeline(timeline, "Out for Delivery");
-      }, 10000)
-    );
-
-    // After 15 seconds → Delivered
-    timers.push(
-      setTimeout(() => {
-        updateTimeline(timeline, "Delivered");
-      }, 15000)
-    );
-
-    return () => timers.forEach((timer) => clearTimeout(timer));
-  };
-
-  const updateTimeline = (currentTimeline, newStatus) => {
-    const now = new Date().toISOString();
-    const updatedTimeline = currentTimeline.map((item) =>
-      item.status === newStatus
-        ? { ...item, completed: true, timestamp: now }
-        : item
-    );
-    setStatusTimeline(updatedTimeline);
-    setCurrentStatus(newStatus);
-
-    if (order) {
-      updateOrderStatusInLocalStorage(order.id, newStatus, updatedTimeline);
-    }
-  };
+    // remove transient processing flag so user can place new orders later
+    sessionStorage.removeItem("orderProcessing");
+  }, []);
 
   if (!order) {
     return (
-      <div style={{ textAlign: "center", padding: "50px" }}>
-        <h2>No Order Found</h2>
-        <button onClick={() => navigate("/menu")}>Go to Menu</button>
+      <div style={{ padding: 24, textAlign: "center" }}>
+        <h2>No recent order found</h2>
+        <p>Visit My Orders to view previous orders.</p>
+        <div style={{ marginTop: 20 }}>
+          <button onClick={() => navigate("/my-orders")}>My Orders</button>
+          <button onClick={() => navigate("/menu")} style={{ marginLeft: 12 }}>
+            Continue Shopping
+          </button>
+        </div>
       </div>
     );
   }
 
-  const orderDate = new Date(order.date);
-  const formattedDate = orderDate.toLocaleDateString("en-IN", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-  });
-
-  const details = [
-    {
-      label: "Order ID",
-      value: order.id || `SV-${Math.floor(100000 + Math.random() * 900000)}`,
-    },
-    { label: "Order Date", value: formattedDate },
-    {
-      label: "Estimated Delivery",
-      value: order.estimatedDelivery || "30-45 Minutes",
-    },
-    {
-      label: "Payment Method",
-      value: order.paymentMethod || "Cash on Delivery",
-    },
-    { label: "Order Status", value: currentStatus },
-  ];
+  const date = new Date(order.date);
+  const formattedDate = date.toLocaleString();
 
   return (
-    <section className="order-success-page">
-      <div className="order-success-panel">
-        <div className="success-hero">
-          <svg className="checkmark-svg" viewBox="0 0 52 52">
-            <circle className="checkmark-circle" cx="26" cy="26" r="25" fill="none" />
-            <path className="checkmark-check" fill="none" d="M14 27l7 7 16-16" />
-          </svg>
+    <div style={{
+      display: "flex",
+      justifyContent: "center",
+      padding: "32px 16px"
+    }}>
+      <div style={{
+        maxWidth: 780,
+        width: "100%",
+        background: "#fff",
+        borderRadius: 12,
+        padding: 28,
+        boxShadow: "0 6px 24px rgba(0,0,0,0.08)"
+      }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
+          <div style={{
+            width: 72, height: 72, borderRadius: 40, background: "#E6F9EA",
+            display: "flex", alignItems: "center", justifyContent: "center",
+            boxShadow: "inset 0 2px 6px rgba(0,0,0,0.04)"
+          }}>
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden>
+              <path d="M20 6L9 17l-5-5" stroke="#2E9A4A" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </div>
 
-          <h1>Order Placed Successfully 🎉</h1>
-          <p className="lead">Your food will be delivered soon</p>
-        </div>
-
-        <div className="order-tracking">
-          <h3>Order Tracking</h3>
-          <div className="tracking-timeline">
-            {statusTimeline.map((item, index) => (
-              <div
-                key={index}
-                className={`timeline-step ${item.completed ? "completed" : ""} ${
-                  item.status === currentStatus ? "active" : ""
-                }`}
-              >
-                <div className="timeline-dot">
-                  {item.completed ? (
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                  ) : (
-                    <div className="dot-inner"></div>
-                  )}
-                </div>
-                <div className="timeline-content">
-                  <p className="status-label">{item.status}</p>
-                  {item.timestamp && (
-                    <p className="status-time">
-                      {new Date(item.timestamp).toLocaleTimeString("en-IN", {
-                        hour: "2-digit",
-                        minute: "2-digit",
-                      })}
-                    </p>
-                  )}
-                </div>
-              </div>
-            ))}
+          <div>
+            <h1 style={{ margin: 0, fontSize: 22 }}>Your order has been placed successfully!</h1>
+            <p style={{ margin: "6px 0 0", color: "#666" }}>Thank you. We are preparing your order.</p>
           </div>
         </div>
 
-        <div className="order-card">
-          {details.map((item) => (
-            <div className="order-card-row" key={item.label}>
-              <span>{item.label}</span>
-              <strong>{item.value}</strong>
-            </div>
-          ))}
+        <div style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gap: 16,
+          marginTop: 22
+        }}>
+          <div style={{ padding: 14, borderRadius: 8, background: "#FBFBFB" }}>
+            <p style={{ margin: 0, color: "#888", fontSize: 13 }}>Order ID</p>
+            <h3 style={{ margin: "6px 0 0" }}>{order.id}</h3>
+          </div>
+          <div style={{ padding: 14, borderRadius: 8, background: "#FBFBFB" }}>
+            <p style={{ margin: 0, color: "#888", fontSize: 13 }}>Order Date & Time</p>
+            <h3 style={{ margin: "6px 0 0" }}>{formattedDate}</h3>
+          </div>
+
+          <div style={{ padding: 14, borderRadius: 8, background: "#FBFBFB" }}>
+            <p style={{ margin: 0, color: "#888", fontSize: 13 }}>Estimated Delivery</p>
+            <h3 style={{ margin: "6px 0 0" }}>{order.estimatedDelivery || "30-45 Minutes"}</h3>
+          </div>
+          <div style={{ padding: 14, borderRadius: 8, background: "#FBFBFB" }}>
+            <p style={{ margin: 0, color: "#888", fontSize: 13 }}>Total Amount</p>
+            <h3 style={{ margin: "6px 0 0" }}>₹{Number(order.summary?.grandTotal || 0).toFixed(2)}</h3>
+            <p style={{ margin: "6px 0 0", color: "#888", fontSize: 13 }}>{order.paymentMethod}</p>
+          </div>
         </div>
 
-        <div className="order-action-row">
-          <button className="primary-button" onClick={() => navigate("/")}>
+        <div style={{ marginTop: 22, display: "flex", gap: 12 }}>
+          <button
+            onClick={() => navigate("/my-orders")}
+            style={{
+              background: "#2E9A4A",
+              color: "#fff",
+              padding: "10px 14px",
+              borderRadius: 8,
+              border: "none",
+              cursor: "pointer"
+            }}
+          >
+            Track Order / View My Orders
+          </button>
+
+          <button
+            onClick={() => navigate("/menu")}
+            style={{
+              background: "#fff",
+              color: "#333",
+              padding: "10px 14px",
+              borderRadius: 8,
+              border: "1px solid #E6E6E6",
+              cursor: "pointer"
+            }}
+          >
             Continue Shopping
           </button>
-          <button
-            className="secondary-button"
-            onClick={() => navigate("/my-orders")}
-          >
-            View All Orders
-          </button>
+        </div>
+
+        <div style={{ marginTop: 18, color: "#777", fontSize: 13 }}>
+          <p style={{ margin: 0 }}>You can view full order details on the My Orders page.</p>
         </div>
       </div>
-    </section>
+    </div>
   );
 }
-
-export default OrderSuccess;
