@@ -1,135 +1,284 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {
+  FaCheckCircle,
+  FaBoxOpen,
+  FaUtensils,
+  FaMotorcycle,
+  FaHome,
+} from "react-icons/fa";
 
 export default function OrderSuccess() {
   const navigate = useNavigate();
+
   const [order, setOrder] = useState(null);
+  const [step, setStep] = useState(1);
 
   useEffect(() => {
-    // Read latest order (saved by Checkout)
-    const latest = localStorage.getItem("latestOrder");
+    const latest = JSON.parse(localStorage.getItem("latestOrder"));
+
     if (latest) {
-      setOrder(JSON.parse(latest));
-      // keep orders history intact (do not remove orders)
-    } else {
-      // fallback to most recent from orders array
-      const orders = JSON.parse(localStorage.getItem("orders") || "[]");
-      if (orders.length > 0) setOrder(orders[0]);
+      setOrder(latest);
     }
 
-    // remove transient processing flag so user can place new orders later
-    sessionStorage.removeItem("orderProcessing");
+    // Progress Animation
+    const timer1 = setTimeout(() => setStep(2), 3000);
+    const timer2 = setTimeout(() => setStep(3), 6000);
+    const timer3 = setTimeout(() => setStep(4), 9000);
+
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      clearTimeout(timer3);
+    };
   }, []);
 
   if (!order) {
     return (
-      <div style={{ padding: 24, textAlign: "center" }}>
-        <h2>No recent order found</h2>
-        <p>Visit My Orders to view previous orders.</p>
-        <div style={{ marginTop: 20 }}>
-          <button onClick={() => navigate("/my-orders")}>My Orders</button>
-          <button onClick={() => navigate("/menu")} style={{ marginLeft: 12 }}>
-            Continue Shopping
-          </button>
-        </div>
+      <div
+        style={{
+          minHeight: "100vh",
+          background: "#111",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          color: "#fff",
+          fontSize: 22,
+        }}
+      >
+        No Order Found
       </div>
     );
   }
 
-  const date = new Date(order.date);
-  const formattedDate = date.toLocaleString();
-
   return (
-    <div style={{
-      display: "flex",
-      justifyContent: "center",
-      padding: "32px 16px"
-    }}>
-      <div style={{
-        maxWidth: 780,
-        width: "100%",
-        background: "#fff",
-        borderRadius: 12,
-        padding: 28,
-        boxShadow: "0 6px 24px rgba(0,0,0,0.08)"
-      }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-          <div style={{
-            width: 72, height: 72, borderRadius: 40, background: "#E6F9EA",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            boxShadow: "inset 0 2px 6px rgba(0,0,0,0.04)"
-          }}>
-            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden>
-              <path d="M20 6L9 17l-5-5" stroke="#2E9A4A" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </div>
-
-          <div>
-            <h1 style={{ margin: 0, fontSize: 22 }}>Your order has been placed successfully!</h1>
-            <p style={{ margin: "6px 0 0", color: "#666" }}>Thank you. We are preparing your order.</p>
-          </div>
-        </div>
-
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "1fr 1fr",
-          gap: 16,
-          marginTop: 22
-        }}>
-          <div style={{ padding: 14, borderRadius: 8, background: "#FBFBFB" }}>
-            <p style={{ margin: 0, color: "#888", fontSize: 13 }}>Order ID</p>
-            <h3 style={{ margin: "6px 0 0" }}>{order.id}</h3>
-          </div>
-          <div style={{ padding: 14, borderRadius: 8, background: "#FBFBFB" }}>
-            <p style={{ margin: 0, color: "#888", fontSize: 13 }}>Order Date & Time</p>
-            <h3 style={{ margin: "6px 0 0" }}>{formattedDate}</h3>
-          </div>
-
-          <div style={{ padding: 14, borderRadius: 8, background: "#FBFBFB" }}>
-            <p style={{ margin: 0, color: "#888", fontSize: 13 }}>Estimated Delivery</p>
-            <h3 style={{ margin: "6px 0 0" }}>{order.estimatedDelivery || "30-45 Minutes"}</h3>
-          </div>
-          <div style={{ padding: 14, borderRadius: 8, background: "#FBFBFB" }}>
-            <p style={{ margin: 0, color: "#888", fontSize: 13 }}>Total Amount</p>
-            <h3 style={{ margin: "6px 0 0" }}>₹{Number(order.summary?.grandTotal || 0).toFixed(2)}</h3>
-            <p style={{ margin: "6px 0 0", color: "#888", fontSize: 13 }}>{order.paymentMethod}</p>
-          </div>
-        </div>
-
-        <div style={{ marginTop: 22, display: "flex", gap: 12 }}>
-          <button
-            onClick={() => navigate("/my-orders")}
+    <div
+      style={{
+        minHeight: "100vh",
+        background: "#111",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 25,
+      }}
+    >
+      <div
+        style={{
+          width: "100%",
+          maxWidth: 900,
+          background: "#1a1a1a",
+          borderRadius: 20,
+          overflow: "hidden",
+          boxShadow: "0 20px 60px rgba(0,0,0,.5)",
+        }}
+      >
+        {/* Top */}
+        <div
+          style={{
+            background: "#28c76f",
+            padding: "45px 20px",
+            textAlign: "center",
+          }}
+        >
+          <FaCheckCircle
+            size={95}
+            color="white"
             style={{
-              background: "#2E9A4A",
+              marginBottom: 15,
+            }}
+          />
+
+          <h3
+            style={{
+              color: "white",
+              marginBottom: 10,
+              letterSpacing: 1,
+            }}
+          >
+            THANK YOU
+          </h3>
+
+          <h1
+            style={{
               color: "#fff",
-              padding: "10px 14px",
-              borderRadius: 8,
-              border: "none",
-              cursor: "pointer"
+              margin: 0,
+              fontSize: 36,
             }}
           >
-            Track Order / View My Orders
-          </button>
+            YOUR ORDER IS CONFIRMED
+          </h1>
 
-          <button
-            onClick={() => navigate("/menu")}
+          <p
             style={{
-              background: "#fff",
-              color: "#333",
-              padding: "10px 14px",
-              borderRadius: 8,
-              border: "1px solid #E6E6E6",
-              cursor: "pointer"
+              color: "#ecfdf5",
+              marginTop: 12,
             }}
           >
-            Continue Shopping
-          </button>
+            Your delicious food is being prepared 🍕🍔
+          </p>
         </div>
 
-        <div style={{ marginTop: 18, color: "#777", fontSize: 13 }}>
-          <p style={{ margin: 0 }}>You can view full order details on the My Orders page.</p>
+        {/* Order Details */}
+
+        <div
+          style={{
+            padding: 35,
+          }}
+        >
+          <h2
+            style={{
+              color: "#ff6b35",
+            }}
+          >
+            Order #{order.id}
+          </h2>
+
+          <p style={{ color: "#ddd" }}>
+            Estimated Delivery :
+            <strong> 30 - 45 Minutes</strong>
+          </p>
+
+          <p style={{ color: "#ddd" }}>
+            Total Amount :
+            <strong style={{ color: "#ffcc00" }}>
+              ₹{order.summary?.grandTotal}
+            </strong>
+          </p>
+
+          {/* Timeline */}
+
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              marginTop: 45,
+              flexWrap: "wrap",
+              gap: 20,
+            }}
+          >
+            <Status
+              icon={<FaCheckCircle />}
+              title="Order Confirmed"
+              active={step >= 1}
+            />
+
+            <Status
+              icon={<FaUtensils />}
+              title="Preparing"
+              active={step >= 2}
+            />
+
+            <Status
+              icon={<FaMotorcycle />}
+              title="Out for Delivery"
+              active={step >= 3}
+            />
+
+            <Status
+              icon={<FaBoxOpen />}
+              title="Delivered"
+              active={step >= 4}
+            />
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              gap: 20,
+              marginTop: 50,
+              flexWrap: "wrap",
+            }}
+          >
+            <button
+              onClick={() => navigate("/order-success")}
+              style={{
+                padding: "14px 30px",
+                background: "#ff6b35",
+                color: "#fff",
+                border: "none",
+                borderRadius: 10,
+                cursor: "pointer",
+                fontWeight: "bold",
+                fontSize: 16,
+              }}
+            >
+              Track Order
+            </button>
+
+            <button
+              onClick={() => navigate("/menu")}
+              style={{
+                padding: "14px 30px",
+                background: "transparent",
+                color: "#fff",
+                border: "2px solid #ff6b35",
+                borderRadius: 10,
+                cursor: "pointer",
+                fontWeight: "bold",
+                fontSize: 16,
+              }}
+            >
+              Continue Shopping
+            </button>
+
+            <button
+              onClick={() => navigate("/")}
+              style={{
+                padding: "14px 30px",
+                background: "#222",
+                color: "#fff",
+                border: "none",
+                borderRadius: 10,
+                cursor: "pointer",
+                fontWeight: "bold",
+                fontSize: 16,
+              }}
+            >
+              <FaHome /> Home
+            </button>
+          </div>
         </div>
       </div>
+    </div>
+  );
+}
+
+function Status({ icon, title, active }) {
+  return (
+    <div
+      style={{
+        flex: 1,
+        minWidth: 140,
+        textAlign: "center",
+      }}
+    >
+      <div
+        style={{
+          width: 70,
+          height: 70,
+          margin: "auto",
+          borderRadius: "50%",
+          background: active ? "#28c76f" : "#333",
+          color: "#fff",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontSize: 28,
+          transition: ".4s",
+        }}
+      >
+        {icon}
+      </div>
+
+      <h4
+        style={{
+          marginTop: 15,
+          color: active ? "#28c76f" : "#888",
+        }}
+      >
+        {title}
+      </h4>
     </div>
   );
 }

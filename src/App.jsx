@@ -13,6 +13,7 @@ import Footer from "./Components/Footer/Footer";
 import Service from "./Components/Services/Service";
 import Loader from "./Components/Loader/Loader";
 
+
 import { CartProvider } from "./context/CartContext";
 function App() {
   const [loading, setLoading] = useState(true);
@@ -20,7 +21,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 3500); // Loading screen duration (3.5 seconds)
+    }, 1500); // Loading screen duration (1.5 second)
 
     return () => clearTimeout(timer);
   }, []);

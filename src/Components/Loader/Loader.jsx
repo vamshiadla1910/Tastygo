@@ -126,7 +126,7 @@ const Loader = () => {
           opacity: [0.4, 1, 0.4],
         }}
         transition={{
-          duration: 1.2,
+          duration:1,
           repeat: Infinity,
         }}
       >
