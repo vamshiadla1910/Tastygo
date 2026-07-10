@@ -5,6 +5,8 @@ import { FaSearch, FaUser, FaShoppingCart } from "react-icons/fa";
 import Loginpage from "../Login/Login";
 import { useCart } from "../../context/useCart";
 import "../../Components/Navbar/Navbar.css";
+import { useTheme } from "../../context/TheameContext.jsx";
+
 
 // A single source of truth for every nav item.
 // type: "route"  -> its own page, navigated to with react-router (useNavigate)
@@ -21,6 +23,8 @@ const NAV_LINKS = [
 ];
 
 function Navbar() {
+
+  const { theme, toggleTheme } = useTheme();
   // Controls whether the login overlay is visible
   
 
@@ -108,6 +112,9 @@ const [isLoginOpen, setIsLoginOpen] = useState(false);
       </div>
 
       <div className="cp">
+          <button onClick={toggleTheme}>
+            {theme === "dark" ? "🌞 Light" : "🌙 Dark"}
+        </button>
         <div
           className={`cart-icon-wrapper ${isCartBumping ? "cart-bump" : ""}`}
           onClick={() => navigate("/cart")}

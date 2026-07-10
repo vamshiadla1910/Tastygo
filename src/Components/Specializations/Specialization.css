@@ -1,8 +1,8 @@
 .specialization-section {
   padding: 72px 0;
   position: relative;
-  background: radial-gradient(circle at top, #181818 0%, #0d0d0d 55%);
-  color: #f4f1eb;
+  background: var(--bg);
+  color: var(--text);
 }
 
 .specialization-section .container {
@@ -19,7 +19,7 @@
   margin: 0;
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(2rem, 5vw, 3.1rem);
-  color: #f4f1eb;
+  color: var(--text);
 }
 
 .specialization-section .eyebrow {
@@ -36,8 +36,8 @@
 }
 
 .specialization-section .special-card {
-  background: linear-gradient(180deg, #171717, #121212);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--card);
+  border: 1px solid var(--border);
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
@@ -72,35 +72,73 @@
 
 .specialization-section .special-body h3 {
   margin: 0 0 8px;
-  color: #f4f1eb;
+  color: var(--text);
   font-size: 1.1rem;
 }
 
 .specialization-section .special-body p {
   margin: 0;
-  color: #b6aea4;
+  color: var(--text-secondary);
   line-height: 1.6;
   font-size: 0.95rem;
 }
 
 @media (max-width: 1100px) {
   .specialization-section .special-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(2, 1fr));
+    
+    max-height: 600px;
   }
 }
+@media (max-width: 768px) {
 
-@media (max-width: 820px) {
-  .specialization-section .special-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 640px) {
   .specialization-section {
-    padding: 56px 0;
+    padding: 100px 0px 200px 0px;
+  }
+
+  .specialization-section .special-grid { 
+    grid-template-columns: repeat(2, 1fr); 
+  }
+
+}
+
+/* ==========================================
+   Small Mobile (Same 2-Column Structure)
+========================================== */
+
+@media (max-width: 480px) {
+
+  .specialization-section {
+    padding: 50px 0px 100px 0px;
   }
 
   .specialization-section .section-heading h2 {
     font-size: 2rem;
   }
+
+  .specialization-section .eyebrow {
+    font-size: 32px;
+  }
+
+  .specialization-section .special-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .specialization-section .special-card img {
+    height: 150px;
+  }
+
+  .specialization-section .special-body {
+    padding: 14px;
+  }
+
+  .specialization-section .special-body h3 {
+    font-size: 1rem;
+  }
+
+  .specialization-section .special-body p {
+    font-size: 0.9rem;
+  }
+
 }

@@ -1,8 +1,8 @@
 .specials-section {
   padding: 72px 0;
   position: relative;
-  background: radial-gradient(circle at top, #181818 0%, #0d0d0d 55%);
-  color: #f4f1eb;
+  background: var(--bg);
+  color: var(--text);
 }
 
 .specials-section .container {
@@ -19,7 +19,7 @@
   margin: 0;
   font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(2rem, 5vw, 3.1rem);
-  color: #f4f1eb;
+  color: var(--text);
 }
 
 .specials-section .eyebrow {
@@ -37,8 +37,8 @@
 
 .specials-section .specials-card {
   position: relative;
-  background: linear-gradient(180deg, #171717, #121212);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+   background: var(--card);
+  border: 1px solid var(--border);
   border-radius: 18px;
   overflow: hidden;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
@@ -75,7 +75,7 @@
 .specials-section .card-body h3 {
   margin: 0 0 8px;
   font-size: 1.1rem;
-  color: #f4f1eb;
+   color: var(--text);
 }
 
 .specials-section .orange-text {

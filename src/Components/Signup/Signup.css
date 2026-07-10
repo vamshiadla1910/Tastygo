@@ -1,3 +1,4 @@
+
 .signuppage {
   position: relative;
   box-sizing: border-box;
@@ -6,12 +7,12 @@
   margin: auto;
   padding: 50px 40px 40px;
   border-radius: 30px;
-  background: radial-gradient(circle at bottom, #181818 0%, #0d0d0d 55%);
-  box-shadow: 5px 5px 15px black;
+  background: var(--bg);
+  
 }
 
 .signup-heading {
-  color: white;
+  color: var(--text);
   text-align: center;
   margin: 0 0 20px;
   font-family: "Inter", sans-serif;
@@ -23,7 +24,7 @@
   right: 18px;
   background: none;
   border: none;
-  color: white;
+  color: var(--text);
   font-size: 26px;
   line-height: 1;
   cursor: pointer;
@@ -34,7 +35,7 @@
   font-size: 18px;
   font-family: "Inter", sans-serif;
   font-weight: 700;
-  color: white;
+  color: var(--text--secondary);
   margin-bottom: 8px;
 }
 
@@ -44,8 +45,8 @@
   width: 100%;
   border-radius: 15px;
   border: none;
-  box-shadow: 5px 5px 15px black;
-  background: white;
+  box-shadow: 5px 5px 15px var(--surface);
+  background: var(--surface);
   margin: 0 0 18px 0;
   outline: none;
 }
@@ -59,21 +60,21 @@
   padding: 10px;
   border: none;
   border-radius: 15px;
-  background: #e8562f;
-  color: #1a0000;
+  background: linear-gradient(135deg, #e8562f, #c84422);
+  color: var(--text-secondary);
   font-weight: bold;
   font-size: 16px;
   cursor: pointer;
-  box-shadow: 5px 5px 15px black;
+  box-shadow: 5px 5px 15px var(--surface);
   margin: 10px 0;
 }
 
 .signup-submit-btn:hover {
-  background: #ffd633;
+  background: linear-gradient(90deg,  #c84422, #e8562f);
 }
 
 .signup-switch-text {
-  color: wheat;
+  color: var(--text--secondary);
   text-align: center;
   margin-top: 10px;
 }

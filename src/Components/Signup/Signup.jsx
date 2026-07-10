@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./SignUp.css"
+import "./Signup.css"
 function SignupPage({ onClose, onShowLogin }) {
   const [signupData, setSignupData] = useState({
     fullName: "",

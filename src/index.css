@@ -1,0 +1,37 @@
+/* =========================
+   GLOBAL THEME VARIABLES
+========================= */
+
+body.dark {
+  --bg: #121212;
+  --surface: #1f1f1f;
+  --card: #2a2a2a;
+  --text: #ffffff;
+  --text-secondary: #d0d0d0;
+  --border: #3b3b3b;
+
+  --primary: #e8562f;
+  --secondary: #ff9f43;
+
+  --navbar: radial-gradient(circle, #e8562f, #000);
+}
+
+body.light {
+  --bg: #ffffff;
+  --surface: #f5f5f5;
+  --card: #ffffff;
+  --text: #000000;   /* ✅ FIX */
+  --text-secondary: #444444;
+  --border: #dddddd;
+
+  --primary: #e8562f;
+  --secondary: #ff9f43;
+
+  --navbar: radial-gradient(circle, #e8562f, #000000);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: background .3s ease, color .3s ease;
+}

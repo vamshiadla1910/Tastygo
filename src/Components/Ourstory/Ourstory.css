@@ -1,8 +1,8 @@
 .story-section {
   padding: 72px 0;
   position: relative;
-  background: transparent;
-  color: #f4f1eb;
+  background: var(--bg);
+  color: var(--text);
   scroll-margin-top: 92px;
 }
 
@@ -63,12 +63,12 @@
 .eyebrow {
   color: #e8562f;
   font-family: "Brush Script MT", cursive;
-  font-size: 1.4rem;
+  font-size: 2.4rem;
   margin: 0 0 10px;
 }
 
 .section-text {
-  color: #b6aea4;
+  color: var(--text);
   line-height: 1.7;
   max-width: 54ch;
 }
@@ -117,7 +117,7 @@
   border-radius: 50%;
   display: grid;
   place-items:center;
-  background: #ffff;
+  background: var(--card);
   color: #ffffff;
   border: 7px solid #0f0f0f;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
@@ -137,7 +137,7 @@
 .stat-box {
   text-align: center;
   padding: 18px 12px;
-  background: rgba(255, 255, 255, 0.03);
+  background:var(--surface);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 18px;
 }
@@ -152,12 +152,12 @@
   display: block;
   font-size: 1.1rem;
   margin-bottom: 4px;
-  color: #f4f1eb;
+  color: var(--text);
 }
 
 .stat-box p {
   margin: 0;
-  color: #b6aea4;
+  color: var(--text);
   font-size: 0.95rem;
 }
 
