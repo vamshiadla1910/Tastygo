@@ -1,16 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import img from "../../assets/Logo.png";
-import { FaSearch, FaUser, FaShoppingCart } from "react-icons/fa";
+import { FaUser, FaShoppingCart, FaBars, FaTimes } from "react-icons/fa";
 import Loginpage from "../Login/Login";
 import { useCart } from "../../context/useCart";
 import "../../Components/Navbar/Navbar.css";
 
-// A single source of truth for every nav item.
-// type: "route"  -> its own page, navigated to with react-router (useNavigate)
-// type: "scroll" -> a section that lives on the Home page ("/"); if we're
-//                   already on Home we just scroll to it, otherwise we
-//                   navigate Home first and then scroll (handled in Home.jsx)
 const NAV_LINKS = [
   { name: "Home", type: "route", path: "/" },
   { name: "Menu", type: "route", path: "/menu" },
@@ -21,26 +16,15 @@ const NAV_LINKS = [
 ];
 
 function Navbar() {
-  // Controls whether the login overlay is visible
-  
-
-  // cartCount comes from the shared CartContext, so it updates the
-  // instant addToCart() is called from MenuPage, even though MenuPage
-  // and Navbar are separate components.
   const { cartCount } = useCart();
-const [isLoginOpen, setIsLoginOpen] = useState(false);
-  // Controls the short "bump" animation on the cart icon whenever an
-  // item is added. useRef holds the previous count without causing a
-  // re-render itself (unlike useState).
+  const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isCartBumping, setIsCartBumping] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const prevCartCount = useRef(cartCount);
 
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Fires whenever cartCount changes. If it went UP (an item was added,
-  // not removed), briefly switch on the "bump" class, then switch it
-  // back off after the animation's duration.
   useEffect(() => {
     if (cartCount > prevCartCount.current) {
       setIsCartBumping(true);
@@ -51,15 +35,13 @@ const [isLoginOpen, setIsLoginOpen] = useState(false);
     prevCartCount.current = cartCount;
   }, [cartCount]);
 
-  // While the login overlay is open: lock background scrolling, and let
-  // the user close it by pressing Escape. Both are cleaned up when the
-  // overlay closes or the component unmounts.
   useEffect(() => {
     document.body.style.overflow = isLoginOpen ? "hidden" : "auto";
 
     const handleEscKey = (event) => {
       if (event.key === "Escape") setIsLoginOpen(false);
     };
+
     window.addEventListener("keydown", handleEscKey);
 
     return () => {
@@ -69,18 +51,14 @@ const [isLoginOpen, setIsLoginOpen] = useState(false);
   }, [isLoginOpen]);
 
   const handleNavClick = (link) => {
-    // Make sure the login overlay isn't left open on top of whatever
-    // page we're about to navigate to.
     setIsLoginOpen(false);
+    setIsMobileMenuOpen(false);
 
     if (link.type === "route") {
       navigate(link.path);
       return;
     }
 
-    // "scroll" link: if we're not on the Home page, go there first and
-    // tell Home (via router state) which section to scroll to once it
-    // has mounted. If we're already on Home, scroll immediately.
     if (location.pathname !== "/") {
       navigate("/", { state: { scrollTo: link.id } });
     } else {
@@ -94,20 +72,20 @@ const [isLoginOpen, setIsLoginOpen] = useState(false);
         <img src={img} alt="Tastygo logo" />
       </div>
 
-      
-
       <div className="links">
-        {/* Rendered with .map so every link goes through the same
-            navigation logic above — add a new link to NAV_LINKS and it
-            just works, no extra JSX needed. */}
-        {NAV_LINKS.map((link) => (
-          <span key={link.name} onClick={() => handleNavClick(link)}>
+        {NAV_LINKS.map((link, index) => (
+          <span
+            key={link.name}
+            className={index >= 3 ? "desktop-only-link" : ""}
+            onClick={() => handleNavClick(link)}
+          >
             {link.name}
           </span>
         ))}
       </div>
 
       <div className="cp">
+        
         <div
           className={`cart-icon-wrapper ${isCartBumping ? "cart-bump" : ""}`}
           onClick={() => navigate("/cart")}
@@ -115,12 +93,33 @@ const [isLoginOpen, setIsLoginOpen] = useState(false);
           <FaShoppingCart className="icon" />
           {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
         </div>
-        <FaUser className="icon" onClick={() => setIsLoginOpen(true)} />
 
-        
+        <FaUser
+          className="icon"
+          onClick={() => {
+            setIsLoginOpen(true);
+            setIsMobileMenuOpen(false);
+          }}
+        />
+
+        <div
+          className="icon menu-icon"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
+        </div>
       </div>
 
-      
+      {isMobileMenuOpen && (
+        <div className="links mobile-links">
+          {NAV_LINKS.slice(3).map((link) => (
+            <span key={link.name} onClick={() => handleNavClick(link)}>
+              {link.name}
+            </span>
+          ))}
+        </div>
+      )}
+
       {isLoginOpen && (
         <div
           className="login-overlay-backdrop"

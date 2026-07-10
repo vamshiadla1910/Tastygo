@@ -125,10 +125,10 @@ function Checkout() {
 
     // Save order to localStorage FIRST
     localStorage.setItem("latestOrder", JSON.stringify(order));
-    
+
     // Navigate to success page SECOND
     navigate("/order-success");
-    
+
     // Clear cart LAST to avoid useEffect redirect race condition
     clearCart();
   };
@@ -205,30 +205,30 @@ function Checkout() {
                 {errors.street && <p className="field-error">{errors.street}</p>}
               </div>
 
-              
-                <div className="field-group half">
-                  <label htmlFor="city">City</label>
-                  <input
-                    id="city"
-                    name="city"
-                    type="text"
-                    value={form.city}
-                    onChange={handleChange}
-                  />
-                  {errors.city && <p className="field-error">{errors.city}</p>}
-                </div>
-                <div className="field-group half">
-                  <label htmlFor="state">State</label>
-                  <input
-                    id="state"
-                    name="state"
-                    type="text"
-                    value={form.state}
-                    onChange={handleChange}
-                  />
-                  {errors.state && <p className="field-error">{errors.state}</p>}
-                </div>
-              
+
+              <div className="field-group half">
+                <label htmlFor="city">City</label>
+                <input
+                  id="city"
+                  name="city"
+                  type="text"
+                  value={form.city}
+                  onChange={handleChange}
+                />
+                {errors.city && <p className="field-error">{errors.city}</p>}
+              </div>
+              <div className="field-group half">
+                <label htmlFor="state">State</label>
+                <input
+                  id="state"
+                  name="state"
+                  type="text"
+                  value={form.state}
+                  onChange={handleChange}
+                />
+                {errors.state && <p className="field-error">{errors.state}</p>}
+              </div>
+
 
               <div className="field-group">
                 <label htmlFor="pincode">Pincode</label>
@@ -242,7 +242,7 @@ function Checkout() {
                 {errors.pincode && <p className="field-error">{errors.pincode}</p>}
               </div>
 
-              
+
             </form>
           </div>
         </main>
@@ -264,7 +264,7 @@ function Checkout() {
                   </div>
                 );
               })}
-              
+
             </div>
 
             <div className="checkout-totals">
@@ -284,8 +284,12 @@ function Checkout() {
                 <span>Grand Total</span>
                 <strong>{formatPrice(grandTotal)}</strong>
               </div>
-              <div className="field-group payment-group">
-                <label>Payment Method</label>
+              
+            </div>
+            
+          </div>
+          <div className="field-group payment-group">
+                <h2>Payment Method</h2>
                 <div className="payment-options">
                   {["Cash on Delivery", "UPI Payment", "Credit/Debit Card"].map((method) => (
                     <label key={method} className="payment-option">
@@ -303,13 +307,12 @@ function Checkout() {
                 {errors.paymentMethod && (
                   <p className="field-error">{errors.paymentMethod}</p>
                 )}
-              </div>
-
-              <button type="submit" className="place-order-btn">
+                <button type="submit" className="place-order-btn">
                 Place Order
               </button>
-            </div>
-          </div>
+              </div>
+
+              
         </aside>
       </div>
     </section>

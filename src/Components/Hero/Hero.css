@@ -95,3 +95,109 @@
   color: black;
   transform: scale(1.05);
 }
+
+/* Tablet */
+@media (max-width: 992px) {
+  .hero {
+    height: 500px;
+  }
+
+  .hero-content {
+    padding: 0 6%;
+  }
+
+  .left {
+    max-width: 430px;
+  }
+
+  .left h1 {
+    font-size: 2.8rem;
+  }
+
+  .left p {
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 11px 20px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero {
+    height: 430px;
+  }
+
+  .hero-bg {
+    transform: scale(1);
+  }
+
+  .hero-content {
+    padding: 0 20px;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .left {
+    max-width: 50%;
+  }
+
+  .left h1 {
+    font-size: 2.1rem;
+    line-height: 1.15;
+  }
+
+  .left p {
+    margin-top: 12px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .buttons {
+    margin-top: 20px;
+    gap: 10px;
+  }
+
+  .btn {
+    padding: 10px 16px;
+    font-size: 0.9rem;
+    border-radius: 6px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 480px) {
+  .hero {
+    height: 350px;
+  }
+
+  .hero-content {
+    padding: 0 16px;
+  }
+
+  .left {
+    min-width: 70%;
+  }
+
+  .left h1 {
+    font-size: 37px;
+  }
+
+  .left p {
+    font-size: 12px;
+    margin-top: 10px;
+  }
+
+  .buttons {
+    margin-top: 16px;
+    gap: 8px;
+  }
+
+  .btn {
+    width: fit-content;
+    padding: 8px 14px;
+    font-size: 12px;
+  }
+}
