@@ -96,68 +96,54 @@ function Checkout() {
     // Prevent duplicate submissions
     if (isSubmitting || sessionStorage.getItem("orderProcessing") === "true") return;
 
-    setSubmitError("");
-    if (!validateForm()) return;
+    const now = new Date();
+    const randomOrderNumber = Math.floor(100000 + Math.random() * 900000);
+    const order = {
+      id: `SV-${randomOrderNumber}`,
+      date: now.toISOString(),
+      customerName: form.fullName.trim(),
+      paymentMethod: form.paymentMethod,
+      contact: {
+        mobileNumber: form.mobileNumber,
+        email: form.email.trim(),
+      },
+      address: {
+        houseNumber: form.houseNumber.trim(),
+        street: form.street.trim(),
+        city: form.city.trim(),
+        state: form.state.trim(),
+        pincode: form.pincode,
+      },
+      items: cartItems,
+      summary: {
+        subtotal,
+        deliveryCharge,
+        gst,
+        grandTotal,
+      },
+      estimatedDelivery: "30-45 Minutes",
+      status: "Preparing Food",
+      statusTimeline: [
+        { status: "Order Placed", completed: true, timestamp: now.toISOString() },
+        { status: "Preparing Food", completed: false, timestamp: null },
+        { status: "Out for Delivery", completed: false, timestamp: null },
+        { status: "Delivered", completed: false, timestamp: null },
+      ],
+    };
 
-    try {
-      setIsSubmitting(true);
-      sessionStorage.setItem("orderProcessing", "true");
+    // Save order to "orders" array in localStorage for order history
+    const existingOrders = JSON.parse(localStorage.getItem("orders") || "[]");
+    existingOrders.unshift(order); // Add to beginning
+    localStorage.setItem("orders", JSON.stringify(existingOrders));
 
-      // build order
-      const now = new Date();
-      const randomOrderNumber = Math.floor(100000 + Math.random() * 900000);
-      const orderId = `SV-${randomOrderNumber}`;
+    // Save order to localStorage FIRST
+    localStorage.setItem("latestOrder", JSON.stringify(order));
 
-      const order = {
-        id: orderId,
-        date: now.toISOString(),
-        customerName: form.fullName.trim(),
-        paymentMethod: form.paymentMethod,
-        contact: {
-          mobileNumber: form.mobileNumber,
-          email: form.email.trim(),
-        },
-        address: {
-          houseNumber: form.houseNumber.trim(),
-          street: form.street.trim(),
-          city: form.city.trim(),
-          state: form.state.trim(),
-          pincode: form.pincode,
-        },
-        items: cartItems,
-        summary: {
-          subtotal,
-          deliveryCharge,
-          gst,
-          grandTotal,
-        },
-        estimatedDelivery: "30-45 Minutes",
-        status: "Preparing Food",
-      };
+    // Navigate to success page SECOND
+    navigate("/order-success");
 
-      // persist the order (orders array + latestOrder)
-      const existingOrders = JSON.parse(localStorage.getItem("orders") || "[]");
-      existingOrders.unshift(order);
-      localStorage.setItem("orders", JSON.stringify(existingOrders));
-      try { localStorage.setItem("myOrders", JSON.stringify(existingOrders)); } catch (e) {}
-      localStorage.setItem("latestOrder", JSON.stringify(order));
-
-      // Open the CENTERED modal RIGHT AFTER successful save (no redirect)
-      setModalOrder(order);
-      setShowModal(true);
-
-      // Clear cart only AFTER modal is shown (requirement)
-      clearCart();
-
-      // mark finalized to prevent duplicates via back button
-      sessionStorage.setItem("orderSubmitted", order.id);
-    } catch (err) {
-      console.error("Failed to place order:", err);
-      setSubmitError("Failed to place order. Please try again.");
-    } finally {
-      setIsSubmitting(false);
-      sessionStorage.removeItem("orderProcessing");
-    }
+    // Clear cart LAST to avoid useEffect redirect race condition
+    clearCart();
   };
 
   return (
@@ -258,8 +244,12 @@ function Checkout() {
                 <span>Grand Total</span>
                 <strong>{formatPrice(grandTotal)}</strong>
               </div>
-              <div className="field-group payment-group">
-                <label>Payment Method</label>
+              
+            </div>
+            
+          </div>
+          <div className="field-group payment-group">
+                <h2>Payment Method</h2>
                 <div className="payment-options">
                   {["Cash on Delivery", "UPI Payment", "Credit/Debit Card"].map((method) => (
                     <label key={method} className="payment-option">
@@ -285,8 +275,9 @@ function Checkout() {
                   "Place Order"
                 )}
               </button>
-            </div>
-          </div>
+              </div>
+
+              
         </aside>
       </div>
 
