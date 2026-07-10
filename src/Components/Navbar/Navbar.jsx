@@ -5,6 +5,8 @@ import { FaUser, FaShoppingCart, FaBars, FaTimes } from "react-icons/fa";
 import Loginpage from "../Login/Login";
 import { useCart } from "../../context/useCart";
 import "../../Components/Navbar/Navbar.css";
+import { useTheme } from "../../context/TheameContext.jsx";
+
 
 const NAV_LINKS = [
   { name: "Home", type: "route", path: "/" },
@@ -16,6 +18,14 @@ const NAV_LINKS = [
 ];
 
 function Navbar() {
+
+  const { theme, toggleTheme } = useTheme();
+  // Controls whether the login overlay is visible
+  
+
+  // cartCount comes from the shared CartContext, so it updates the
+  // instant addToCart() is called from MenuPage, even though MenuPage
+  // and Navbar are separate components.
   const { cartCount } = useCart();
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isCartBumping, setIsCartBumping] = useState(false);
@@ -85,6 +95,9 @@ function Navbar() {
       </div>
 
       <div className="cp">
+          <button onClick={toggleTheme}>
+            {theme === "dark" ? "🌞 Light" : "🌙 Dark"}
+        </button>
         
         <div
           className={`cart-icon-wrapper ${isCartBumping ? "cart-bump" : ""}`}

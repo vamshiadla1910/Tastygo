@@ -1,9 +1,10 @@
+
 .menu-page {
   min-height: 600px;
   padding: 50px 20px 70px;
   width: 85%;
   margin: 0 auto;
-  background: radial-gradient(circle at top, #181818 0%, #0d0d0d 55%);
+ background: var(--surface);
   box-sizing: border-box;
 }
 
@@ -13,16 +14,14 @@
 }
 
 .menu-eyebrow {
-  color: #ffcc00;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-size: 14px;
+  color: #e8562f;
+  font-size: 25px;
+  font-family: "Brush Script MT", cursive;
   margin-bottom: 6px;
 }
 
 .menu-page-heading h1 {
-  color: #e8562f;
-  font-family: "Brush Script MT", cursive;
+  color: var(--text);
   font-size: 64px;
   margin: 0;
 }
@@ -41,7 +40,7 @@
   border-radius: 30px;
   border: 2px solid #e8562f;
   background: transparent;
-  color: #ffffff;
+  color: var(--text);
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
@@ -54,7 +53,7 @@
 
 .menu-cat-btn.active {
   background: #e8562f;
-  color: #ffffff;
+  color: var(--text);
   box-shadow: 0 4px 14px rgba(232, 86, 47, 0.4);
 }
 
@@ -66,8 +65,8 @@
 }
 
 .menu-page-card {
-  background: #111111;
-  color: #ffffff;
+  background: var(--bg);
+  color: var(--text);
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
@@ -94,7 +93,7 @@
 .menu-page-tag {
   display: inline-block;
   background: #e8562f;
-  color: #fff;
+  color: var(--text);
   font-size: 11px;
   font-weight: bold;
   text-transform: uppercase;
@@ -111,7 +110,7 @@
 .menu-page-desc {
   font-size: 14px;
   line-height: 1.5;
-  color: #dddddd;
+  color: Var(--text);
   margin: 0 0 12px;
 }
 
@@ -155,7 +154,7 @@
 }
 
 .menu-page-footer strong {
-  color: #ffcc00;
+  color: #ff9800;
   font-size: 16px;
 }
 
@@ -165,7 +164,7 @@
   border-radius: 50%;
   border: none;
   background: #e8562f;
-  color: #ffffff;
+  color: var(--text);
   font-size: 18px;
   line-height: 1;
   cursor: pointer;

@@ -17,10 +17,9 @@
 .title h4 {
   display: inline-block;
   color: #e8562f;
-  font-size: 18px;
+  font-family: "Brush Script MT", cursive;
+  font-size: 25px;
   font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
   margin-bottom: 10px;
 }
  
@@ -29,14 +28,14 @@
 .offer-title h1{
   font-size: clamp(2.2rem, 5vw, 3.4rem);
   margin: 10px 0 14px;
-  color: #f4f1eb;
+  color: var(--text);
   font-family: Georgia, "Times New Roman", serif;
 }
  
 .heading p,
 .title p ,
 .offer-title p{
-  color: #b6aea4;
+  color: var(--text);
   max-width: 650px;
   margin: 0 auto;
   line-height: 1.8;
@@ -55,7 +54,7 @@
 .card {
   position: relative;
   width: 300px;
-  background: linear-gradient(180deg, #171717, #121212);
+  background: var(--card);
   border-radius: 22px;
   overflow: hidden;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
@@ -89,13 +88,13 @@
 .card h2 {
   font-size: 24px;
   margin-bottom: 10px;
-  color: #f4f1eb;
+  color: var(--text);
   font-family: Georgia, "Times New Roman", serif;
 }
  
 .content p,
 .card p {
-  color: #b6aea4;
+  color: var(--text);
   line-height: 1.7;
   font-size: 15px;
   margin-bottom: 20px;
@@ -104,7 +103,7 @@
 .card a {
   text-decoration: none;
   background: linear-gradient(135deg, #e8562f, #c84422);
-  color: #ffffff;
+  color: var(--text);
   padding: 11px 24px;
   border-radius: 50px;
   display: inline-block;

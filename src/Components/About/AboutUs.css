@@ -1,7 +1,7 @@
 .about-section {
   padding: 70px 20px;
-  background: radial-gradient(circle at top, #1a1a1a 0%, #0d0d0d 60%, #080808 100%);
-  color: #ffffff;
+  background: var(--card);
+  color: var(--text);
 }
 
 .about-hero {
@@ -20,16 +20,18 @@
 }
 
 .about-tag {
-  color: #ffb703;
-  font-size: 1rem;
+  color: #e8562f;
+  font-family: "Brush Script MT", cursive;
+  font-size: 2rem;
   font-weight: 600;
   letter-spacing: 1px;
-  text-transform: uppercase;
+
   margin-bottom: 12px;
 }
 
 .about-hero-text h1 {
   font-size: clamp(2.2rem, 5vw, 4rem);
+  font-family: Georgia, "Times New Roman", serif;
   line-height: 1.2;
   margin-bottom: 18px;
 }
@@ -41,7 +43,7 @@
 .about-lead {
   font-size: 1rem;
   line-height: 1.8;
-  color: #dddddd;
+  color: var(--text);
   max-width: 600px;
 }
 
@@ -71,12 +73,13 @@
 }
 
 .about-card {
-  background: #141414;
+  background: var(--surface);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 18px;
   padding: 24px;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
   transition: transform 0.25s ease, border-color 0.25s ease;
+  min-height: 270px;
 }
 
 .about-card:hover {
@@ -87,11 +90,11 @@
 .about-card h2 {
   font-size: 1.35rem;
   margin-bottom: 12px;
-  color: #ffffff;
+  color: #ff7b00;
 }
 
 .about-card p {
-  color: #d5d5d5;
+  color: var(--text);
   line-height: 1.7;
   font-size: 0.97rem;
 }
@@ -105,7 +108,7 @@
 }
 
 .highlight-box {
-  background: linear-gradient(135deg, #1b1b1b, #121212);
+  background: var(--surface);
   border-left: 4px solid #ff7b00;
   border-radius: 18px;
   padding: 28px;
@@ -113,11 +116,11 @@
 
 .highlight-box h2 {
   margin-bottom: 12px;
-  color: #ffcc70;
+  color: #ff7b00;
 }
 
 .highlight-box p {
-  color: #e1e1e1;
+  color: var(--text);
   line-height: 1.7;
 }
 
@@ -137,7 +140,7 @@
 }
 
 .about-cta p {
-  color: #dddddd;
+  color: var(--text--secondary);
   line-height: 1.8;
   margin-bottom: 22px;
 }
@@ -146,7 +149,7 @@
   display: inline-block;
   text-decoration: none;
   background: #ff7b00;
-  color: #ffffff;
+  color: var(--text);
   padding: 12px 24px;
   border-radius: 30px;
   font-weight: 600;

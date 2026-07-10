@@ -7,12 +7,12 @@
   margin: auto;
   padding: 50px 40px 40px;
   border-radius: 30px;
-  background: radial-gradient(circle at bottom, #181818 0%, #0d0d0d 55%);
+  background: var(--surface);
   box-shadow: 5px 5px 15px black;
 }
 
 .login-heading {
-  color: white;
+  color: var(--text);
   text-align: center;
   margin: 0 0 20px;
   font-family: "Inter", sans-serif;
@@ -25,7 +25,7 @@
   right: 18px;
   background: none;
   border: none;
-  color: white;
+  color: var(--text);
   font-size: 26px;
   line-height: 1;
   cursor: pointer;
@@ -36,7 +36,7 @@
   font-size: 18px;
   font-family: "Inter", sans-serif;
   font-weight: 700;
-  color: white;
+  color: var(--text);
   margin-bottom: 8px;
 }
 
@@ -46,8 +46,8 @@
   width: 100%;
   border-radius: 15px;
   border: none;
-  box-shadow: 5px 5px 15px black;
-  background: white;
+  box-shadow: 5px 5px 15px var(--surface);
+  background: var(--card);
   margin: 0 0 18px 0;
   outline: none;
   font-size: 16px;
@@ -62,23 +62,23 @@
   padding: 10px;
   border: none;
   border-radius: 15px;
-  background: #e8562f;
-  color: #1a0000;
+   background: linear-gradient(135deg, #ff8a3d, #ff4b4b);
+  color: var(--text--secondary);
   font-weight: bold;
   font-size: 16px;
   cursor: pointer;
-  box-shadow: 5px 5px 15px black;
+  box-shadow: 5px 5px 15px var(--surface);
   margin-bottom: 10px;
 }
 
 .login-submit-btn:hover {
-  background: #ffd633;
+   background: linear-gradient(90deg, #ff4b4b, #ff8a3d);
 }
 
 .fp {
   margin: 0 0 10px 0;
   cursor: pointer;
-  color: wheat;
+  color: var(--text--secondary);
   text-align: center;
   font-size: 15px;
 }
@@ -88,7 +88,7 @@
 }
 
 .login-switch-text {
-  color: wheat;
+  color: var(--text--secondary);
   text-align: center;
   font-size: 15px;
 }

@@ -1,165 +1,304 @@
+/* ==========================================
+Restaurant Section
+========================================== */
 
- 
 .restaurant-section {
-    padding: 30px 24px;
-    color: #ffffff;
+    padding: 70px 20px;
+    background: var(--bg);
 }
- 
+
 .restaurant-section .container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: auto;
 }
- 
+
+/* ==========================================
+Title
+========================================== */
+
 .section-title {
-    margin: 0 0 10px;
-  color: #e8562f;
-  font-family: "Brush Script MT", cursive;
-  font-size: 40px;
+
+    text-align: center;
+
+    font-size: 50px;
+
+    color: #e8562f;
+
+    font-family: "Brush Script MT", cursive;
+
+    margin-bottom: 45px;
 
 }
- 
- 
+
+/* ==========================================
+Card
+========================================== */
+
 .restaurant-content {
+
     display: flex;
-    gap: 40px;
-    align-items: stretch;
-}
- 
-/* ===========================
-   Left Side - Restaurant Info
-=========================== */
- 
-.restaurant-details {
-    flex: 1;
-    padding: 35px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 16px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-    display: flex;
-    flex-direction: column;
+
     justify-content: center;
+
 }
- 
-.restaurant-details h3 {
-    font-size: 2rem;
-    color: #ff9800;
-    margin-bottom: 20px;
-}
- 
-.restaurant-details p {
-    font-size: 1rem;
-    line-height: 1.8;
-    color: #d9d9d9;
-}
- 
-/* ===========================
-   Detail Boxes
-=========================== */
- 
-.detail {
-    margin-top: 22px;
-}
- 
-.detail h4 {
-    color: #ff9800;
-    font-size: 1.2rem;
-    margin-bottom: 8px;
-}
- 
-.detail p {
-    margin: 0;
-    color: #dcdcdc;
-}
-.detail span{
-  color: black;
-  font-weight: bolder;
-}
-.order-details-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 16px;
-}
-/* ===========================
-   Google Map
-=========================== */
- 
-.map-wrapper {
-    flex: 1;
-    border-radius: 16px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
-}
- 
-.map-wrapper iframe {
+
+.restaurant-details {
+
     width: 100%;
-    height: 100%;
-    min-height: 520px;
-    border: none;
-}
- 
-/* ===========================
-   Responsive Design
-=========================== */
- 
-@media (max-width: 768px) {
- 
-    .restaurant-content {
-        flex-direction: column;
-    }
- 
-    .section-title {
-        font-size: 2.2rem;
-        margin-bottom: 35px;
-    }
- 
-    .restaurant-details {
-        padding: 25px;
-    }
- 
-    .restaurant-details h3 {
-        font-size: 1.8rem;
-        text-align: center;
-    }
- 
-    .restaurant-details p,
-    .detail {
-        text-align: center;
-    }
- 
-    .map-wrapper iframe {
-        min-height: 350px;
-    }
+
+    background: var(--card);
+
+    border-radius: 20px;
+
+    padding: 40px;
+
+    border: 1px solid rgba(255, 255, 255, .08);
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .25);
+
 }
 
-.section-title {
-  text-align: center;
-  font-size: 50px;
-;
+/* ==========================================
+Heading
+========================================== */
+
+.restaurant-details h3 {
+
+    text-align: center;
+
+    color: #ff9800;
+
+    font-size: 34px;
+
+    margin-bottom: 18px;
+
 }
+
+.restaurant-details>p {
+
+    width: 75%;
+
+    margin: 0 auto 35px;
+
+    text-align: center;
+
+    line-height: 1.8;
+
+    color: var(--text);
+
+}
+
+/* ==========================================
+Grid
+========================================== */
+
+.order-details-grid {
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 22px;
+    text-align: center;
+}
+
+/* ==========================================
+Cards
+========================================== */
+
+.detail {
+
+    background: var(--surface);
+
+    border: 1px solid rgba(255, 255, 255, .08);
+
+    border-radius: 16px;
+
+    padding: 22px;
+
+    transition: .3s;
+
+}
+
+.detail:hover {
+
+    transform: translateY(-4px);
+
+    border-color: #ff9800;
+
+}
+
+.detail h4 {
+
+    color: #ff9800;
+
+    margin-bottom: 10px;
+
+    font-size: 18px;
+
+}
+
+.detail p {
+
+    margin: 0;
+
+    color: var(--text);
+
+    line-height: 1.7;
+
+}
+
+.email-title {
+
+    margin-top: 18px;
+
+}
+
+.delivery-title {
+
+    margin-top: 22px;
+
+}
+
+/* ==========================================
+Map
+========================================== */
 
 .map-wrapper {
-  width: 70%;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.45);
-  border: 1px solid rgba(255,255,255,0.06);
-  aspect-ratio: 16/10;
+
+    min-height: 270px;
+
+    border-radius: 16px;
+
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, .08);
 
 }
 
 .map-wrapper iframe {
-  width: 100%;
-  height: 80%;
-  border: 0;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-@media (max-width: 700px) {
-  .restaurant-section { padding: 10px px; }
-  .section-title { font-size: 1.2rem; }
+    width: 100%;
+
+    height: 100%;
+
+    border: none;
+
+}
+/* ==========================================
+   Tablet (768px and below)
+========================================== */
+@media (max-width: 768px) {
+
+    .restaurant-details {
+        padding: 0 20px;
+    }
+
+    .restaurant-details > p {
+        width: 100%;
+        margin: 0 0 20px;
+    }
+
+    .order-details-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(220px, 1fr)) !important;
+        gap: 18px;
+        padding: 0 20px;
+    }
+
+    .detail {
+        padding: 18px;
+        border-radius: 14px;
+    }
+
+    .detail h4 {
+        font-size: 17px;
+    }
+
+    .detail p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .map-wrapper {
+        min-height: 220px;
+    }
+
+}
+/* ==========================================
+Mobile
+========================================== */
+
+@media(max-width:480px) {
+
+    .restaurant-section {
+
+        padding: 0px;
+        margin: 0px;
+
+    }
+
+    .section-title {
+
+        font-size: 36px;
+        padding: 0px;
+        margin: 0px;
+
+    }
+
+    .restaurant-details {
+
+        padding-left: 20px;
+        padding-right: 20px;
+        text-align: center;
+    }
+
+    .restaurant-details h3 {
+
+        font-size: 24px;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .restaurant-details>p {
+
+        width: 100%;
+
+        font-size: 14px;
+        padding: 0px;
+        margin: 0px;
+    }
+    .order-details-grid{
+        display: grid;
+        grid-template-columns: repeat(1, minmax(150px, 1fr))!important;
+    }
+
+    .detail {
+
+        padding: 18px;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .detail h4 {
+
+        font-size: 16px;
+        padding: 0px;
+        margin: 0px;
+    }
+
+    .detail p {
+
+        font-size: 13px;
+        padding: 10px;
+        margin: 0px;
+    }
+
+
+    .map-wrapper {
+
+        min-height: 220px;
+        padding: 0px;
+        margin: 0px;
+
+    }
+
 }

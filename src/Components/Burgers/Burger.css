@@ -21,7 +21,7 @@
 }
 
 .burger-card {
-  background: #111111;
+  background: var(--bg);
   color: #ffffff;
   border-radius: 16px;
   overflow: hidden;
