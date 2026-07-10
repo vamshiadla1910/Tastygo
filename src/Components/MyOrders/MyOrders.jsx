@@ -114,9 +114,9 @@ function MyOrders() {
               <div className="order-footer">
                 <button
                   className="btn-primary"
-                  onClick={() => navigate("/order-details", { state: { order } })}
+                  onClick={() => navigate("/home", { state: { order } })}
                 >
-                  View Details
+                  Continue Shopping
                 </button>
               </div>
             </div>

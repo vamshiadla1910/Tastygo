@@ -4,10 +4,10 @@
   width: 80%;
 }
 
-.dessert-title  {
+.dessert-title {
   text-align: center;
   margin: 0 0 24px;
- color: #e8562f;
+  color: #e8562f;
   font-family: "Brush Script MT", cursive;
   font-size: 70px;
 }
@@ -23,8 +23,8 @@
   color: #ffffff;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-  transition: transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,.25);
+  transition: .3s;
 }
 
 .dessert-card:hover {
@@ -34,9 +34,8 @@
 .dessert-img {
   width: 100%;
   height: 220px;
-  display: block;
   object-fit: cover;
-  border-radius: 10px;
+  display: block;
 }
 
 .dessert-info {
@@ -44,19 +43,230 @@
 }
 
 .dessert-info h3 {
-  margin: 0 0 8px;
+  margin-bottom: 8px;
   font-size: 1.1rem;
 }
 
 .price {
   color: #ffcc00;
   font-weight: bold;
-  margin: 0 0 8px;
+  margin-bottom: 8px;
 }
 
 .desc {
   font-size: 14px;
   line-height: 1.5;
-  color: #dddddd;
-  margin: 0;
+  color: #ddd;
+}
+
+/* Food Details */
+
+.food-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin: 12px 0;
+}
+
+.food-detail {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.food-detail .icon {
+  color: #ff6b35;
+  font-size: 13px;
+}
+
+.food-detail span {
+  color: #f2f2f2;
+  font-size: 13px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* ---------- Tablet ---------- */
+
+@media (max-width:992px){
+
+  .dessert-section{
+    width:95%;
+    padding:20px 15px;
+  }
+
+  .dessert-title{
+    font-size:56px;
+  }
+
+  .menu-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+  }
+
+  .dessert-card{
+    max-width:100%;
+  }
+
+  .dessert-img{
+    height:210px;
+  }
+
+}
+
+/* ---------- Mobile ---------- */
+
+@media (max-width:768px){
+
+  .dessert-section{
+    width:100%;
+    padding:20px 15px;
+  }
+
+  .dessert-title{
+    font-size:44px;
+  }
+
+  .menu-grid{
+    grid-template-columns:1fr;
+    justify-items:center;
+    gap:20px;
+  }
+
+  .dessert-card{
+    width:100%;
+    max-width:340px;
+  }
+
+  .dessert-img{
+    height:200px;
+  }
+
+  .dessert-info{
+    padding:14px;
+  }
+
+  .dessert-info h3{
+    font-size:18px;
+  }
+
+  .price{
+    font-size:18px;
+  }
+
+  .desc{
+    font-size:13px;
+  }
+
+  .food-details{
+    gap:10px 14px;
+  }
+
+  .food-detail span{
+    font-size:12px;
+  }
+
+}
+
+/* ---------- Small Mobile ---------- */
+
+@media (max-width:480px){
+
+  .dessert-section{
+    padding:15px 10px;
+  }
+
+  .dessert-title{
+    font-size:34px;
+  }
+
+  .dessert-card{
+    width:100%;
+    max-width:100%;
+    border-radius:14px;
+  }
+
+  .dessert-img{
+    height:180px;
+  }
+
+  .dessert-info{
+    padding:12px;
+  }
+
+  .dessert-info h3{
+    font-size:17px;
+  }
+
+  .price{
+    font-size:17px;
+  }
+
+  .desc{
+    font-size:12px;
+  }
+
+  .food-details{
+    gap:8px 12px;
+  }
+
+  .food-detail .icon{
+    font-size:12px;
+  }
+
+  .food-detail span{
+    font-size:12px;
+  }
+
+}
+
+
+@media (max-width:480px){
+
+  .dessert-section{
+    padding:15px 10px;
+  }
+
+  .dessert-title{
+    font-size:34px;
+  }
+
+  .dessert-card{
+    width:100%;
+    max-width:100%;
+    border-radius:14px;
+  }
+
+  .dessert-img{
+    height:180px;
+  }
+
+  .dessert-info{
+    padding:12px;
+  }
+
+  .dessert-info h3{
+    font-size:17px;
+  }
+
+  .price{
+    font-size:17px;
+  }
+
+  .desc{
+    font-size:12px;
+  }
+
+  .food-details{
+    gap:8px 12px;
+  }
+
+  .food-detail .icon{
+    font-size:12px;
+  }
+
+  .food-detail span{
+    font-size:12px;
+  }
+
 }

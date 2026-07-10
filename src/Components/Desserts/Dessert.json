@@ -4,69 +4,109 @@
     "name": "Chocolate Cake",
     "price": 149,
     "description": "Rich and moist chocolate cake topped with creamy frosting.",
-    "image": "/dessert/chocolate-cake.jpg"
+    "image": "/dessert/chocolate-cake.jpg",
+    "serves": "1 Person",
+    "pieces": "1 Slice",
+    "prepTime": "10 mins",
+    "type": "Veg"
   },
   {
     "id": 2,
     "name": "Red Velvet Cake",
     "price": 159,
     "description": "Soft red velvet sponge layered with smooth cream cheese frosting.",
-    "image": "/dessert/red-velvet-cake.jpg"
+    "image": "/dessert/red-velvet-cake.jpg",
+    "serves": "1 Person",
+    "pieces": "1 Slice",
+    "prepTime": "12 mins",
+    "type": "Veg"
   },
   {
     "id": 3,
     "name": "Black Forest Pastry",
     "price": 129,
     "description": "Classic chocolate pastry layered with whipped cream and cherries.",
-    "image": "/dessert/black-forest-pastry.jpg"
+    "image": "/dessert/black-forest-pastry.jpg",
+    "serves": "1 Person",
+    "pieces": "1 Pastry",
+    "prepTime": "10 mins",
+    "type": "Veg"
   },
   {
     "id": 4,
     "name": "Cheesecake",
     "price": 169,
     "description": "Creamy baked cheesecake with a buttery biscuit base.",
-    "image": "/dessert/cheesecake.jpg"
+    "image": "/dessert/cheesecake.jpg",
+    "serves": "1 Person",
+    "pieces": "1 Slice",
+    "prepTime": "12 mins",
+    "type": "Veg"
   },
   {
     "id": 5,
     "name": "Brownie Sundae",
     "price": 179,
     "description": "Warm chocolate brownie served with vanilla ice cream and sauce.",
-    "image": "/dessert/brownie-sundae.jpg"
+    "image": "/dessert/brownie-sundae.jpg",
+    "serves": "1 Person",
+    "pieces": "1 Bowl",
+    "prepTime": "15 mins",
+    "type": "Veg"
   },
   {
     "id": 6,
     "name": "Tiramisu",
     "price": 189,
     "description": "Classic Italian dessert with coffee-soaked layers and cocoa.",
-    "image": "/dessert/tiramisu.jpg"
+    "image": "/dessert/tiramisu.jpg",
+    "serves": "1 Person",
+    "pieces": "1 Slice",
+    "prepTime": "12 mins",
+    "type": "Veg"
   },
   {
     "id": 7,
     "name": "Donut Delight",
     "price": 99,
     "description": "Soft glazed donut topped with chocolate drizzle and sprinkles.",
-    "image": "/dessert/donut-delight.jpg"
+    "image": "/dessert/donut-delight.jpg",
+    "serves": "1 Person",
+    "pieces": "1 Donut",
+    "prepTime": "8 mins",
+    "type": "Veg"
   },
   {
     "id": 8,
     "name": "Cupcake",
     "price": 89,
     "description": "Fluffy cupcake finished with a swirl of sweet frosting.",
-    "image": "/dessert/cupcake.jpg"
+    "image": "/dessert/cupcake.jpg",
+    "serves": "1 Person",
+    "pieces": "1 Cupcake",
+    "prepTime": "8 mins",
+    "type": "Veg"
   },
   {
     "id": 9,
     "name": "Ice Cream Bowl",
     "price": 119,
     "description": "A chilled bowl of mixed ice cream scoops with toppings.",
-    "image": "/dessert/ice-cream-bowl.jpg"
+    "image": "/dessert/ice-cream-bowl.jpg",
+    "serves": "1 Person",
+    "pieces": "3 Scoops",
+    "prepTime": "5 mins",
+    "type": "Veg"
   },
   {
     "id": 10,
     "name": "Fruit Tart",
     "price": 139,
     "description": "Crispy tart shell filled with cream and topped with fresh fruits.",
-    "image": "/dessert/fruit-tart.jpg"
+    "image": "/dessert/fruit-tart.jpg",
+    "serves": "1 Person",
+    "pieces": "1 Tart",
+    "prepTime": "10 mins",
+    "type": "Veg"
   }
 ]

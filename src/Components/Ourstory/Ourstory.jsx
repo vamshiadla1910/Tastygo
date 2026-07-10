@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Ourstory.css";
-import burgerImg from "../../assets/image4.png"; 
+import burgerImg from "../../assets/image4.png";
 import img from "../../assets/pizza.jpg"
 import logo from "../../assets/Logo.png"
 import fries from "../../assets/fries.jpg"
@@ -10,7 +10,7 @@ import dessert from "../../assets/dessert.jpg"
 function OurStory() {
   return (
     <section className="section story-section" id="our-story">
-      <div className="container about-grid">
+      <div className="container story-grid">
         <div className="collage">
           <img
             className="img-large"
@@ -27,19 +27,15 @@ function OurStory() {
             src={fries}
             alt="Fresh pizza"
           />
-          <div className="year-badge"><img src={logo} alt="" /></div>
+          <div className="year-badge"><img src={burgerImg} alt="" /></div>
         </div>
 
-        <div className="about-content">
+        <div className="story-content">
           <p className="eyebrow">Our Story</p>
 
           <div className="story-heading-wrap">
             <h2>Born from a Taste of Passion</h2>
-            <img
-              src={burgerImg}
-              alt="Burger"
-              className="corner-img bottom-left-img"
-            />
+
           </div>
 
           <p className="section-text">
@@ -70,7 +66,7 @@ function OurStory() {
             </div>
           </div>
 
-          
+
         </div>
       </div>
     </section>

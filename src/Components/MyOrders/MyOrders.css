@@ -1,10 +1,12 @@
 .my-orders-page {
   max-width: 1100px;
+  width: 100%;
   margin: 0 auto;
   padding: 40px 24px;
   color: var(--text);
   min-height: calc(100vh - 140px);
   background: var(--surface);
+  box-sizing: border-box;
 }
 
 .page-heading {
@@ -14,19 +16,20 @@
 
 .page-heading h1 {
   margin: 0 0 8px 0;
-  font-size: 2rem;
+  font-size: 32px;
 }
 
 .page-heading p {
   margin: 0;
   color: var(--text);
-  font-size: 1rem;
+  font-size: 16px;
 }
 
 .loading {
   text-align: center;
   padding: 80px 24px;
   color: var(--text);
+  font-size: 16px;
 }
 
 .empty-state {
@@ -39,19 +42,19 @@
 }
 
 .empty-icon {
-  font-size: 4rem;
+  font-size: 64px;
   margin-bottom: 16px;
 }
 
 .empty-state h2 {
   margin: 0 0 8px 0;
-  font-size: 1.6rem;
+  font-size: 26px;
 }
 
 .empty-state p {
   margin: 0 0 24px 0;
   color: var(--text);
-  font-size: 1rem;
+  font-size: 16px;
 }
 
 .btn-menu {
@@ -61,6 +64,7 @@
   background: linear-gradient(135deg, #ff8a3d, #ff4b4b);
   color: #1a0700;
   font-weight: 700;
+  font-size: 16px;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -104,11 +108,12 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-wrap: wrap;
 }
 
 .order-id {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 18px;
   font-weight: 700;
 }
 
@@ -117,7 +122,7 @@
   color: #ffb57a;
   padding: 4px 12px;
   border-radius: 999px;
-  font-size: 0.75rem;
+  font-size: 12px;
   font-weight: 600;
   white-space: nowrap;
 }
@@ -125,12 +130,12 @@
 .order-date {
   margin: 0;
   color: #a8a8a8;
-  font-size: 0.9rem;
+  font-size: 14px;
 }
 
 .order-details-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }
 
@@ -143,7 +148,7 @@
 .detail-label {
   margin: 0 0 4px 0;
   color: #b8b8b8;
-  font-size: 22px;
+  font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
@@ -165,7 +170,7 @@
 .list-title {
   margin: 0 0 12px 0;
   color: #d0d0d0;
-  font-size: 22px;
+  font-size: 18px;
   font-weight: 600;
 }
 
@@ -173,15 +178,19 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 12px;
   padding: 8px 0;
   color: #c8c8c8;
-  font-size: 0.9rem;
+  font-size: 14px;
 }
 
-.detail-flex{
+.detail-flex {
   display: flex;
   justify-content: space-evenly;
+  gap: 16px;
+  flex-wrap: wrap;
 }
+
 .item-name {
   flex: 1;
 }
@@ -200,7 +209,7 @@
 .address-title {
   margin: 0 0 8px 0;
   color: #d0d0d0;
-  font-size: 23px;
+  font-size: 18px;
   font-weight: 600;
 }
 
@@ -220,7 +229,7 @@
 .contact-title {
   margin: 0 0 8px 0;
   color: #d0d0d0;
-  font-size: 23px;
+  font-size: 18px;
   font-weight: 600;
 }
 
@@ -245,6 +254,7 @@
   background: linear-gradient(135deg, #ff8a3d, #ff4b4b);
   color: #1a0700;
   font-weight: 700;
+  font-size: 15px;
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -254,25 +264,265 @@
   box-shadow: 0 6px 16px rgba(255, 138, 61, 0.25);
 }
 
-@media (max-width: 700px) {
+/* 1100px */
+@media (max-width: 1100px) {
   .my-orders-page {
-    padding: 24px 16px;
+    padding: 52px 20px;
+  }
+
+  .page-heading {
+    margin-bottom: 32px;
   }
 
   .page-heading h1 {
-    font-size: 1.6rem;
+    font-size: 30px;
   }
 
-  .order-header {
-    flex-direction: column;
+  .page-heading p {
+    font-size: 15px;
   }
 
-  .order-details-grid {
-    grid-template-columns: 1fr;
+  .order-card-container {
+    padding: 20px;
+    gap: 14px;
+     width: 70%;
+    margin: auto;
+  }
+
+
+  .order-id {
+    font-size: 17px;
+  }
+
+  .list-title,
+  .address-title,
+  .contact-title {
+    font-size: 17px;
+  }
+
+  .address-text,
+  .contact-text,
+  .detail-value {
+    font-size: 15px;
+  }
+}
+
+/* 750px */
+@media (max-width: 768px) {
+  .my-orders-page {
+    padding: 74px 16px;
+  }
+
+  .page-heading {
+    margin-bottom: 28px;
+  }
+
+  .page-heading h1 {
+    font-size: 26px;
+  }
+
+  .page-heading p {
+    font-size: 14px;
+  }
+
+  .loading,
+  .empty-state {
+    padding: 56px 16px;
+  }
+
+  .empty-icon {
+    font-size: 52px;
+  }
+
+  .empty-state h2 {
+    font-size: 22px;
+  }
+
+  .empty-state p {
+    font-size: 14px;
+  }
+
+  .btn-menu {
+    padding: 11px 24px;
+    font-size: 15px;
   }
 
   .order-card-container {
     padding: 16px;
     gap: 12px;
+    border-radius: 16px;
+   
+  }
+
+  .order-header {
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 12px;
+  }
+
+  .order-id-section {
+    gap: 10px;
+  }
+
+  .order-id {
+    font-size: 16px;
+  }
+
+  .order-status {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+
+  .order-date {
+    font-size: 13px;
+  }
+
+ 
+
+  .detail-item,
+  .order-items-list,
+  .order-address,
+  .order-contact {
+    padding: 14px;
+  }
+
+  .detail-label {
+    font-size: 12px;
+  }
+
+  .detail-value {
+    font-size: 14px;
+  }
+
+  .list-title,
+  .address-title,
+  .contact-title {
+    font-size: 16px;
+  }
+
+  .item-row {
+    font-size: 13px;
+    flex-wrap: wrap;
+  }
+
+  .address-text,
+  .contact-text {
+    font-size: 14px;
+  }
+
+  .order-footer {
+    flex-direction: column;
+  }
+
+  .btn-primary {
+    width: 100%;
+    font-size: 14px;
+  }
+}
+
+/* 480px */
+@media (max-width: 480px) {
+  .my-orders-page {
+    width: 100%;
+    padding: 70px 12px;
+  }
+
+  .page-heading h1 {
+    font-size: 22px;
+  }
+
+  .page-heading p {
+    font-size: 13px;
+  }
+
+  .loading,
+  .empty-state {
+    padding: 44px 12px;
+  }
+
+  .empty-icon {
+    font-size: 44px;
+  }
+
+  .empty-state h2 {
+    font-size: 20px;
+  }
+
+  .empty-state p {
+    font-size: 13px;
+  }
+
+  .btn-menu {
+    width: 100%;
+    padding: 10px 18px;
+    font-size: 14px;
+  }
+
+  .order-card-container {
+    padding: 14px;
+    border-radius: 14px;
+    
+  }
+
+  .order-id {
+    font-size: 15px;
+  }
+
+  .order-status {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+   .order-details-grid {
+        display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .order-date {
+    font-size: 12px;
+  }
+
+  .detail-item,
+  .order-items-list,
+  .order-address,
+  .order-contact {
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .detail-label {
+    font-size: 11px;
+  }
+
+  .detail-value {
+    font-size: 13px;
+  }
+
+  .list-title,
+  .address-title,
+  .contact-title {
+    font-size: 15px;
+  }
+
+  .item-row {
+    font-size: 12px;
+    padding: 6px 0;
+  }
+
+  .detail-flex {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .address-text,
+  .contact-text {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .btn-primary {
+    padding: 10px 14px;
+    font-size: 13px;
   }
 }

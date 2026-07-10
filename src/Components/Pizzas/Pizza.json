@@ -3,16 +3,24 @@
     "id": 1,
     "name": "Inferno Volcano Pizza",
     "price": 399,
-    "description": "A fiery combination of spicy chicken, jalapeños, red onions, and molten mozzarella on a smoky tomato base for spice lovers.",
-    "image": "/pizza_imgs/Inferno_Volcano_Pizza.jpg"
+    "description": "A fiery combination of spicy chicken,  red onions, and molten mozzarella on a smoky tomato base for spice lovers.",
+    "image": "/pizza_imgs/Inferno_Volcano_Pizza.jpg",
+    "serves": "1 Person",
+    "pieces": "8 Slices",
+    "prepTime": "22 mins",
+    "type": "Non-Veg"
   },
 
   {
     "id": 2,
     "name": "Truffle Royale Pizza",
     "price": 549,
-    "description": "Creamy white sauce, wild mushrooms, truffle oil, parmesan, and fresh herbs for a rich gourmet experience.",
-    "image": "/pizza_imgs/Truffle_Royale_Pizza.jpg"
+    "description": "Creamy white sauce, wild mushrooms, truffle oil.",
+    "image": "/pizza_imgs/Truffle_Royale_Pizza.jpg",
+    "serves": "1 Person",
+    "pieces": "8 Slices",
+    "prepTime": "20mins",
+    "type": "Veg"
   },
 
   {
@@ -20,7 +28,11 @@
     "name": "Garden Delight Pizza",
     "price": 299,
     "description": "Loaded with fresh bell peppers, olives, sweet corn, onions, tomatoes, and mozzarella cheese.",
-    "image": "/pizza_imgs/Garden_Delight_Pizza.jpg"
+    "image": "/pizza_imgs/Garden_Delight_Pizza.jpg",
+    "serves": "1 Person",
+    "pieces": "8 Slices",
+    "prepTime": "18 mins",
+    "type": "Veg"
   },
 
   {
@@ -28,7 +40,11 @@
     "name": "BBQ Smokehouse Pizza",
     "price": 449,
     "description": "Smoky BBQ chicken, caramelized onions, roasted peppers, and cheddar cheese on a crispy crust.",
-    "image": "/pizza_imgs/BBQ_Smokehouse_Pizza.jpg"
+    "image": "/pizza_imgs/BBQ_Smokehouse_Pizza.jpg",
+    "serves": "1 Person",
+    "pieces": "8 Slices",
+    "prepTime": "21 mins",
+    "type": "Non-Veg"
   },
 
   {
@@ -36,111 +52,190 @@
     "name": "Cheese Avalanche Pizza",
     "price": 469,
     "description": "Five premium cheeses blended together with garlic butter and Italian herbs for ultimate cheesiness.",
-    "image": "/pizza_imgs/Cheese_Avalanche_Pizza.jpg"
+    "image": "/pizza_imgs/Cheese_Avalanche_Pizza.jpg",
+    "serves": "1 Person",
+    "pieces": "8 Slices",
+    "prepTime": "16 mins",
+    "type": "Veg"
   },
-  
+
   {
     "id": 6,
     "name": "Mediterranean Magic Pizza",
     "price": 389,
     "description": "Feta cheese, black olives, cherry tomatoes, spinach, and oregano on a light tomato base.",
-    "image": "/pizza_imgs/Mediterranean_Magic_Pizza.jpg"
+    "image": "/pizza_imgs/Mediterranean_Magic_Pizza.jpg",
+    "serves": "1 Person",
+    "pieces": "8 Slices",
+    "prepTime": "17 mins",
+    "type": "Veg"
   },
+
   {
     "id": 7,
     "name": "Spicy Mexican Fiesta Pizza",
     "price": 429,
     "description": "Mexican beans, jalapeños, corn, onions, spicy salsa, and mozzarella topped with tortilla crunch.",
-    "image": "/pizza_imgs/Spicy_Mexican_Fiesta_Pizza.jpg"
+    "image": "/pizza_imgs/Spicy_Mexican_Fiesta_Pizza.jpg",
+    "serves": "1 Person",
+    "pieces": "8 Slices",
+    "prepTime": "22 mins",
+    "type": "Veg"
   },
+
   {
     "id": 8,
     "name": "Hawaiian Paradise Pizza",
     "price": 419,
     "description": "Juicy pineapple chunks paired with smoked chicken and melted mozzarella for a sweet and savory bite.",
-    "image": "/pizza_imgs/Hawaiian _Paradise_Pizza.jpg"
+    "image": "/pizza_imgs/Hawaiian _Paradise_Pizza.jpg",
+    "serves": "1 Person",
+    "pieces": "8 Slices",
+    "prepTime": "19 mins",
+    "type": "Non-Veg"
   },
+
   {
     "id": 9,
     "name": "Pepperoni Supreme Pizza",
     "price": 459,
     "description": "Classic pepperoni layered over rich tomato sauce with extra mozzarella and Italian seasoning.",
-    "image": "/pizza_imgs/Pepperoni _Supreme _Pizza.jpg"
+    "image": "/pizza_imgs/Pepperoni _Supreme _Pizza.jpg",
+    "serves": "1 Person",
+    "pieces": "8 Slices",
+    "prepTime": "20 mins",
+    "type": "Non-Veg"
   },
+
   {
     "id": 10,
     "name": "Paneer Tikka Delight Pizza",
     "price": 379,
     "description": "Marinated paneer tikka, onions, capsicum, and mint mayo over a spicy Indian-style pizza base.",
-    "image": "/pizza_imgs/Paneer_Tikka_Delight_Pizza.jpg"
+    "image": "/pizza_imgs/Paneer_Tikka_Delight_Pizza.jpg",
+    "serves": "1 Person",
+    "pieces": "8 Slices",
+    "prepTime": "18 mins",
+    "type": "Veg"
   },
+
   {
     "id": 11,
     "name": "Garlic Lovers Pizza",
     "price": 349,
     "description": "Roasted garlic, garlic butter, mozzarella, parmesan, and herbs baked on a golden crust.",
-"image": "/pizza_imgs/Inferno_Volcano_Pizza.jpg"  },
+    "image": "/pizza_imgs/Inferno_Volcano_Pizza.jpg",
+    "serves": "1 Person",
+    "pieces": "8 Slices",
+    "prepTime": "15 mins",
+    "type": "Veg"
+  },
+
   {
     "id": 12,
     "name": "Mushroom Melt Pizza",
     "price": 359,
     "description": "Fresh mushrooms, creamy garlic sauce, mozzarella, and parmesan finished with parsley.",
-    "image": "/pizza_imgs/Pepperoni _Supreme _Pizza.jpg"
+    "image": "/pizza_imgs/Pepperoni _Supreme _Pizza.jpg",
+    "serves": "1 Person",
+    "pieces": "8 Slices",
+    "prepTime": "16 mins",
+    "type": "Veg"
   },
+
   {
     "id": 13,
     "name": "Farm Fresh Pizza",
     "price": 319,
     "description": "A wholesome mix of mushrooms, onions, tomatoes, capsicum, and sweet corn with mozzarella.",
-    "image": "/pizza_imgs/Spicy_Mexican_Fiesta_Pizza.jpg"
+    "image": "/pizza_imgs/Spicy_Mexican_Fiesta_Pizza.jpg",
+    "serves": "1 Person",
+    "pieces": "8 Slices",
+    "prepTime": "17 mins",
+    "type": "Veg"
   },
+
   {
     "id": 14,
     "name": "Crispy Chicken Crunch Pizza",
     "price": 469,
     "description": "Crispy chicken strips, spicy mayo, onions, and mozzarella topped with crunchy herbs.",
-    "image": "/pizza_imgs/BBQ_Smokehouse_Pizza.jpg"
+    "image": "/pizza_imgs/BBQ_Smokehouse_Pizza.jpg",
+    "serves": "1 Person",
+    "pieces": "8 Slices",
+    "prepTime": "21 mins",
+    "type": "Non-Veg"
   },
+
   {
     "id": 15,
     "name": "Pesto Garden Pizza",
     "price": 389,
     "description": "Fresh basil pesto, mozzarella, cherry tomatoes, olives, and parmesan for a vibrant Italian flavor.",
-    "image": "/pizza_imgs/Garden_Delight_Pizza.jpg"
+    "image": "/pizza_imgs/Garden_Delight_Pizza.jpg",
+    "serves": "1 Person",
+    "pieces": "8 Slices",
+    "prepTime": "18 mins",
+    "type": "Veg"
   },
+
   {
     "id": 16,
     "name": "Four Seasons Pizza",
     "price": 499,
     "description": "Four delicious sections featuring mushrooms, olives, chicken, and fresh vegetables in one pizza.",
-    "image": "/pizza_imgs/Truffle_Royale_Pizza.jpg"
+    "image": "/pizza_imgs/Truffle_Royale_Pizza.jpg",
+    "serves": "1 Person",
+    "pieces": "8 Slices",
+    "prepTime": "22 mins",
+    "type": "Non-Veg"
   },
+
   {
     "id": 17,
     "name": "Buffalo Chicken Pizza",
     "price": 449,
     "description": "Tender buffalo chicken, ranch drizzle, onions, mozzarella, and a spicy buffalo sauce finish.",
-    "image": "/pizza_imgs/Mediterranean_Magic_Pizza.jpg"
+    "image": "/pizza_imgs/Mediterranean_Magic_Pizza.jpg",
+    "serves": "1 Person",
+    "pieces": "8 Slices",
+    "prepTime": "23 mins",
+    "type": "Non-Veg"
   },
+
   {
     "id": 18,
     "name": "Sweet Chili Crunch Pizza",
     "price": 399,
     "description": "Sweet chili sauce, crispy vegetables, mozzarella, and crunchy onions for a perfect balance of sweet and spicy.",
-    "image": "/pizza_imgs/BBQ_Smokehouse_Pizza.jpg"
+    "image": "/pizza_imgs/BBQ_Smokehouse_Pizza.jpg",
+    "serves": "1 Person",
+    "pieces": "8 Slices",
+    "prepTime": "19 mins",
+    "type": "Veg"
   },
+
   {
     "id": 19,
     "name": "Ocean Breeze Pizza",
     "price": 529,
     "description": "A premium seafood pizza with shrimp, calamari, mozzarella, garlic butter, and fresh herbs.",
-    "image": "/pizza_imgs/Cheese_Avalanche_Pizza.jpg"
+    "image": "/pizza_imgs/Cheese_Avalanche_Pizza.jpg",
+    "serves": "1 Person",
+    "pieces": "8 Slices",
+    "prepTime": "25 mins",
+    "type": "Non-Veg"
   },
+
   {
     "id": 20,
     "name": "Midnight Supreme Pizza",
     "price": 499,
     "description": "A signature pizza loaded with premium toppings, double cheese, black olives, mushrooms, and herbs.",
-    "image": "/pizza_imgs/Mediterranean_Magic_Pizza.jpg"
+    "image": "/pizza_imgs/Mediterranean_Magic_Pizza.jpg",
+    "serves": "1 Person",
+    "pieces": "8 Slices",
+    "prepTime": "24 mins",
+    "type": "Non-Veg"
   }
 ]
