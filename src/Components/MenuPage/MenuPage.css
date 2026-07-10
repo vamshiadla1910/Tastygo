@@ -61,7 +61,7 @@
 /* Card grid */
 .menu-page-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
   gap: 30px;
 }
 
@@ -113,6 +113,38 @@
   line-height: 1.5;
   color: #dddddd;
   margin: 0 0 12px;
+}
+
+/* Food details shown under description when available */
+.food-details{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:8px;
+  margin:12px 0;
+  padding:10px;
+  background: rgba(255,255,255,0.03);
+  border:1px solid rgba(232,86,47,0.08);
+  border-radius:10px;
+  font-size:13px;
+  color:#fff;
+}
+
+.food-detail{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:13px;
+  color:#fff;
+  padding:6px 8px;
+  border-radius:8px;
+  background: rgba(255,255,255,0.01);
+  border:1px solid rgba(255,255,255,0.02);
+}
+
+.food-detail .icon{ color:#ff6b35; font-size:14px }
+
+@media (max-width:420px){
+  .food-details{grid-template-columns:repeat(1,1fr)}
 }
 
 .menu-page-footer {

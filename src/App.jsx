@@ -1,4 +1,6 @@
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+
 import Navbar from "./Components/Navbar/Navbar";
 import Home from "./Components/Home/Home";
 import MenuPage from "./Components/MenuPage/MenuPage";
@@ -8,10 +10,26 @@ import OrderSuccess from "./Components/OrderSuccess/OrderSuccess";
 import MyOrders from "./Components/MyOrders/MyOrders";
 import AboutUs from "./Components/About/AboutUs";
 import Footer from "./Components/Footer/Footer";
-import { CartProvider } from "./context/CartContext";
 import Service from "./Components/Services/Service";
+import Loader from "./Components/Loader/Loader";
 
+
+import { CartProvider } from "./context/CartContext";
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1500); // Loading screen duration (1.5 second)
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
     <CartProvider>
       <Navbar />

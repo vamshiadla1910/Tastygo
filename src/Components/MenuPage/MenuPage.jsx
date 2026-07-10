@@ -4,6 +4,7 @@ import burgerData from "../Burgers/Burger.json";
 import friesData from "../Fries/Fries.json";
 import dessertData from "../Desserts/Dessert.json";
 import { useCart } from "../../context/useCart";
+import { FaUtensils, FaPizzaSlice, FaFire, FaClock, FaStar, FaLeaf, FaPepperHot } from 'react-icons/fa';
 import "./MenuPage.css";
 
 const tagCategory = (items, category) =>
@@ -78,6 +79,18 @@ function MenuPage() {
               <div className="menu-page-info">
               <h3>{item.name}</h3>
               <p className="menu-page-desc">{item.description}</p>
+              {/* Food Details: render only when fields exist on the item */}
+              {(item.serves || item.pieces || item.calories || item.prepTime || item.rating || item.type || item.spice) && (
+                <div className="food-details" aria-hidden={false}>
+                  {item.serves && <div className="food-detail"><FaUtensils className="icon"/> <span>Serves: {item.serves}</span></div>}
+                  {item.pieces && <div className="food-detail"><FaPizzaSlice className="icon"/> <span>Pieces: {item.pieces}</span></div>}
+                  {item.calories && <div className="food-detail"><FaFire className="icon"/> <span>Calories: {item.calories}</span></div>}
+                  {item.prepTime && <div className="food-detail"><FaClock className="icon"/> <span>Prep Time: {item.prepTime}</span></div>}
+                  {item.rating && <div className="food-detail"><FaStar className="icon"/> <span>Rating: {item.rating}</span></div>}
+                  {item.type && <div className="food-detail"><FaLeaf className="icon"/> <span>Type: {item.type}</span></div>}
+                  {item.spice && <div className="food-detail"><FaPepperHot className="icon"/> <span>Spice: {item.spice}</span></div>}
+                </div>
+              )}
               <div className="menu-page-footer">
                 <strong>{item.displayPrice}</strong>
                 <button
