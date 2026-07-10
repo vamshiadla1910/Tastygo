@@ -82,13 +82,13 @@ function MenuPage() {
               {/* Food Details: render only when fields exist on the item */}
               {(item.serves || item.pieces || item.calories || item.prepTime || item.rating || item.type || item.spice) && (
                 <div className="food-details" aria-hidden={false}>
-                  {item.serves && <div className="food-detail"><FaUtensils className="icon"/> <span>Serves: {item.serves}</span></div>}
-                  {item.pieces && <div className="food-detail"><FaPizzaSlice className="icon"/> <span>Pieces: {item.pieces}</span></div>}
-                  {item.calories && <div className="food-detail"><FaFire className="icon"/> <span>Calories: {item.calories}</span></div>}
-                  {item.prepTime && <div className="food-detail"><FaClock className="icon"/> <span>Prep Time: {item.prepTime}</span></div>}
-                  {item.rating && <div className="food-detail"><FaStar className="icon"/> <span>Rating: {item.rating}</span></div>}
-                  {item.type && <div className="food-detail"><FaLeaf className="icon"/> <span>Type: {item.type}</span></div>}
-                  {item.spice && <div className="food-detail"><FaPepperHot className="icon"/> <span>Spice: {item.spice}</span></div>}
+                  {item.serves && <div className="food-detail"><FaUtensils className="food-icon"/> <span>Serves: {item.serves}</span></div>}
+                  {item.pieces && <div className="food-detail"><FaPizzaSlice className="food-icon"/> <span>Pieces: {item.pieces}</span></div>}
+                  {item.calories && <div className="food-detail"><FaFire className="food-icon"/> <span>Calories: {item.calories}</span></div>}
+                  {item.prepTime && <div className="food-detail"><FaClock className="food-icon"/> <span>Prep Time: {item.prepTime}</span></div>}
+                  {item.rating && <div className="food-detail"><FaStar className="food-icon"/> <span>Rating: {item.rating}</span></div>}
+                  {item.type && <div className="food-detail"><FaLeaf className="food-icon"/> <span>Type: {item.type}</span></div>}
+                  {item.spice && <div className="food-detail"><FaPepperHot className="food-icon"/> <span>Spice: {item.spice}</span></div>}
                 </div>
               )}
               <div className="menu-page-footer">

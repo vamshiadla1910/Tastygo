@@ -208,7 +208,7 @@ function Checkout() {
           </div>
         </main>
 
-        <aside className="checkout-summary-panel">
+        <div className="checkout-summary-panel">
           <div className="checkout-card summary-card">
             <h2>Order Summary</h2>
             <div className="summary-item-list">
@@ -244,97 +244,98 @@ function Checkout() {
                 <span>Grand Total</span>
                 <strong>{formatPrice(grandTotal)}</strong>
               </div>
-              
+
             </div>
-            
+
           </div>
+
           <div className="field-group payment-group">
-                <h2>Payment Method</h2>
-                <div className="payment-options">
-                  {["Cash on Delivery", "UPI Payment", "Credit/Debit Card"].map((method) => (
-                    <label key={method} className="payment-option">
-                      <input type="radio" name="paymentMethod" value={method} checked={form.paymentMethod === method} onChange={handleChange} />
-                      {method}
-                    </label>
-                  ))}
-                </div>
-                {errors.paymentMethod && <p className="field-error">{errors.paymentMethod}</p>}
-              </div>
+            <h2>Payment Method</h2>
+            <div className="payment-options">
+              {["Cash on Delivery", "UPI Payment", "Credit/Debit Card"].map((method) => (
+                <label key={method} className="payment-option">
+                  <input type="radio" name="paymentMethod" value={method} checked={form.paymentMethod === method} onChange={handleChange} />
+                  {method}
+                </label>
+              ))}
+            </div>
+            {errors.paymentMethod && <p className="field-error">{errors.paymentMethod}</p>}
+          </div>
 
-              {submitError && <p className="field-error">{submitError}</p>}
+          {submitError && <p className="field-error">{submitError}</p>}
 
-              <button type="button" className="place-order-btn" onClick={handlePlaceOrder} disabled={isSubmitting}>
-                {isSubmitting ? (
-                  <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
-                    <svg width="18" height="18" viewBox="0 0 50 50" style={{ animation: "spin 1s linear infinite" }} xmlns="http://www.w3.org/2000/svg">
-                      <circle cx="25" cy="25" r="20" stroke="#fff" strokeWidth="5" fill="none" strokeLinecap="round" strokeDasharray="31.4 31.4" />
-                    </svg>
-                    Placing...
-                  </span>
-                ) : (
-                  "Place Order"
-                )}
-              </button>
-              </div>
-
-              
-        </aside>
+          <button type="button" className="place-order-btn" onClick={handlePlaceOrder} disabled={isSubmitting}>
+            {isSubmitting ? (
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
+                <svg width="18" height="18" viewBox="0 0 50 50" style={{ animation: "spin 1s linear infinite" }} xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="25" cy="25" r="20" stroke="#fff" strokeWidth="5" fill="none" strokeLinecap="round" strokeDasharray="31.4 31.4" />
+                </svg>
+                Placing...
+              </span>
+            ) : (
+              "Place Order"
+            )}
+          </button>
+        </div>
       </div>
 
-      {/* Success Modal */}
-      {showModal && modalOrder && (
-        <div className="order-modal-overlay" onMouseDown={handleOverlayClick}>
-          <div className="order-modal" ref={modalRef} onMouseDown={(e) => e.stopPropagation()}>
-            <button className="modal-close" aria-label="Close" onClick={() => setShowModal(false)}>×</button>
+      
 
-            <div className="modal-content" style={{ textAlign: "center" }}>
-              <div style={{ display: "flex", justifyContent: "center", marginBottom: 10 }}>
-                <svg width="72" height="72" viewBox="0 0 52 52" aria-hidden>
-                  <circle cx="26" cy="26" r="25" fill="#E6F9EA" />
-                  <path d="M14 27l7 7 16-16" stroke="#2E9A4A" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" fill="none" strokeDasharray="48" strokeDashoffset="48" style={{ animation: "draw 420ms ease forwards 120ms" }} />
-                </svg>
+      {
+    showModal && modalOrder && (
+      <div className="order-modal-overlay" onMouseDown={handleOverlayClick}>
+        <div className="order-modal" ref={modalRef} onMouseDown={(e) => e.stopPropagation()}>
+          <button className="modal-close" aria-label="Close" onClick={() => setShowModal(false)}>×</button>
+
+          <div className="modal-content" style={{ textAlign: "center" }}>
+            <div style={{ display: "flex", justifyContent: "center", marginBottom: 10 }}>
+              <svg width="72" height="72" viewBox="0 0 52 52" aria-hidden>
+                <circle cx="26" cy="26" r="25" fill="#E6F9EA" />
+                <path d="M14 27l7 7 16-16" stroke="#2E9A4A" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" fill="none" strokeDasharray="48" strokeDashoffset="48" style={{ animation: "draw 420ms ease forwards 120ms" }} />
+              </svg>
+            </div>
+
+            <h2 style={{ margin: "6px 0" }}>Order Placed Successfully!</h2>
+            <p style={{ margin: "8px 0 16px", color: "#666" }}>Thank you! Your order has been placed successfully.</p>
+
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, textAlign: "left" }}>
+              <div>
+                <p className="label">Order ID</p>
+                <p className="value">{modalOrder.id}</p>
               </div>
-
-              <h2 style={{ margin: "6px 0" }}>Order Placed Successfully!</h2>
-              <p style={{ margin: "8px 0 16px", color: "#666" }}>Thank you! Your order has been placed successfully.</p>
-
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, textAlign: "left" }}>
-                <div>
-                  <p className="label">Order ID</p>
-                  <p className="value">{modalOrder.id}</p>
-                </div>
-                <div>
-                  <p className="label">Total Amount</p>
-                  <p className="value">{formatPrice(modalOrder.summary?.grandTotal ?? grandTotal)}</p>
-                </div>
-                <div>
-                  <p className="label">Order Date & Time</p>
-                  <p className="value">{new Date(modalOrder.date).toLocaleString()}</p>
-                </div>
-                <div>
-                  <p className="label">Estimated Delivery</p>
-                  <p className="value">30–45 minutes</p>
-                </div>
-                <div style={{ gridColumn: "1 / -1" }}>
-                  <p className="label">Payment Method</p>
-                  <p className="value">{modalOrder.paymentMethod}</p>
-                </div>
+              <div>
+                <p className="label">Total Amount</p>
+                <p className="value">{formatPrice(modalOrder.summary?.grandTotal ?? grandTotal)}</p>
               </div>
-
-              <div style={{ display: "flex", gap: 10, justifyContent: "center", marginTop: 18, flexWrap: "wrap" }}>
-                <button className="primary" onClick={() => { setShowModal(false); navigate("/my-orders"); }} style={{ background: "#2E9A4A", color: "#fff", padding: "10px 14px", borderRadius: 8, border: "none" }}>
-                  View My Orders
-                </button>
-                <button onClick={() => { setShowModal(false); navigate("/menu"); }} style={{ background: "#fff", color: "#333", padding: "10px 14px", borderRadius: 8, border: "1px solid #E6E6E6" }}>
-                  Continue Shopping
-                </button>
+              <div>
+                <p className="label">Order Date & Time</p>
+                <p className="value">{new Date(modalOrder.date).toLocaleString()}</p>
               </div>
+              <div>
+                <p className="label">Estimated Delivery</p>
+                <p className="value">30–45 minutes</p>
+              </div>
+              <div style={{ gridColumn: "1 / -1" }}>
+                <p className="label">Payment Method</p>
+                <p className="value">{modalOrder.paymentMethod}</p>
+              </div>
+            </div>
+
+            <div style={{ display: "flex", gap: 10, justifyContent: "center", marginTop: 18, flexWrap: "wrap" }}>
+              <button className="primary" onClick={() => { setShowModal(false); navigate("/my-orders"); }} style={{ background: "#2E9A4A", color: "#fff", padding: "10px 14px", borderRadius: 8, border: "none" }}>
+                View My Orders
+              </button>
+              <button onClick={() => { setShowModal(false); navigate("/menu"); }} style={{ background: "#fff", color: "#333", padding: "10px 14px", borderRadius: 8, border: "1px solid #E6E6E6" }}>
+                Continue Shopping
+              </button>
             </div>
           </div>
         </div>
-      )}
+      </div>
+    )
+  }
 
-      <style>{`
+  <style>{`
         @keyframes spin { to { transform: rotate(360deg); } }
         @keyframes draw { to { stroke-dashoffset: 0; } }
         .order-modal-overlay {
@@ -355,7 +356,7 @@ function Checkout() {
           .order-modal { padding: 16px; }
         }
       `}</style>
-    </section>
+    </section >
   );
 }
 
