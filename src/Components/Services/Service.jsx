@@ -10,7 +10,7 @@ import food from "../../assets/food.png"
 
 function Service() {
   return (
-    <div>
+    <div className="totalservices">
       <section className="services">
         <div className="heading">
           <span>Our Services</span>
@@ -29,7 +29,7 @@ function Service() {
           </div>
 
           <div className="card">
-            <img src={burgerImg} alt="Burger" />
+            <img src={burgerImg} alt="Burger"/>
             <div className="content">
               <h2>Burger</h2>
               <p>Juicy burgers with premium ingredients and unforgettable flavors.</p>
@@ -38,7 +38,7 @@ function Service() {
           </div>
 
           <div className="card">
-            <img src={frenchFriesImg} alt="French Fries" />
+            <img src={frenchFriesImg} alt="French Fries"/>
             <div className="content">
               <h2>French Fries</h2>
               <p>Golden, crispy fries served fresh and hot just to make you happy.</p>
@@ -47,7 +47,7 @@ function Service() {
           </div>
 
           <div className="card">
-            <img src={dessert} alt="Dessert" />
+            <img src={dessert} alt="Dessert"/>
             <div className="content">
               <h2>Dessert</h2>
               <p>Sweet, creamy desserts prepared fresh to give every meal a perfect ending.</p>
@@ -57,14 +57,14 @@ function Service() {
         </div>
       </section>
 
-      <section className="services">
-        <div className="title">
+      <section className="offer-services">
+        <div className="offer-title">
          
           <h1>What We Offer</h1>
           <p>Experience delicious food and premium services designed to make your dining experience unforgettable.</p>
         </div>
 
-        <div className="service-container">
+        <div className="offer-container">
           <div className="card">
             <div className="iconn">
               <img src={food} alt="" />
