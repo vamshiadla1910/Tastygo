@@ -86,7 +86,8 @@
 @media (max-width: 1100px) {
   .specialization-section .special-grid {
     grid-template-columns: repeat(2, minmax(2, 1fr));
-    
+    width: 80%;
+    margin: auto;
     max-height: 600px;
   }
 }

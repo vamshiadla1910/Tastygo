@@ -1,7 +1,7 @@
 ﻿import React, { useState } from 'react';
 import "../OurSpecials/OurSpecials.css";
 import { useCart } from "../../context/useCart";
- 
+
 function OurSpecials() {
   const specials = [
     { name: 'Truffle Burst Pizza', tag: "Chef's Recommended", price: '₹188.99', img: 'https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=800&q=80' },
@@ -11,8 +11,8 @@ function OurSpecials() {
     { name: 'Family Combo Feast', tag: 'Value Pack', price: '₹299.99', img: 'https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?auto=format&fit=crop&w=800&q=80' },
     { name: 'Loaded Fries Bowl', tag: 'Limited Time', price: '₹78.49', img: 'https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=800&q=80' }
   ];
-   const { addToCart } = useCart();
- 
+  const { addToCart } = useCart();
+
   return (
     <section className="section specials-section" id="specials">
       <div className="special-container">
@@ -29,10 +29,10 @@ function OurSpecials() {
     </section>
   );
 }
- 
+
 function FlipCard({ item }) {
   const [flipped, setFlipped] = useState(false);
- 
+
   return (
     <section className={`specials-card ${flipped ? "flipped" : ""}`}>
       <div className="card-inner">
@@ -41,22 +41,22 @@ function FlipCard({ item }) {
           <img src={item.img} alt={item.name} />
           <div className="card-body">
             <div className="body-top">
-            <h3>{item.name}</h3>
-            <p>Price: {item.price}</p>
+              <h3>{item.name}</h3>
+              <p>Price: {item.price}</p>
             </div>
             <div className="body-bottom">
-            <button className='special-button' onClick={() => setFlipped(true)}>View Details</button>
-            <button
-                  className="cart-add"
-                  aria-label={`Add ${item.name} to cart`}
-                  onClick={() => addToCart(item)}
-                >
-                  +
-                </button>
-                </div>
+              <button className='special-button' onClick={() => setFlipped(true)}>View Details</button>
+              <button
+                className="cart-add"
+                aria-label={`Add ${item.name} to cart`}
+                onClick={() => addToCart(item)}
+              >
+                +
+              </button>
+            </div>
           </div>
         </div>
- 
+
         {/* Back Side */}
         <div className="card-back">
           <img src={item.img} alt={item.name} />
@@ -64,13 +64,12 @@ function FlipCard({ item }) {
           <p>Special: {item.tag}</p>
           <p>Price: {item.price}</p>
           <p>Delicious choice handpicked for you!</p>
-          <button className='go-back' onClick={() => setFlipped(false)}>Go Back</button>
-          
+          <button className='go-back' onClick={() => setFlipped(false)}>Back</button>
+
         </div>
       </div>
     </section>
   );
 }
- 
+
 export default OurSpecials;
- 

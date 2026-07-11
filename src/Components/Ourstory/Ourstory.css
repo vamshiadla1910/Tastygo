@@ -24,8 +24,8 @@
 .year-badge {
   z-index: 1;
   position: absolute;
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   object-fit: contain;
   animation: spin360 10s linear infinite;
 }
@@ -94,7 +94,7 @@
 
 .img-top {
   right: 8%;
-  top: 0;
+  top: 30px;
   width: 46%;
   height: 180px;
 }
@@ -110,14 +110,14 @@
   position: absolute;
   left: 44%;
   top: 180px;
-  width: 104px;
-  height: 104px;
+  width: 124px;
+  height: 124px;
   border-radius: 50%;
   display: grid;
   place-items: center;
-  background: var(--card);
+  background:#eaeae7; 
   color: #ffffff;
-  border: 7px solid #0f0f0f;
+  border: 7px solid var(--surface);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
 }
 
@@ -136,7 +136,7 @@
 .stat-box {
   text-align: center;
   padding: 18px 12px;
-  background: var(--surface);
+  background:var(--surface);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 18px;
 }

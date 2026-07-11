@@ -95,8 +95,8 @@ function Navbar() {
       </div>
 
       <div className="cp">
-          <button onClick={toggleTheme}>
-            {theme === "dark" ? "🌞 Light" : "🌙 Dark"}
+          <button className="theme-btn"onClick={toggleTheme}>
+            {theme === "dark" ? "🌞" : "🌙"}
         </button>
         
         <div

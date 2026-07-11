@@ -50,7 +50,7 @@ function Service() {
             <img src={dessert} alt="Dessert" />
             <div className="content">
               <h2>Dessert</h2>
-              <p>Sweet, creamy desserts prepared fresh to give every meal a perfect ending.</p>
+              <p>Sweet, creamy desserts prepared fresh to give every meal a perfect.</p>
               <a href="#">Explore Menu</a>
             </div>
           </div>
@@ -64,7 +64,7 @@ function Service() {
           <p>Experience delicious food and premium services designed to make your dining experience unforgettable.</p>
         </div>
 
-        <div className="service-container">
+        <div className="offer-container">
           <div className="card">
             <div className="iconn">
               <img src={food} alt="" />
