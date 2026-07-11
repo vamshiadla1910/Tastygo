@@ -5,7 +5,9 @@ import { FaUser, FaShoppingCart, FaBars, FaTimes } from "react-icons/fa";
 import Loginpage from "../Login/Login";
 import { useCart } from "../../context/useCart";
 import "../../Components/Navbar/Navbar.css";
- 
+import { useTheme } from "../../context/TheameContext.jsx";
+
+
 const NAV_LINKS = [
   { name: "Home", type: "route", path: "/" },
   { name: "Menu", type: "route", path: "/menu" },
@@ -16,6 +18,14 @@ const NAV_LINKS = [
 ];
  
 function Navbar() {
+
+  const { theme, toggleTheme } = useTheme();
+  // Controls whether the login overlay is visible
+  
+
+  // cartCount comes from the shared CartContext, so it updates the
+  // instant addToCart() is called from MenuPage, even though MenuPage
+  // and Navbar are separate components.
   const { cartCount } = useCart();
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isCartBumping, setIsCartBumping] = useState(false);
@@ -24,7 +34,7 @@ function Navbar() {
  
   const navigate = useNavigate();
   const location = useLocation();
- 
+
   useEffect(() => {
     if (cartCount > prevCartCount.current) {
       setIsCartBumping(true);
@@ -34,14 +44,14 @@ function Navbar() {
     }
     prevCartCount.current = cartCount;
   }, [cartCount]);
- 
+
   useEffect(() => {
     document.body.style.overflow = isLoginOpen ? "hidden" : "auto";
  
     const handleEscKey = (event) => {
       if (event.key === "Escape") setIsLoginOpen(false);
     };
- 
+
     window.addEventListener("keydown", handleEscKey);
  
     return () => {
@@ -53,12 +63,12 @@ function Navbar() {
   const handleNavClick = (link) => {
     setIsLoginOpen(false);
     setIsMobileMenuOpen(false);
- 
+
     if (link.type === "route") {
       navigate(link.path);
       return;
     }
- 
+
     if (location.pathname !== "/") {
       navigate("/", { state: { scrollTo: link.id } });
     } else {
@@ -71,7 +81,7 @@ function Navbar() {
       <div className="logo" onClick={() => navigate("/")}>
         <img src={img} alt="Tastygo logo" />
       </div>
- 
+
       <div className="links">
         {NAV_LINKS.map((link, index) => (
           <span
@@ -85,7 +95,10 @@ function Navbar() {
       </div>
  
       <div className="cp">
-       
+          <button onClick={toggleTheme}>
+            {theme === "dark" ? "🌞 Light" : "🌙 Dark"}
+        </button>
+        
         <div
           className={`cart-icon-wrapper ${isCartBumping ? "cart-bump" : ""}`}
           onClick={() => navigate("/cart")}
@@ -93,7 +106,7 @@ function Navbar() {
           <FaShoppingCart className="icon" />
           {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
         </div>
- 
+
         <FaUser
           className="icon"
           onClick={() => {
@@ -101,7 +114,7 @@ function Navbar() {
             setIsMobileMenuOpen(false);
           }}
         />
- 
+
         <div
           className="icon menu-icon"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -109,7 +122,7 @@ function Navbar() {
           {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
         </div>
       </div>
- 
+
       {isMobileMenuOpen && (
         <div className="links mobile-links">
           {NAV_LINKS.slice(3).map((link) => (
@@ -119,7 +132,7 @@ function Navbar() {
           ))}
         </div>
       )}
- 
+
       {isLoginOpen && (
         <div
           className="login-overlay-backdrop"

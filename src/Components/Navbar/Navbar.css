@@ -2,9 +2,9 @@ body {
   width: 100%;
   margin: 0;
   padding: 0;
-  background-color: rgba(0, 0, 0, 0.9);
-}
- 
+background-color: var(--bg);
+  }
+
 .navbar {
   position: sticky;
   top: 0;
@@ -14,14 +14,14 @@ body {
   height: 80px;
   padding: 0 20px;
   background: radial-gradient(circle, #e8562f, rgb(0, 0, 0));
-  position: relative;
+  position: sticky;
 }
- 
+
 .logo {
   cursor: pointer;
   flex: 0 0 auto;
 }
- 
+
 .logo img {
   margin-top: 10px;
   margin-left: 0;
@@ -29,7 +29,7 @@ body {
   height: 100px;
   object-fit: contain;
 }
- 
+
 .links {
   flex: 1;
   display: flex;
@@ -37,7 +37,7 @@ body {
   align-items: center;
   gap: 20px;
 }
- 
+
 .links span {
   font-family: "Inter", sans-serif;
   font-weight: bold;
@@ -45,32 +45,32 @@ body {
   cursor: pointer;
   white-space: nowrap;
 }
- 
+
 .cp {
   flex: 0 0 auto;
   margin-right: 50px;
   display: flex;
   align-items: center;
 }
- 
+
 .icon {
   margin-left: 20px;
   font-size: 26px;
   color: #ffffff;
   cursor: pointer;
 }
- 
+
 .menu-icon {
   display: none;
 }
- 
+
 .cart-icon-wrapper {
   position: relative;
   display: inline-flex;
   align-items: center;
   cursor: pointer;
 }
- 
+
 .cart-badge {
   position: absolute;
   top: -6px;
@@ -89,28 +89,28 @@ body {
   box-shadow: 0 0 0 2px #000;
   pointer-events: none;
 }
- 
+
 .cart-bump .icon {
   animation: cartBump 0.5s ease;
 }
- 
+
 .cart-bump .cart-badge {
   animation: badgePop 0.5s ease;
 }
- 
+
 @keyframes cartBump {
   0% { transform: scale(1) rotate(0deg); }
   30% { transform: scale(1.35) rotate(-12deg); }
   60% { transform: scale(0.92) rotate(8deg); }
   100% { transform: scale(1) rotate(0deg); }
 }
- 
+
 @keyframes badgePop {
   0% { transform: scale(0.5); }
   50% { transform: scale(1.5); }
   100% { transform: scale(1); }
 }
- 
+
 .login-overlay-backdrop {
   position: fixed;
   inset: 0;
@@ -123,11 +123,11 @@ body {
   z-index: 999;
   animation: overlayFadeIn 0.2s ease;
 }
- 
+
 .login-overlay-content {
   position: relative;
 }
- 
+
 @keyframes overlayFadeIn {
   from {
     opacity: 0;
@@ -136,11 +136,11 @@ body {
     opacity: 1;
   }
 }
- 
+
 .mobile-links {
   display: none;
 }
- 
+
 @media (max-width: 768px) {
   .navbar {
     height: 70px;
@@ -148,37 +148,37 @@ body {
   }
 .cp{
   align-items: center;
-  margin-right: 80px;
+  margin-right: 0px;
 }
   .logo img {
     width: 90px;
     height: 100px;
     margin-top: 0;
   }
- 
+
   .links {
     gap: 12px;
   }
- 
+
   .links span {
     font-size: 14px;
   }
- 
+
   .desktop-only-link {
     display: none;
   }
- 
- 
- 
+
+  
+
   .icon {
     margin-left: 12px;
     font-size: 20px;
   }
- 
+
   .menu-icon {
     display: block;
   }
- 
+
   .mobile-links {
     display: flex;
     flex-direction: column;
@@ -195,30 +195,44 @@ body {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
     z-index: 100;
   }
- 
+
   .mobile-links span {
     font-size: 15px;
     width: 100%;
   }
 }
- 
+@keyframes overlayFadeIn{
+    from{ opacity: 0; }
+    to{ opacity: 1; }
+}
+
+.theme-btn{
+    padding:10px 20px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    background:orange;
+    color:var(--text);
+    font-size:16px;
+
 @media (min-width: 769px) {
   .mobile-links {
     display: none ;
   }
 }
- 
+
+
 @media (max-width: 480px) {
   .logo img {
     width: 75px;
     height: 100px;
     margin-top: 12px;
   }
- 
+
   .links {
     gap: 8px;
   }
- 
+
   .links span {
     font-size: 12px;
   }
@@ -230,7 +244,7 @@ body {
     font-size: 18px;
     margin-left: 10px;
   }
- 
+
   .mobile-links {
     top: 50px;
     margin-right: 22px;

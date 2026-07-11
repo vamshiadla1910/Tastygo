@@ -1,6 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
 import { allMenuItems, menuCategories } from "./menuData";
+import { FaFire, FaClock, FaStar, FaLeaf, FaPepperHot, FaUtensils, FaPizzaSlice } from 'react-icons/fa';
+import './Menu.css';
 
 function Menu() {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -37,6 +39,17 @@ function Menu() {
                 <div className="card-body">
                   <h3>{item.name}</h3>
                   <p className="muted">{item.desc}</p>
+
+                  <div className="food-details" aria-hidden={false}>
+                    <div className="food-detail"><FaUtensils className="icon"/> <span>{item.serves}</span></div>
+                    <div className="food-detail"><FaPizzaSlice className="icon"/> <span>{item.pieces}</span></div>
+                    <div className="food-detail"><FaFire className="icon"/> <span>{item.calories}</span></div>
+                    <div className="food-detail"><FaClock className="icon"/> <span>{item.prepTime}</span></div>
+                    <div className="food-detail"><FaStar className="icon"/> <span>{item.rating}</span></div>
+                    <div className="food-detail"><FaPepperHot className="icon"/> <span>{item.spice}</span></div>
+                    <div className="food-detail"><FaLeaf className="icon"/> <span>{item.type}</span></div>
+                  </div>
+
                   <div className="menu-card-footer">
                     <strong>{item.price}</strong>
                     <button className="plus-btn" aria-label={`Add ${item.name}`}>+</button>

@@ -1,187 +1,284 @@
-import { useEffect, useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
-import { updateOrderStatusInLocalStorage } from "../../services/orderService";
-import "./OrderSuccess.css";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  FaCheckCircle,
+  FaBoxOpen,
+  FaUtensils,
+  FaMotorcycle,
+  FaHome,
+} from "react-icons/fa";
 
-function OrderSuccess() {
-  const [order, setOrder] = useState(null);
-  const [statusTimeline, setStatusTimeline] = useState([]);
-  const [currentStatus, setCurrentStatus] = useState("Preparing Food");
+export default function OrderSuccess() {
   const navigate = useNavigate();
-  const location = useLocation();
+
+  const [order, setOrder] = useState(null);
+  const [step, setStep] = useState(1);
 
   useEffect(() => {
-    // Try navigation state first (best method)
-    if (location.state) {
-      setOrder(location.state);
-      setStatusTimeline(location.state.statusTimeline || []);
-      setCurrentStatus(location.state.status || "Preparing Food");
-      startStatusSimulation(location.state.statusTimeline || []);
-      return;
+    const latest = JSON.parse(localStorage.getItem("latestOrder"));
+
+    if (latest) {
+      setOrder(latest);
     }
 
-    // Fallback to localStorage
-    const stored = localStorage.getItem("latestOrder");
-    if (stored) {
-      try {
-        const orderData = JSON.parse(stored);
-        setOrder(orderData);
-        setStatusTimeline(orderData.statusTimeline || []);
-        setCurrentStatus(orderData.status || "Preparing Food");
-        startStatusSimulation(orderData.statusTimeline || []);
-      } catch (err) {
-        console.error("Invalid order data");
-      }
-    }
-  }, [location.state]);
+    // Progress Animation
+    const timer1 = setTimeout(() => setStep(2), 3000);
+    const timer2 = setTimeout(() => setStep(3), 6000);
+    const timer3 = setTimeout(() => setStep(4), 9000);
 
-  // Simulate status updates for demo
-  const startStatusSimulation = (timeline) => {
-    const timers = [];
-
-    // After 5 seconds → Preparing Food (already default)
-    timers.push(
-      setTimeout(() => {
-        updateTimeline(timeline, "Preparing Food");
-      }, 5000)
-    );
-
-    // After 10 seconds → Out for Delivery
-    timers.push(
-      setTimeout(() => {
-        updateTimeline(timeline, "Out for Delivery");
-      }, 10000)
-    );
-
-    // After 15 seconds → Delivered
-    timers.push(
-      setTimeout(() => {
-        updateTimeline(timeline, "Delivered");
-      }, 15000)
-    );
-
-    return () => timers.forEach((timer) => clearTimeout(timer));
-  };
-
-  const updateTimeline = (currentTimeline, newStatus) => {
-    const now = new Date().toISOString();
-    const updatedTimeline = currentTimeline.map((item) =>
-      item.status === newStatus
-        ? { ...item, completed: true, timestamp: now }
-        : item
-    );
-    setStatusTimeline(updatedTimeline);
-    setCurrentStatus(newStatus);
-
-    if (order) {
-      updateOrderStatusInLocalStorage(order.id, newStatus, updatedTimeline);
-    }
-  };
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+      clearTimeout(timer3);
+    };
+  }, []);
 
   if (!order) {
     return (
-      <div style={{ textAlign: "center", padding: "50px" }}>
-        <h2>No Order Found</h2>
-        <button onClick={() => navigate("/menu")}>Go to Menu</button>
+      <div
+        style={{
+          minHeight: "100vh",
+          background: "#111",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          color: "#fff",
+          fontSize: 22,
+        }}
+      >
+        No Order Found
       </div>
     );
   }
 
-  const orderDate = new Date(order.date);
-  const formattedDate = orderDate.toLocaleDateString("en-IN", {
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-  });
-
-  const details = [
-    {
-      label: "Order ID",
-      value: order.id || `SV-${Math.floor(100000 + Math.random() * 900000)}`,
-    },
-    { label: "Order Date", value: formattedDate },
-    {
-      label: "Estimated Delivery",
-      value: order.estimatedDelivery || "30-45 Minutes",
-    },
-    {
-      label: "Payment Method",
-      value: order.paymentMethod || "Cash on Delivery",
-    },
-    { label: "Order Status", value: currentStatus },
-  ];
-
   return (
-    <section className="order-success-page">
-      <div className="order-success-panel">
-        <div className="success-hero">
-          <svg className="checkmark-svg" viewBox="0 0 52 52">
-            <circle className="checkmark-circle" cx="26" cy="26" r="25" fill="none" />
-            <path className="checkmark-check" fill="none" d="M14 27l7 7 16-16" />
-          </svg>
+    <div
+      style={{
+        minHeight: "100vh",
+        background: "#111",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: 25,
+      }}
+    >
+      <div
+        style={{
+          width: "100%",
+          maxWidth: 900,
+          background: "#1a1a1a",
+          borderRadius: 20,
+          overflow: "hidden",
+          boxShadow: "0 20px 60px rgba(0,0,0,.5)",
+        }}
+      >
+        {/* Top */}
+        <div
+          style={{
+            background: "#28c76f",
+            padding: "45px 20px",
+            textAlign: "center",
+          }}
+        >
+          <FaCheckCircle
+            size={95}
+            color="white"
+            style={{
+              marginBottom: 15,
+            }}
+          />
 
-          <h1>Order Placed Successfully 🎉</h1>
-          <p className="lead">Your food will be delivered soon</p>
+          <h3
+            style={{
+              color: "white",
+              marginBottom: 10,
+              letterSpacing: 1,
+            }}
+          >
+            THANK YOU
+          </h3>
+
+          <h1
+            style={{
+              color: "#fff",
+              margin: 0,
+              fontSize: 36,
+            }}
+          >
+            YOUR ORDER IS CONFIRMED
+          </h1>
+
+          <p
+            style={{
+              color: "#ecfdf5",
+              marginTop: 12,
+            }}
+          >
+            Your delicious food is being prepared 🍕🍔
+          </p>
         </div>
 
-        <div className="order-tracking">
-          <h3>Order Tracking</h3>
-          <div className="tracking-timeline">
-            {statusTimeline.map((item, index) => (
-              <div
-                key={index}
-                className={`timeline-step ${item.completed ? "completed" : ""} ${
-                  item.status === currentStatus ? "active" : ""
-                }`}
-              >
-                <div className="timeline-dot">
-                  {item.completed ? (
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                      <polyline points="20 6 9 17 4 12"></polyline>
-                    </svg>
-                  ) : (
-                    <div className="dot-inner"></div>
-                  )}
-                </div>
-                <div className="timeline-content">
-                  <p className="status-label">{item.status}</p>
-                  {item.timestamp && (
-                    <p className="status-time">
-                      {new Date(item.timestamp).toLocaleTimeString("en-IN", {
-                        hour: "2-digit",
-                        minute: "2-digit",
-                      })}
-                    </p>
-                  )}
-                </div>
-              </div>
-            ))}
+        {/* Order Details */}
+
+        <div
+          style={{
+            padding: 35,
+          }}
+        >
+          <h2
+            style={{
+              color: "#ff6b35",
+            }}
+          >
+            Order #{order.id}
+          </h2>
+
+          <p style={{ color: "#ddd" }}>
+            Estimated Delivery :
+            <strong> 30 - 45 Minutes</strong>
+          </p>
+
+          <p style={{ color: "#ddd" }}>
+            Total Amount :
+            <strong style={{ color: "#ffcc00" }}>
+              ₹{order.summary?.grandTotal}
+            </strong>
+          </p>
+
+          {/* Timeline */}
+
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              marginTop: 45,
+              flexWrap: "wrap",
+              gap: 20,
+            }}
+          >
+            <Status
+              icon={<FaCheckCircle />}
+              title="Order Confirmed"
+              active={step >= 1}
+            />
+
+            <Status
+              icon={<FaUtensils />}
+              title="Preparing"
+              active={step >= 2}
+            />
+
+            <Status
+              icon={<FaMotorcycle />}
+              title="Out for Delivery"
+              active={step >= 3}
+            />
+
+            <Status
+              icon={<FaBoxOpen />}
+              title="Delivered"
+              active={step >= 4}
+            />
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              gap: 20,
+              marginTop: 50,
+              flexWrap: "wrap",
+            }}
+          >
+            <button
+              onClick={() => navigate("/order-success")}
+              style={{
+                padding: "14px 30px",
+                background: "#ff6b35",
+                color: "#fff",
+                border: "none",
+                borderRadius: 10,
+                cursor: "pointer",
+                fontWeight: "bold",
+                fontSize: 16,
+              }}
+            >
+              Track Order
+            </button>
+
+            <button
+              onClick={() => navigate("/menu")}
+              style={{
+                padding: "14px 30px",
+                background: "transparent",
+                color: "#fff",
+                border: "2px solid #ff6b35",
+                borderRadius: 10,
+                cursor: "pointer",
+                fontWeight: "bold",
+                fontSize: 16,
+              }}
+            >
+              Continue Shopping
+            </button>
+
+            <button
+              onClick={() => navigate("/")}
+              style={{
+                padding: "14px 30px",
+                background: "#222",
+                color: "#fff",
+                border: "none",
+                borderRadius: 10,
+                cursor: "pointer",
+                fontWeight: "bold",
+                fontSize: 16,
+              }}
+            >
+              <FaHome /> Home
+            </button>
           </div>
         </div>
-
-        <div className="order-card">
-          {details.map((item) => (
-            <div className="order-card-row" key={item.label}>
-              <span>{item.label}</span>
-              <strong>{item.value}</strong>
-            </div>
-          ))}
-        </div>
-
-        <div className="order-action-row">
-          <button className="primary-button" onClick={() => navigate("/")}>
-            Continue Shopping
-          </button>
-          <button
-            className="secondary-button"
-            onClick={() => navigate("/my-orders")}
-          >
-            View All Orders
-          </button>
-        </div>
       </div>
-    </section>
+    </div>
   );
 }
 
-export default OrderSuccess;
+function Status({ icon, title, active }) {
+  return (
+    <div
+      style={{
+        flex: 1,
+        minWidth: 140,
+        textAlign: "center",
+      }}
+    >
+      <div
+        style={{
+          width: 70,
+          height: 70,
+          margin: "auto",
+          borderRadius: "50%",
+          background: active ? "#28c76f" : "#333",
+          color: "#fff",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontSize: 28,
+          transition: ".4s",
+        }}
+      >
+        {icon}
+      </div>
+
+      <h4
+        style={{
+          marginTop: 15,
+          color: active ? "#28c76f" : "#888",
+        }}
+      >
+        {title}
+      </h4>
+    </div>
+  );
+}

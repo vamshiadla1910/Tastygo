@@ -1,9 +1,11 @@
+
 .menu-page {
-  min-height: 70vh;
+  min-height: 600px;
   padding: 50px 20px 70px;
   width: 85%;
   margin: 0 auto;
-  background: radial-gradient(circle at top, #181818 0%, #0d0d0d 55%);
+ background: var(--surface);
+  box-sizing: border-box;
 }
 
 .menu-page-heading {
@@ -12,16 +14,14 @@
 }
 
 .menu-eyebrow {
-  color: #ffcc00;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  font-size: 14px;
+  color: #e8562f;
+  font-size: 25px;
+  font-family: "Brush Script MT", cursive;
   margin-bottom: 6px;
 }
 
 .menu-page-heading h1 {
-  color: #e8562f;
-  font-family: "Brush Script MT", cursive;
+  color: var(--text);
   font-size: 64px;
   margin: 0;
 }
@@ -40,7 +40,7 @@
   border-radius: 30px;
   border: 2px solid #e8562f;
   background: transparent;
-  color: #ffffff;
+  color: var(--text);
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
@@ -53,20 +53,20 @@
 
 .menu-cat-btn.active {
   background: #e8562f;
-  color: #ffffff;
+  color: var(--text);
   box-shadow: 0 4px 14px rgba(232, 86, 47, 0.4);
 }
 
 /* Card grid */
 .menu-page-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
   gap: 30px;
 }
 
 .menu-page-card {
-  background: #111111;
-  color: #ffffff;
+  background: var(--bg);
+  color: var(--text);
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
@@ -87,40 +87,74 @@
 .menu-page-info {
   padding: 16px;
   position: relative;
+  
 }
 
 .menu-page-tag {
   display: inline-block;
   background: #e8562f;
-  color: #fff;
+  color: var(--text);
   font-size: 11px;
   font-weight: bold;
   text-transform: uppercase;
   padding: 3px 10px;
   border-radius: 12px;
-  margin-bottom: 8px;
+  margin: 8px 0 0 15px;
 }
 
 .menu-page-info h3 {
   margin: 0 0 8px;
-  font-size: 1.1rem;
+  font-size: 18px;
 }
 
 .menu-page-desc {
   font-size: 14px;
   line-height: 1.5;
-  color: #dddddd;
+  color: Var(--text);
   margin: 0 0 12px;
+}
+
+/* Food details shown under description when available */
+.food-details{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:8px;
+  margin:12px 0;
+  padding:10px;
+  background: rgba(255,255,255,0.03);
+  border:1px solid rgba(232,86,47,0.08);
+  border-radius:10px;
+  font-size:13px;
+  color:#fff;
+}
+
+.food-detail{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:13px;
+  color:#fff;
+  padding:6px 8px;
+  border-radius:8px;
+  background: rgba(255,255,255,0.01);
+  border:1px solid rgba(255,255,255,0.02);
+}
+
+.food-detail .icon{ color:#ff6b35; font-size:14px }
+
+@media (max-width:420px){
+  .food-details{grid-template-columns:repeat(1,1fr)}
 }
 
 .menu-page-footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
 }
 
 .menu-page-footer strong {
-  color: #ffcc00;
+  color: #ff9800;
   font-size: 16px;
 }
 
@@ -130,7 +164,7 @@
   border-radius: 50%;
   border: none;
   background: #e8562f;
-  color: #ffffff;
+  color: var(--text);
   font-size: 18px;
   line-height: 1;
   cursor: pointer;
@@ -139,4 +173,201 @@
 
 .menu-page-add:hover {
   background: #ff6b3d;
+}
+
+/* 1100px */
+@media (max-width: 1100px) {
+  .menu-page {
+    width: 92%;
+    min-height: 560px;
+    padding: 40px 18px 56px;
+  }
+
+  .menu-page-heading {
+    margin-bottom: 26px;
+  }
+
+  .menu-page-heading h1 {
+    font-size: 52px;
+  }
+
+  .menu-eyebrow {
+    font-size: 13px;
+  }
+
+  .menu-category-row {
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+
+  .menu-cat-btn {
+    padding: 10px 22px;
+    font-size: 15px;
+  }
+
+  .menu-page-grid {
+    gap: 24px;
+  }
+
+  .menu-page-img {
+    height: 190px;
+  }
+
+  .menu-page-info h3 {
+    font-size: 17px;
+  }
+
+  .menu-page-desc {
+    font-size: 13px;
+  }
+
+  .menu-page-footer strong {
+    font-size: 15px;
+  }
+}
+
+/* 750px */
+@media (max-width: 750px) {
+  .menu-page {
+    width: 94%;
+    min-height: 520px;
+    padding: 32px 14px 44px;
+  }
+
+  .menu-page-heading {
+    margin-bottom: 22px;
+  }
+
+  .menu-page-heading h1 {
+    font-size: 40px;
+  }
+
+  .menu-eyebrow {
+    font-size: 12px;
+    letter-spacing: 1px;
+  }
+
+  .menu-category-row {
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .menu-cat-btn {
+    padding: 9px 18px;
+    font-size: 10px;
+    border-radius: 24px;
+  }
+
+  .menu-page-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .menu-page-card {
+    border-radius: 14px;
+  }
+
+  .menu-page-img {
+    height: 180px;
+  }
+
+  .menu-page-info {
+    padding: 14px;
+  }
+
+  .menu-page-tag {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+
+  .menu-page-info h3 {
+    font-size: 16px;
+  }
+
+  .menu-page-desc {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+
+  .menu-page-footer strong {
+    font-size: 14px;
+  }
+
+  .menu-page-add {
+    width: 30px;
+    height: 30px;
+    font-size: 16px;
+  }
+}
+
+/* 480px */
+@media (max-width:480px){
+
+.menu-page-grid{
+    grid-template-columns: repeat(2,1fr);
+    gap:16px;
+    align-items: stretch;
+    padding: 10px 2px;
+}
+
+.menu-page-card{
+    display:flex;
+    flex-direction:column;
+
+    background:#2c2c2c;
+    border-radius:12px;
+
+    overflow:hidden;
+
+  height: 100%;
+}
+
+.menu-page-img{
+    height:90px;
+}
+.menu-page-tag {
+ font-size: 6px;
+ width: fit-content;
+ padding: 2px 3px;
+ margin: 4px 0 2px 6px;
+ font-weight:bold;
+}
+.menu-page-info{
+    display:flex;
+    flex-direction:column;
+    flex:1;
+    padding:2px 7px;
+}
+
+.menu-page-info h3{
+    font-size:12px;
+}
+
+.menu-page-desc{
+    
+    font-size:8px;
+    line-height:1.4;
+}
+
+.menu-page-footer{
+    margin-top:auto;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.menu-page-footer strong{
+    font-size:13px;
+}
+
+.menu-page-add{
+    width:20px;
+    height:20px;
+
+    font-size:14px;
+
+    padding: 0px;
+}
+
 }

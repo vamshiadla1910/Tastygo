@@ -21,7 +21,7 @@
 }
 
 .burger-card {
-  background: #111111;
+  background: var(--bg);
   color: #ffffff;
   border-radius: 16px;
   overflow: hidden;
@@ -62,4 +62,81 @@
   line-height: 1.5;
   color: #dddddd;
   margin: 0;
+}
+
+.food-details{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 16px;
+    margin:12px 0;
+}
+
+.food-detail{
+    display:flex;
+    align-items:center;
+    gap:6px;
+}
+
+.food-detail .icon{
+    color:#ff6b35;
+    font-size:13px;
+}
+
+.food-detail span{
+    color:#f2f2f2;
+    font-size:13px;
+    font-weight:500;
+    white-space:nowrap;
+}
+
+@media (max-width:480px){
+
+  .burger-section{
+    padding:15px 10px;
+  }
+
+  .burger-title{
+    font-size:34px;
+  }
+
+  .burger-card{
+    max-width:100%;
+    border-radius:14px;
+  }
+
+  .burger-img{
+    height:180px;
+  }
+
+  .burger-info{
+    padding:12px;
+  }
+
+  .burger-info h3{
+    font-size:17px;
+  }
+
+  .price{
+    font-size:17px;
+  }
+
+  .desc{
+    font-size:12px;
+  }
+
+  .food-details{
+    gap:8px 12px;
+  }
+
+  .food-detail{
+    width:auto;
+  }
+
+  .food-detail .icon{
+    font-size:12px;
+  }
+
+  .food-detail span{
+    font-size:12px;
+  }
 }
