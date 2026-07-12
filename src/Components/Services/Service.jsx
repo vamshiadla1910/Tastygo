@@ -6,9 +6,12 @@ import dessert from "../../assets/dessert.jpg"
 import ex from "../../assets/exclusive.png"
 import fd from "../../assets/fast-delivery.png"
 import food from "../../assets/food.png"
+import { useNavigate } from "react-router-dom";
 
 
 function Service() {
+  const navigate = useNavigate();
+
   return (
     <div className="totalservices">
       <section className="services">
@@ -24,7 +27,7 @@ function Service() {
             <div className="content">
               <h2>Pizza</h2>
               <p>Crispy crust, rich cheese and fresh toppings made for every pizza lover.</p>
-              <a href="#">Explore Menu</a>
+              <a onClick={() => navigate("/menu")}>Explore Menu</a>
             </div>
           </div>
 
@@ -33,7 +36,7 @@ function Service() {
             <div className="content">
               <h2>Burger</h2>
               <p>Juicy burgers with premium ingredients and unforgettable flavors.</p>
-              <a href="#">Explore Menu</a>
+              <a onClick={() => navigate("/menu")}>Explore Menu</a>
             </div>
           </div>
 
@@ -42,7 +45,7 @@ function Service() {
             <div className="content">
               <h2>French Fries</h2>
               <p>Golden, crispy fries served fresh and hot just to make you happy.</p>
-              <a href="#">Explore Menu</a>
+              <a onClick={() => navigate("/menu")}>Explore Menu</a>
             </div>
           </div>
 
@@ -51,7 +54,7 @@ function Service() {
             <div className="content">
               <h2>Dessert</h2>
               <p>Sweet, creamy desserts prepared fresh to give every meal a perfect.</p>
-              <a href="#">Explore Menu</a>
+              <a onClick={() => navigate("/menu")}>Explore Menu</a>
             </div>
           </div>
         </div>

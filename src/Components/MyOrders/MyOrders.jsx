@@ -37,7 +37,7 @@ function MyOrders() {
     return (
       <section className="my-orders-page">
         <div className="page-heading">
-          <h1>My Orders</h1>
+          <h1 className="heading">My Orders</h1>
         </div>
         <div className="loading">Loading your orders...</div>
       </section>
