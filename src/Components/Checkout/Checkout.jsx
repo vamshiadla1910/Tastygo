@@ -2,12 +2,12 @@ import React, { useEffect, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../context/useCart";
 import "./Checkout.css";
-
+ 
 // ...existing code...
 function Checkout() {
   const { cartItems, getTotalPrice, clearCart } = useCart();
   const navigate = useNavigate();
-
+ 
   const initialForm = {
     fullName: "",
     mobileNumber: "",
@@ -19,33 +19,36 @@ function Checkout() {
     pincode: "",
     paymentMethod: "Cash on Delivery",
   };
-
+ 
   const [form, setForm] = useState(initialForm);
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState("");
-
+ 
   // modal state & order shown
   const [showModal, setShowModal] = useState(false);
   const [modalOrder, setModalOrder] = useState(null);
   const modalRef = useRef(null);
-
+ 
   useEffect(() => {
-    if (cartItems.length === 0) {
-      navigate("/menu", { replace: true });
-    }
-  }, [cartItems, navigate]);
-
+  if (
+    cartItems.length === 0 &&
+    !showModal
+  ) {
+    navigate("/menu", { replace: true });
+  }
+}, [cartItems, navigate, showModal]);
+ 
   const subtotal = getTotalPrice();
   const deliveryCharge = subtotal > 0 ? 50 : 0;
   const gst = +(subtotal * 0.05).toFixed(2);
   const grandTotal = +(subtotal + deliveryCharge + gst).toFixed(2);
-
+ 
   const parsePrice = (value) => {
     if (typeof value === "number") return value;
     return Number(String(value).replace(/[^\d.]/g, "")) || 0;
   };
-
+ 
   const formatPrice = (value) => {
     const rounded = Number(value.toFixed(2));
     return `₹${rounded.toLocaleString("en-IN", {
@@ -53,12 +56,12 @@ function Checkout() {
       maximumFractionDigits: 2,
     })}`;
   };
-
+ 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setForm((prev) => ({ ...prev, [name]: value }));
   };
-
+ 
   const validateForm = () => {
     const newErrors = {};
     if (!form.fullName.trim()) newErrors.fullName = "Full Name is required.";
@@ -70,11 +73,11 @@ function Checkout() {
     if (!form.state.trim()) newErrors.state = "State is required.";
     if (!/^\d{6}$/.test(form.pincode)) newErrors.pincode = "Pincode must be 6 digits.";
     if (!form.paymentMethod) newErrors.paymentMethod = "Please select a payment method.";
-
+ 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-
+ 
   // close modal on Escape
   useEffect(() => {
     function onKey(e) {
@@ -83,31 +86,31 @@ function Checkout() {
     if (showModal) document.addEventListener("keydown", onKey);
     return () => document.removeEventListener("keydown", onKey);
   }, [showModal]);
-
+ 
   const handleOverlayClick = (e) => {
     if (modalRef.current && !modalRef.current.contains(e.target)) {
       setShowModal(false);
     }
   };
-
+ 
   const handlePlaceOrder = async (event) => {
     if (event && typeof event.preventDefault === "function") event.preventDefault();
-
+ 
     // Prevent duplicate submissions
     if (isSubmitting || sessionStorage.getItem("orderProcessing") === "true") return;
-
+ 
     setSubmitError("");
     if (!validateForm()) return;
-
+ 
     try {
       setIsSubmitting(true);
       sessionStorage.setItem("orderProcessing", "true");
-
+ 
       // build order
       const now = new Date();
       const randomOrderNumber = Math.floor(100000 + Math.random() * 900000);
       const orderId = `SV-${randomOrderNumber}`;
-
+ 
       const order = {
         id: orderId,
         date: now.toISOString(),
@@ -134,21 +137,20 @@ function Checkout() {
         estimatedDelivery: "30-45 Minutes",
         status: "Preparing Food",
       };
-
+ 
       // persist the order (orders array + latestOrder)
       const existingOrders = JSON.parse(localStorage.getItem("orders") || "[]");
       existingOrders.unshift(order);
       localStorage.setItem("orders", JSON.stringify(existingOrders));
       try { localStorage.setItem("myOrders", JSON.stringify(existingOrders)); } catch (e) {}
       localStorage.setItem("latestOrder", JSON.stringify(order));
-
+ 
       // Open the CENTERED modal RIGHT AFTER successful save (no redirect)
       setModalOrder(order);
       setShowModal(true);
-
+ 
       // Clear cart only AFTER modal is shown (requirement)
-      clearCart();
-
+ 
       // mark finalized to prevent duplicates via back button
       sessionStorage.setItem("orderSubmitted", order.id);
     } catch (err) {
@@ -159,14 +161,14 @@ function Checkout() {
       sessionStorage.removeItem("orderProcessing");
     }
   };
-
+ 
   return (
     <section className="checkout-page">
       <div className="checkout-heading">
         <p>Checkout</p>
         <h1>Confirm Your Order</h1>
       </div>
-
+ 
       <div className="checkout-layout">
         <main className="checkout-form-panel">
           <div className="checkout-card">
@@ -177,31 +179,31 @@ function Checkout() {
                 <input id="fullName" name="fullName" type="text" value={form.fullName} onChange={handleChange} />
                 {errors.fullName && <p className="field-error">{errors.fullName}</p>}
               </div>
-
+ 
               <div className="field-group">
                 <label htmlFor="mobileNumber">Mobile Number</label>
                 <input id="mobileNumber" name="mobileNumber" type="tel" value={form.mobileNumber} onChange={handleChange} />
                 {errors.mobileNumber && <p className="field-error">{errors.mobileNumber}</p>}
               </div>
-
+ 
               <div className="field-group">
                 <label htmlFor="email">Email</label>
                 <input id="email" name="email" type="email" value={form.email} onChange={handleChange} />
                 {errors.email && <p className="field-error">{errors.email}</p>}
               </div>
-
+ 
               <div className="field-group">
                 <label htmlFor="houseNumber">House Number</label>
                 <input id="houseNumber" name="houseNumber" type="text" value={form.houseNumber} onChange={handleChange} />
                 {errors.houseNumber && <p className="field-error">{errors.houseNumber}</p>}
               </div>
-
+ 
               <div className="field-group">
                 <label htmlFor="street">Street</label>
                 <input id="street" name="street" type="text" value={form.street} onChange={handleChange} />
                 {errors.street && <p className="field-error">{errors.street}</p>}
               </div>
-
+ 
               <div className="field-group half">
                 <label htmlFor="city">City</label>
                 <input id="city" name="city" type="text" value={form.city} onChange={handleChange} />
@@ -212,7 +214,7 @@ function Checkout() {
                 <input id="state" name="state" type="text" value={form.state} onChange={handleChange} />
                 {errors.state && <p className="field-error">{errors.state}</p>}
               </div>
-
+ 
               <div className="field-group">
                 <label htmlFor="pincode">Pincode</label>
                 <input id="pincode" name="pincode" type="text" value={form.pincode} onChange={handleChange} />
@@ -221,7 +223,7 @@ function Checkout() {
             </form>
           </div>
         </main>
-
+ 
         <aside className="checkout-summary-panel">
           <div className="checkout-card summary-card">
             <h2>Order Summary</h2>
@@ -240,7 +242,7 @@ function Checkout() {
                 );
               })}
             </div>
-
+ 
             <div className="checkout-totals">
               <div className="checkout-total-row">
                 <span>Subtotal</span>
@@ -259,20 +261,20 @@ function Checkout() {
                 <strong>{formatPrice(grandTotal)}</strong>
               </div>
               <div className="field-group payment-group">
-                <label>Payment Method</label>
+                <h5>Payment Method</h5>
                 <div className="payment-options">
                   {["Cash on Delivery", "UPI Payment", "Credit/Debit Card"].map((method) => (
-                    <label key={method} className="payment-option">
+                    <div key={method} className="payment-option">
                       <input type="radio" name="paymentMethod" value={method} checked={form.paymentMethod === method} onChange={handleChange} />
                       {method}
-                    </label>
+                    </div>
                   ))}
                 </div>
                 {errors.paymentMethod && <p className="field-error">{errors.paymentMethod}</p>}
               </div>
-
+ 
               {submitError && <p className="field-error">{submitError}</p>}
-
+ 
               <button type="button" className="place-order-btn" onClick={handlePlaceOrder} disabled={isSubmitting}>
                 {isSubmitting ? (
                   <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
@@ -289,13 +291,13 @@ function Checkout() {
           </div>
         </aside>
       </div>
-
+ 
       {/* Success Modal */}
       {showModal && modalOrder && (
         <div className="order-modal-overlay" onMouseDown={handleOverlayClick}>
           <div className="order-modal" ref={modalRef} onMouseDown={(e) => e.stopPropagation()}>
             <button className="modal-close" aria-label="Close" onClick={() => setShowModal(false)}>×</button>
-
+ 
             <div className="modal-content" style={{ textAlign: "center" }}>
               <div style={{ display: "flex", justifyContent: "center", marginBottom: 10 }}>
                 <svg width="72" height="72" viewBox="0 0 52 52" aria-hidden>
@@ -303,10 +305,10 @@ function Checkout() {
                   <path d="M14 27l7 7 16-16" stroke="#2E9A4A" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" fill="none" strokeDasharray="48" strokeDashoffset="48" style={{ animation: "draw 420ms ease forwards 120ms" }} />
                 </svg>
               </div>
-
+ 
               <h2 style={{ margin: "6px 0" }}>Order Placed Successfully!</h2>
               <p style={{ margin: "8px 0 16px", color: "#666" }}>Thank you! Your order has been placed successfully.</p>
-
+ 
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, textAlign: "left" }}>
                 <div>
                   <p className="label">Order ID</p>
@@ -324,13 +326,13 @@ function Checkout() {
                   <p className="label">Estimated Delivery</p>
                   <p className="value">30–45 minutes</p>
                 </div>
-                <div style={{ gridColumn: "1 / -1" }}>
+               <div className="order-details-grid"> 
                   <p className="label">Payment Method</p>
                   <p className="value">{modalOrder.paymentMethod}</p>
                 </div>
               </div>
-
-              <div style={{ display: "flex", gap: 10, justifyContent: "center", marginTop: 18, flexWrap: "wrap" }}>
+ 
+              <div className="modal-actions">
                 <button className="primary" onClick={() => { setShowModal(false); navigate("/my-orders"); }} style={{ background: "#2E9A4A", color: "#fff", padding: "10px 14px", borderRadius: 8, border: "none" }}>
                   View My Orders
                 </button>
@@ -342,7 +344,7 @@ function Checkout() {
           </div>
         </div>
       )}
-
+ 
       <style>{`
         @keyframes spin { to { transform: rotate(360deg); } }
         @keyframes draw { to { stroke-dashoffset: 0; } }
@@ -367,6 +369,7 @@ function Checkout() {
     </section>
   );
 }
-
+ 
 export default Checkout;
 // ...existing code...
+ 
