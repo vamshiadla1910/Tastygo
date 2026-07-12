@@ -1,4 +1,8 @@
-.about-section{
+.about-section {
+  padding: 70px 20px;
+  width:90%;
+  background: var(--card);
+  color: var(--text);
   width: 80%;
   margin: auto;
 }

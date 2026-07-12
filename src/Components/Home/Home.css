@@ -132,7 +132,9 @@
         line-height: 1.6;
     }
 
-   
+    .map-wrapper {
+        min-height: 220px;
+    }
 }
 
 @media(max-width:480px) {

@@ -8,6 +8,10 @@
   background: var(--surface);
   box-sizing: border-box;
 }
+h1{
+  color: #e8562f;
+  font-family: "Brush Script MT", cursive;
+}
 
 .page-heading {
   text-align: center;
@@ -62,7 +66,7 @@
   border-radius: 999px;
   border: none;
   background: linear-gradient(135deg, #ff8a3d, #ff4b4b);
-  color: #1a0700;
+  color: var(--text--secondary);
   font-weight: 700;
   font-size: 16px;
   cursor: pointer;
@@ -129,7 +133,7 @@
 
 .order-date {
   margin: 0;
-  color: #a8a8a8;
+  color: var(--text--secondary);
   font-size: 14px;
 }
 
@@ -140,14 +144,14 @@
 }
 
 .detail-item {
-  background: rgba(255, 255, 255, 0.03);
+  background: var(--border);
   border-radius: 12px;
   padding: 12px 16px;
 }
 
 .detail-label {
   margin: 0 0 4px 0;
-  color: #b8b8b8;
+  color: var(--text--secondary);
   font-size: 13px;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -169,7 +173,7 @@
 
 .list-title {
   margin: 0 0 12px 0;
-  color: #d0d0d0;
+  color: var(--text--secondary);
   font-size: 18px;
   font-weight: 600;
 }
@@ -180,7 +184,7 @@
   align-items: center;
   gap: 12px;
   padding: 8px 0;
-  color: #c8c8c8;
+  color: var(--text--secondary);
   font-size: 14px;
 }
 
@@ -201,41 +205,41 @@
 }
 
 .order-address {
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--border);
   border-radius: 12px;
   padding: 16px;
 }
 
 .address-title {
   margin: 0 0 8px 0;
-  color: #d0d0d0;
+  color: var(--text--secondary);
   font-size: 18px;
   font-weight: 600;
 }
 
 .address-text {
   margin: 0;
-  color: #c8c8c8;
+  color: var(--text--secondary);
   font-size: 16px;
   line-height: 1.6;
 }
 
 .order-contact {
-  background: rgba(255, 255, 255, 0.02);
+  background: var(--border);
   border-radius: 12px;
   padding: 16px;
 }
 
 .contact-title {
   margin: 0 0 8px 0;
-  color: #d0d0d0;
+  color: var(--text--secondary);
   font-size: 18px;
   font-weight: 600;
 }
 
 .contact-text {
   margin: 4px 0;
-  color: #c8c8c8;
+  color: var(--text--secondary);
   font-size: 16px;
 }
 
@@ -252,7 +256,7 @@
   border-radius: 8px;
   border: none;
   background: linear-gradient(135deg, #ff8a3d, #ff4b4b);
-  color: #1a0700;
+  color: var(--text);
   font-weight: 700;
   font-size: 15px;
   cursor: pointer;

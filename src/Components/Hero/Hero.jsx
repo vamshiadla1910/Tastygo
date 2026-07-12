@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import "./Hero.css";
 
 const images = [
@@ -10,6 +11,8 @@ const images = [
 
 export default function Hero() {
   const [index, setIndex] = useState(0);
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -19,7 +22,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <div className="hero">
+    <div className="hero" id="hero">
       {/* Background */}
       <div
         className="hero-bg"
@@ -45,8 +48,8 @@ export default function Hero() {
           </p>
 
           <div className="buttons">
-            <button className="btn primary">Order Now</button>
-            <button className="btn secondary">View Menu</button>
+            <button className="btn primary" onClick={() => navigate("/Cart")}>Order Now</button>
+            <button className="btn secondary" onClick={() => navigate("/menu")}>View Menu</button>
           </div>
         </motion.div>
       </div>

@@ -11,6 +11,10 @@
 .heading span {
   display: block;
   color: #e8562f;
+  font-weight: 600;
+  font-family: "Brush Script MT", cursive;
+  letter-spacing: 1px;
+  
   font-family: "Brush Script MT", cursive;
   font-size: 50px;
  
@@ -81,7 +85,7 @@
  {
   font-size: 25px;
   margin-bottom: 10px;
-  color: var(--text);
+  color: var(--text--secondary);
   font-family: Georgia, "Times New Roman", serif;
 }
  
@@ -352,6 +356,13 @@ content p,
  .iconn{
   width:50px;
   height: 50px;
+}
+.services{
+   padding:20px 5px;
+}
+ 
+
+ 
  }
  .iconn img{
   width:40px;

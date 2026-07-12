@@ -16,7 +16,7 @@ const NAV_LINKS = [
   { name: "About", type: "route", path: "/about" },
   { name: "Services", type: "route", path: "/service" },
 ];
-
+ 
 function Navbar() {
 
   const { theme, toggleTheme } = useTheme();
@@ -31,7 +31,7 @@ function Navbar() {
   const [isCartBumping, setIsCartBumping] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const prevCartCount = useRef(cartCount);
-
+ 
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -47,19 +47,19 @@ function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = isLoginOpen ? "hidden" : "auto";
-
+ 
     const handleEscKey = (event) => {
       if (event.key === "Escape") setIsLoginOpen(false);
     };
 
     window.addEventListener("keydown", handleEscKey);
-
+ 
     return () => {
       document.body.style.overflow = "auto";
       window.removeEventListener("keydown", handleEscKey);
     };
   }, [isLoginOpen]);
-
+ 
   const handleNavClick = (link) => {
     setIsLoginOpen(false);
     setIsMobileMenuOpen(false);
@@ -75,7 +75,7 @@ function Navbar() {
       document.getElementById(link.id)?.scrollIntoView({ behavior: "smooth" });
     }
   };
-
+ 
   return (
     <div className="navbar">
       <div className="logo" onClick={() => navigate("/")}>
@@ -93,7 +93,7 @@ function Navbar() {
           </span>
         ))}
       </div>
-
+ 
       <div className="cp">
           <button className="theme-btn"onClick={toggleTheme}>
             {theme === "dark" ? "🌞" : "🌙"}
@@ -149,5 +149,5 @@ function Navbar() {
     </div>
   );
 }
-
+ 
 export default Navbar;
