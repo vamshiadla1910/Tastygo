@@ -101,24 +101,26 @@
 
 @media (max-width: 768px) {
     .restaurant-details {
-        padding: 0 20px;
+        padding: 10px 20px 30px;
     }
 
-    .restaurant-details>p {
+    .restaurant-details p {
         width: 100%;
+        font-size: 14px;
         margin: 0 0 20px;
     }
 
     .map-grid {
         display: grid;
-        grid-template-columns: repeat(2, minmax(220px, 1fr)) !important;
+        grid-template-columns: repeat(3, 1fr);
         gap: 18px;
         padding: 0 20px;
     }
 
     .detail {
-        padding: 18px;
+        padding: 0px;
         border-radius: 14px;
+        align-items: center;
     }
 
     .detail h4 {

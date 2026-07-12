@@ -113,8 +113,7 @@ const Loader = () => {
           initial={{ width: "0%" }}
           animate={{ width: "100%" }}
           transition={{
-            duration: 4,
-            repeat: Infinity,
+            duration: 2,
             ease: "linear",
           }}
         />

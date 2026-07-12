@@ -112,9 +112,11 @@
   .specialization-section {
     padding: 50px 0px 100px 0px;
   }
-
+.specialization-section .special-card{
+  height: 270px;
+}
   .specialization-section .section-heading h2 {
-    font-size: 2rem;
+    font-size: 32px;
   }
 
   .specialization-section .eyebrow {
@@ -127,7 +129,7 @@
   }
 
   .specialization-section .special-card img {
-    height: 150px;
+    height: 40%;
   }
 
   .specialization-section .special-body {
@@ -135,11 +137,11 @@
   }
 
   .specialization-section .special-body h3 {
-    font-size: 1rem;
+    font-size: 14px;
   }
 
   .specialization-section .special-body p {
-    font-size: 0.9rem;
+    font-size:10px;
   }
 
 }

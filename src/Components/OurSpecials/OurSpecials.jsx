@@ -22,7 +22,7 @@ function OurSpecials() {
         </div>
         <div className="specials-grid">
           {specials.map((item) => (
-            <FlipCard key={item.name} item={item} />
+            <FlipCard key={item.name} item={item} addToCart={addToCart}/>
           ))}
         </div>
       </div>
@@ -30,7 +30,7 @@ function OurSpecials() {
   );
 }
 
-function FlipCard({ item }) {
+function FlipCard({ item,addToCart }) {
   const [flipped, setFlipped] = useState(false);
 
   return (

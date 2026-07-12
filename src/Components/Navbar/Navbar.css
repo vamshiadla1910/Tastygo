@@ -140,6 +140,23 @@ background-color: var(--bg);
   display: none;
 }
 
+@keyframes overlayFadeIn{
+    from{ opacity: 0; }
+    to{ opacity: 1; }
+}
+
+.theme-btn{
+    padding: 3px 2px;
+    border:none;
+    cursor:pointer;
+    background:none;
+    color:var(--text);
+    font-size:26px;
+}
+.theme-btn:hover{
+  transform: translateY(-5px);
+}
+
 @media (max-width: 768px) {
   .navbar {
     height: 60px;
@@ -163,9 +180,7 @@ background-color: var(--bg);
     font-size: 14px;
   }
 
-  .desktop-only-link {
-    display: none;
-  }
+  
 
   
 
@@ -174,9 +189,7 @@ background-color: var(--bg);
     font-size: 20px;
   }
 
-  .menu-icon {
-    display: block;
-  }
+  
 
   .mobile-links {
     display: flex;
@@ -200,29 +213,18 @@ background-color: var(--bg);
     width: 100%;
   }
 }
-@keyframes overlayFadeIn{
-    from{ opacity: 0; }
-    to{ opacity: 1; }
-}
 
-.theme-btn{
-    padding: 3px 2px;
-    border:none;
-    cursor:pointer;
-    background:none;
-    color:var(--text);
-    font-size:26px;
-}
-.theme-btn:hover{
-  transform: translateY(-5px);
-}
-@media (min-width: 769px) {
-  .mobile-links {
-    display: none ;
+
+@media (max-width:580px){
+  .desktop-only-link {
+    display: none;
+  }
+  
+  .menu-icon {
+    margin-top: 6px;
+    display: block;
   }
 }
-
-
 @media (max-width: 480px) {
   .logo img {
     width: 75px;
@@ -257,4 +259,28 @@ background-color: var(--bg);
     text-align: center;
     border-radius: 5px;
   }
+}
+
+@media (max-width:340px){
+  .navbar{
+    height: 50px;
+    padding: 0px 5px;
+  }
+  .logo img{
+    width: 40px;
+    height: 40px;
+    margin-top:35px;
+  }
+   .links span {
+    font-size: 10px;
+  }
+  .icon {
+    font-size: 16px;
+    margin-left: 7px;
+  }
+  
+  .menu-icon{
+    margin-top: 4px;
+  }
+
 }

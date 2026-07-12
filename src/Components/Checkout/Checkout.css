@@ -1,19 +1,19 @@
 .checkout-page {
   padding: 40px 24px;
-  max-width: 1160px;
-  width: 100%;
+  width: 80%;
   margin: 0 auto;
   color: var(--text);
   box-sizing: border-box;
 }
 
 .checkout-heading p {
-  color: darkgoldenrod;
-  
+  color: var(--primary);
+   
+  font-family: "Brush Script MT", cursive;
   font-weight: 700;
   margin-bottom: 8px;
   text-align: center;
-  font-size: 16px;
+  font-size:30px;
 }
 
 .checkout-heading h1 {
@@ -96,6 +96,7 @@
 
 .payment-group .payment-options {
   display: grid;
+  grid-template-columns: repeat(3,1fr);
   width: 400px;
   max-width: 100%;
   margin: auto;
@@ -104,23 +105,25 @@
 
 .payment-option {
   display: flex;
+  flex-direction: column;
+  
   align-items: center;
   gap: 12px;
   padding: 14px 16px;
   background: var(--bg);
   border-radius: 18px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  width: 400px;
+  width: 300px;
   max-width: 100%;
   margin: 0 auto;
   box-sizing: border-box;
-  font-size: 15px;
+  font-size: 13px;
 }
-.payment-option label{
-  margin-left :10px;
-}
-.payment-option input {
+
+.field-group .payment-option input {
   accent-color: #ff8a3d;
+  height: 30px;
+  width: 16px;
 }
 
 .place-order-btn {
@@ -133,7 +136,7 @@
   font-size: 16px;
   font-weight: 700;
   cursor: pointer;
-  width: 200px;
+  width: 100%;
 }
 
 .checkout-summary-panel {
@@ -169,8 +172,10 @@
 }
 
 .checkout-totals {
-  margin-top: 24px;
-  display: grid;
+  width: 95%;
+  margin: 24px auto 0;
+  display: flex;
+  flex-direction: column;
   gap: 16px;
 }
 
@@ -181,12 +186,167 @@
   font-size: 15px;
 }
 
+.payment-group h5{
+  font-size: 25px;
+  margin: auto;
+
+}
+
+
+
 .checkout-total-row.grand {
   padding-top: 16px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   color: var(--text);
   font-size: 17px;
   font-weight: 700;
+}
+.order-modal-overlay{
+    position:fixed;
+    inset:0;
+
+    background:rgba(0,0,0,.65);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+}
+
+.order-modal{
+
+    width:90%;
+    max-width:650px;
+
+    background:#1f1f1f;
+
+    color:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    position:relative;
+
+    box-shadow:
+    0 20px 50px rgba(0,0,0,.4);
+
+    animation:modalPop .3s ease;
+}
+
+@keyframes modalPop{
+
+    from{
+        transform:scale(.8);
+        opacity:0;
+    }
+
+    to{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+.modal-content{
+
+    text-align:center;
+}
+
+.modal-content h2{
+
+    font-size:32px;
+
+    margin-top:15px;
+
+    color:#4ade80;
+}
+
+.modal-content .label{
+
+    color:#999;
+
+    font-size:13px;
+
+    margin-bottom:4px;
+}
+
+.modal-content .value{
+
+    color:white;
+
+    font-weight:600;
+
+    word-break:break-word;
+}
+
+.order-details-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:18px;
+
+    margin-top:25px;
+
+    text-align:left;
+}
+
+.modal-close{
+
+    position:absolute;
+
+    top:15px;
+    right:20px;
+
+    border:none;
+
+    background:none;
+
+    color:#999;
+
+    font-size:30px;
+
+    cursor:pointer;
+}
+
+.modal-actions{
+
+    margin-top:30px;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+}
+
+.modal-actions button{
+
+    padding:12px 20px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+}
+
+.primary{
+
+    background:#16a34a;
+
+    color:white;
+}
+
+.secondary{
+
+    background:white;
+
+    color:black;
 }
 
 /* 1100px */
@@ -227,10 +387,11 @@
 
 /* 980px */
 @media (max-width: 980px) {
-  .checkout-layout {
-    grid-template-columns: 1fr;
+  
+  
+  .checkout-page{
+    width: 90%;
   }
-
   .checkout-summary-panel {
     position: relative;
     top: auto;
@@ -244,6 +405,10 @@
 
 /* 750px */
 @media (max-width: 750px) {
+  
+  .checkout-layout {
+    grid-template-columns: 1fr;
+  }
   .checkout-page {
     padding: 24px 16px;
   }
@@ -353,9 +518,22 @@
     margin-top: 20px;
     gap: 16px;
   }
+.payment-group h5{
+  font-size: 20px;
+  margin: auto;
 
-  .checkout-card ,.payment-group{
+}
+.field-group .payment-option input{
+  width: 10px;
+  height: 10px;
+}
+  .checkout-card {
     padding: 14px;
+    border-radius: 14px;
+    margin-bottom: 30px;
+  }
+  .payment-group{
+    margin:0px 4px;
     border-radius: 14px;
     margin-bottom: 30px;
   }
@@ -371,7 +549,7 @@
   }
 
   .field-group input {
-    font-size: 8px;
+    font-size: 10px;
     padding: 9px 7px;
     border-radius: 12px;
     width: 80%;
@@ -382,7 +560,7 @@
   }
 
   .payment-option {
-    font-size: 13px;
+    font-size: 10px;
     padding: 11px 12px;
     border-radius: 12px;
   }
@@ -415,4 +593,33 @@
   .checkout-total-row.grand {
     font-size: 15px;
   }
+  
+
+.order-modal{
+
+    width:95%;
+
+    padding:20px;
+}
+
+.modal-content h2{
+
+    font-size:24px;
+}
+
+.order-details-grid{
+
+    grid-template-columns:1fr;
+}
+
+.modal-actions{
+
+    flex-direction:column;
+}
+
+.modal-actions button{
+
+    width:100%;
+}
+}
 }
