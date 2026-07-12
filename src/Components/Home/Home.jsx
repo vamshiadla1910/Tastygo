@@ -54,10 +54,10 @@ function Home() {
                 pizzas, burgers, fries, desserts, and much more.
               </p>
 
-              <div className="order-details-grid">
+              <div className="map-grid">
 
                 <div className="detail">
-                  
+
                   <h4>📍 Address</h4>
 
                   <p>
@@ -70,12 +70,12 @@ function Home() {
                 </div>
 
                 <div className="detail">
-                  
+
                   <h4>📞 Contact</h4>
 
                   <p>+91 98765 43210</p>
 
-                  <h4 className="email-title">@ Email</h4>
+                  <h4 className="email-title">✉️ Email</h4>
 
                   <p>tastygo@gmail.com</p>
                 </div>

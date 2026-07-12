@@ -20,8 +20,8 @@ function Footer() {
         <div className="footer-nav">
           <div className="footer-logo small-logo">Tasty<span>go</span></div>
           <div className="footer-links">
-            <a href="#home">Home</a>
-            <a href="#specials">Our Specials</a>
+            <a href="/home">Home</a>
+            <a href="/special">Our Specials</a>
             <a href="/menu">Menu</a>
           </div>
         </div>

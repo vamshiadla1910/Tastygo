@@ -19,8 +19,8 @@ body.dark {
 body.light {
   --bg: #ffffff;
   --surface: #f5f5f5;
-  --card: #ffffff;
-  --text: #000000;   /* ✅ FIX */
+  --card:  #ffffff;
+  --text: #000000;  
   --text-secondary: #444444;
   --border: #dddddd;
 
