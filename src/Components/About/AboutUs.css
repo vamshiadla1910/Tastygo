@@ -96,9 +96,8 @@
 
 .about-card p {
   color:var(--text);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.7;
-  font-size:18px;
+  font-size:15px;
   text-align: left;
 }
 

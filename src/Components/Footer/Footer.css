@@ -175,7 +175,7 @@
     font-size:13px;
   }
 }
-@media (max-width:425px){
+@media (max-width:480px){
 
   .footer{
     padding:20px 0 14px;

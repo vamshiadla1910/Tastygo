@@ -43,7 +43,7 @@
 }
 
 .left h1 {
-  font-size: 3.5rem;
+  font-size: 78px;
   font-weight: bold;
   line-height: 1.1;
 }
@@ -74,23 +74,24 @@
   transition: 0.3s;
 }
 
-.primary {
+.hero-primary {
   background: #ff3d00;
   color: White;
 }
 
-.primary:hover {
-  background: #ff6a00;
+.hero-primary:hover {
+  background: transparent;
+  border: 2px solid  #ff3d00;
   transform: scale(1.05);
 }
 
-.secondary {
+.hero-secondary {
   background: transparent;
   border: 2px solid white;
   color: white;
 }
 
-.secondary:hover {
+.hero-secondary:hover {
   background: white;
   color: black;
   transform: scale(1.05);
@@ -111,7 +112,7 @@
   }
 
   .left h1 {
-    font-size: 2.8rem;
+    font-size: 50px;
   }
 
   .left p {
@@ -145,7 +146,7 @@
   }
 
   .left h1 {
-    font-size: 2.1rem;
+    font-size: 45px;
     line-height: 1.15;
   }
 

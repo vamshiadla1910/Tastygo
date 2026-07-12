@@ -48,8 +48,8 @@ export default function Hero() {
           </p>
 
           <div className="buttons">
-            <button className="btn primary" onClick={() => navigate("/Cart")}>Order Now</button>
-            <button className="btn secondary" onClick={() => navigate("/menu")}>View Menu</button>
+            <button className="btn hero-primary" onClick={() => navigate("/Cart")}>Order Now</button>
+            <button className="btn hero-secondary" onClick={() => navigate("/menu")}>View Menu</button>
           </div>
         </motion.div>
       </div>
