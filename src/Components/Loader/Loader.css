@@ -126,7 +126,7 @@
     #ff5a00
     );
     background-size:300%;
-    animation:shine 1s linear infinite;
+    animation:shine 2s linear infinite;
 }
 
 @keyframes shine{
@@ -136,7 +136,7 @@
     }
 
     to{
-        background-position:100%;
+        background-position:300%;
     }
 
 }

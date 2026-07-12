@@ -141,9 +141,12 @@
 .added-desc .food-icon
 { color:#ff6b35; font-size:14px }
 
-@media (max-width:420px){
-  .food-details{grid-template-columns:repeat(1,1fr)}
+.food-detail span{
+    font-size:12px;
+    color:#eee;
+    font-weight:500;
 }
+
 
 .menu-page-footer {
   display: flex;
