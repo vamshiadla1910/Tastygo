@@ -63,7 +63,7 @@ background-color: var(--bg);
   display: none;
 }
 
-.cart-icon-wrapper {
+.cart-icon-animation {
   position: relative;
   display: inline-flex;
   align-items: center;

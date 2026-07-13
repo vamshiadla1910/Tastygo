@@ -20,12 +20,7 @@ const NAV_LINKS = [
 function Navbar() {
 
   const { theme, toggleTheme } = useTheme();
-  // Controls whether the login overlay is visible
   
-
-  // cartCount comes from the shared CartContext, so it updates the
-  // instant addToCart() is called from MenuPage, even though MenuPage
-  // and Navbar are separate components.
   const { cartCount } = useCart();
   const [isLoginOpen, setIsLoginOpen] = useState(false);
   const [isCartBumping, setIsCartBumping] = useState(false);
@@ -100,7 +95,7 @@ function Navbar() {
         </button>
         
         <div
-          className={`cart-icon-wrapper ${isCartBumping ? "cart-bump" : ""}`}
+          className={`cart-icon-animation ${isCartBumping ? "cart-bump" : ""}`}
           onClick={() => navigate("/cart")}
         >
           <FaShoppingCart className="icon" />
@@ -135,7 +130,7 @@ function Navbar() {
 
       {isLoginOpen && (
         <div
-          className="login-overlay-backdrop"
+          className="login-overlay"
           onClick={() => setIsLoginOpen(false)}
         >
           <div

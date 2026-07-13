@@ -33,7 +33,7 @@ function OurStory() {
         <div className="story-content">
           <p className="eyebrow">Our Story</p>
 
-          <div className="story-heading-wrap">
+          <div className="ourstory-heading">
             <h2>Born from a Taste of Passion</h2>
 
           </div>

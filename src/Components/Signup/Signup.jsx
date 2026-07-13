@@ -87,7 +87,7 @@ function SignupPage({ onClose, onShowLogin }) {
         </button>
       </form>
 
-      <p className="signup-switch-text">
+      <p className="signup-to-login">
         Already have an account?{" "}
         <button
           type="button"

@@ -6,17 +6,17 @@
   scroll-margin-top: 92px;
 }
 
-.story-heading-wrap {
+.ourstory-heading {
   position: relative;
   display: inline-block;
   margin-bottom: 18px;
 }
 
-.story-heading-wrap h2 {
+.ourstory-heading h2 {
   margin: 0;
 }
 
-.story-heading-wrap img {
+.ourstory-heading img {
   width: 180px;
   height: 180px;
 }

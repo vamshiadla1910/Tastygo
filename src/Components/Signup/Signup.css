@@ -77,7 +77,7 @@
   background: linear-gradient(90deg,  #c84422, #e8562f);
 }
 
-.signup-switch-text {
+.signup-to-login {
   color: var(--text--secondary);
   text-align: center;
   margin-top: 10px;
@@ -133,7 +133,7 @@
     border-radius: 14px;
   }
 
-  .signup-switch-text {
+  .signup-to-login {
     font-size: 14px;
   }
 
@@ -182,7 +182,7 @@
     width: 90%;
   }
 
-  .signup-switch-text {
+  .signup-to-login {
     font-size: 13px;
     margin-top: 8px;
   }

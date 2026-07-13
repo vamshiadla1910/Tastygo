@@ -57,7 +57,6 @@ function FlipCard({ item,addToCart }) {
           </div>
         </div>
 
-        {/* Back Side */}
         <div className="card-back">
           <img src={item.img} alt={item.name} />
           <h3>{item.name}</h3>

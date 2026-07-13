@@ -71,19 +71,19 @@
     margin:12px 0;
 }
 
-.food-meta{
+.food-data{
     display:flex;
     align-items:center;
     gap:6px;
 }
 
-.food-meta .icon{
+.food-data .icon{
     color:#ff6b35;
     font-size:14px;
     flex-shrink:0;
 }
 
-.food-meta span{
+.food-data span{
     color:#f5f5f5;
     font-size:13px;
     font-weight:500;

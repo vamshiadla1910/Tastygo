@@ -24,22 +24,22 @@ function PizzaMenu() {
               <p className="desc">{item.description}</p>
 
               <div className="food-details">
-                <div className="food-meta">
+                <div className="food-data">
                   <FaUtensils className="icon" />
                   <span>{item.serves}</span>
                 </div>
 
-                <div className="food-meta">
+                <div className="food-data">
                   <FaPizzaSlice className="icon" />
                   <span>{item.pieces}</span>
                 </div>
 
-                <div className="food-meta">
+                <div className="food-data">
                   <FaClock className="icon" />
                   <span>{item.prepTime}</span>
                 </div>
 
-                <div className="food-meta">
+                <div className="food-data">
                   <FaLeaf className="icon" />
                   <span>{item.type}</span>
                 </div>

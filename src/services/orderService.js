@@ -1,9 +1,7 @@
-/**
- * Order Service - Manages order operations
- * Structured to support both localStorage and Firebase in future
+/*Order Service - Manages order operations
+  Structured to support both localStorage and Firebase in future
  */
 
-// ============= LOCALSTORAGE OPERATIONS =============
 
 export const fetchOrdersFromLocalStorage = () => {
   try {
