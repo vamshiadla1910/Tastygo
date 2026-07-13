@@ -43,12 +43,12 @@ function MenuPage() {
 
   return (
     <section className="menu-page">
-      <div className="menu-page-heading">
-        <p className="menu-eyebrow">Full Menu</p>
+      <div className="menu-header">
+        <p className="menu-heading">Full Menu</p>
         <h1>Pick Your Craving</h1>
       </div>
 
-      <div className="menu-category-row">
+      <div className="menu-category">
         <button
           className={`menu-cat-btn ${activeCategory === "All" ? "active" : ""}`}
           onClick={() => setActiveCategory("All")}
@@ -67,10 +67,10 @@ function MenuPage() {
         ))}
       </div>
 
-      <div className="menu-page-grid">
+      <div className="menu-grid">
         {visibleItems.map((item, index) => (
           <article
-            className="menu-page-card"
+            className="menu-card"
             key={`${item.category}-${item.id ?? index}`}
           >
             <img src={item.image} alt={item.name} className="menu-page-img" />
@@ -91,7 +91,7 @@ function MenuPage() {
                   {item.spice && <div className="added-desc"><FaPepperHot className="food-icon"/> <span>Spice: {item.spice}</span></div>}
                 </div>
               )}
-              <div className="menu-page-footer">
+              <div className="menu-btn">
                 <strong>{item.displayPrice}</strong>
                 <button
                   className="menu-page-add"

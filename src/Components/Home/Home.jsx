@@ -92,7 +92,7 @@ function Home() {
 
                 </div>
 
-                <div className="map-wrapper">
+                <div className="home-map">
 
                   <iframe
                     title="TastyGo Location"
