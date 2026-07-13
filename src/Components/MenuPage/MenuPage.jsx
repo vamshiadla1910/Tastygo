@@ -43,12 +43,12 @@ function MenuPage() {
 
   return (
     <section className="menu-page">
-      <div className="menu-header">
-        <p className="menu-heading">Full Menu</p>
+      <div className="menu-page-heading">
+        <p className="menu-eyebrow">Full Menu</p>
         <h1>Pick Your Craving</h1>
       </div>
 
-      <div className="menu-category">
+      <div className="menu-category-row">
         <button
           className={`menu-cat-btn ${activeCategory === "All" ? "active" : ""}`}
           onClick={() => setActiveCategory("All")}
@@ -67,31 +67,30 @@ function MenuPage() {
         ))}
       </div>
 
-      <div className="menu-grid">
+      <div className="menu-page-grid">
         {visibleItems.map((item, index) => (
           <article
-            className="menu-card"
+            className="menu-page-card"
             key={`${item.category}-${item.id ?? index}`}
           >
             <img src={item.image} alt={item.name} className="menu-page-img" />
-            
-              <span className="menu-page-tag">{item.category}</span>
-              <div className="menu-page-info">
+
+            <span className="menu-page-tag">{item.category}</span>
+            <div className="menu-page-info">
               <h3>{item.name}</h3>
               <p className="menu-page-desc">{item.description}</p>
-              {/* Food Details: render only when fields exist on the item */}
               {(item.serves || item.pieces || item.calories || item.prepTime || item.rating || item.type || item.spice) && (
                 <div className="food-details" aria-hidden={false}>
-                  {item.serves && <div className="added-desc"><FaUtensils className="food-icon"/> <span>Serves: {item.serves}</span></div>}
-                  {item.pieces && <div className="added-desc"><FaPizzaSlice className="food-icon"/> <span>Pieces: {item.pieces}</span></div>}
-                  {item.calories && <div className="added-desc"><FaFire className="food-icon"/> <span>Calories: {item.calories}</span></div>}
-                  {item.prepTime && <div className="added-desc"><FaClock className="food-icon"/> <span>Prep Time: {item.prepTime}</span></div>}
-                  {item.rating && <div className="added-desc"><FaStar className="food-icon"/> <span>Rating: {item.rating}</span></div>}
-                  {item.type && <div className="added-desc"><FaLeaf className="food-icon"/> <span>Type: {item.type}</span></div>}
-                  {item.spice && <div className="added-desc"><FaPepperHot className="food-icon"/> <span>Spice: {item.spice}</span></div>}
+                  {item.serves && <div className="added-desc"><FaUtensils className="food-icon" /> <span>Serves: {item.serves}</span></div>}
+                  {item.pieces && <div className="added-desc"><FaPizzaSlice className="food-icon" /> <span>Pieces: {item.pieces}</span></div>}
+                  {item.calories && <div className="added-desc"><FaFire className="food-icon" /> <span>Calories: {item.calories}</span></div>}
+                  {item.prepTime && <div className="added-desc"><FaClock className="food-icon" /> <span>Prep Time: {item.prepTime}</span></div>}
+                  {item.rating && <div className="added-desc"><FaStar className="food-icon" /> <span>Rating: {item.rating}</span></div>}
+                  {item.type && <div className="added-desc"><FaLeaf className="food-icon" /> <span>Type: {item.type}</span></div>}
+                  {item.spice && <div className="added-desc"><FaPepperHot className="food-icon" /> <span>Spice: {item.spice}</span></div>}
                 </div>
               )}
-              <div className="menu-btn">
+              <div className="menu-page-footer">
                 <strong>{item.displayPrice}</strong>
                 <button
                   className="menu-page-add"

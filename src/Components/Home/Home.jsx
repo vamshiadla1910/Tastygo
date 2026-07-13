@@ -55,7 +55,6 @@ function Home() {
               </p>
 
               <div className="map-grid">
-
                 <div className="detail">
 
                   <h4>📍 Address</h4>
@@ -92,7 +91,7 @@ function Home() {
 
                 </div>
 
-                <div className="home-map">
+                <div className="map-wrapper">
 
                   <iframe
                     title="TastyGo Location"
