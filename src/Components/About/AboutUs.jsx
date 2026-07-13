@@ -3,15 +3,15 @@ import "./AboutUs.css";
 
 function AboutUs() {
   return (
-    <section className="about-section" id="about">
-      <div className="about-hero">
-        <div className="about-hero-text">
-          <p className="about-tag">About Us</p>
+    <section className="about" id="about">
+      <div className="hero">
+        <div className="hero-text">
+          <p className="heading">About Us</p>
           <h1>
             Fresh food, warm service, and a story built on
             <span> flavor</span>
           </h1>
-          <p className="about-lead">
+          <p className="text">
             At FoodHub, we started with one simple idea — serve food that feels
             exciting, comforting, and unforgettable. From handcrafted pizzas to
             loaded fries, juicy burgers, and sweet desserts, every item is made
@@ -19,12 +19,12 @@ function AboutUs() {
           </p>
         </div>
 
-        <div className="about-hero-image">
+        <div className="hero-image">
           <img src={aboutImg} alt="Delicious food from FoodHub" className="about-img" />
         </div>
       </div>
 
-      <div className="about-grid">
+      <div className="grid">
         <div className="about-card">
           <h2>Our Beginning</h2>
           <p>
@@ -65,8 +65,8 @@ function AboutUs() {
         </div>
       </div>
 
-      <div className="about-highlight">
-        <div className="highlight-box">
+      <div className="our-ideas">
+        <div className="idea">
           <h2>Our Mission</h2>
           <p>
             To serve delicious food with heart, combining freshness, creativity,
@@ -74,7 +74,7 @@ function AboutUs() {
           </p>
         </div>
 
-        <div className="highlight-box">
+        <div className="idea">
           <h2>Our Vision</h2>
           <p>
             To become a favorite food destination where quality meals and joyful
