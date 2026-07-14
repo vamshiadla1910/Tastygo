@@ -2,7 +2,7 @@
   position: relative;
   box-sizing: border-box;
   width: 400px;
-  max-width: calc(100vw - 32px);
+  max-width: 500px;
   min-height: 300px;
   margin: auto;
   padding: 50px 40px 40px;

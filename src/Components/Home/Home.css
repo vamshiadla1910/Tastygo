@@ -86,14 +86,14 @@
     margin-top: 22px;
 }
 
-.map-wrapper {
+.map-location {
     min-height: 270px;
     border-radius: 16px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, .08);
 }
 
-.map-wrapper iframe {
+.map-location iframe {
     width: 100%;
     height: 100%;
     border: none;
@@ -132,7 +132,7 @@
         line-height: 1.6;
     }
 
-    .map-wrapper {
+    .map-location {
         min-height: 220px;
     }
 }
@@ -191,7 +191,7 @@
         margin: 0px;
     }
 
-    .map-wrapper {
+    .map-location {
         min-height: 220px;
         padding: 0px;
         margin: 0px;

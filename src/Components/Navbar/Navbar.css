@@ -110,7 +110,7 @@ background-color: var(--bg);
   100% { transform: scale(1); }
 }
 
-.login-overlay-backdrop {
+.login-overlay {
   position: fixed;
   inset: 0;
   width: 100%;
