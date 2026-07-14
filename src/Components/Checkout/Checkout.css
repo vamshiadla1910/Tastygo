@@ -368,7 +368,7 @@
   cursor: pointer;
   padding:10px 25px;
     border-radius: 18px;
-
+  background: var(--bg);
   border: 1px solid black;
 }
 

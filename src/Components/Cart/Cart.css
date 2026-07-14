@@ -7,7 +7,7 @@
   align-content: center;
 }
 
-.cart-header {
+.cart-head {
   margin-bottom: 32px;
 }
 
@@ -259,7 +259,7 @@ padding: 10px 4px;
     padding: 8px 6px;
   }
 
-  .cart-header {
+  .cart-head {
     margin-bottom: 24px;
   }
 

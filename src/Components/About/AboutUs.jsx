@@ -65,7 +65,7 @@ function AboutUs() {
         </div>
       </div>
 
-      <div className="about-highlight">
+      <div className="about-highlights">
         <div className="highlight-box">
           <h2>Our Mission</h2>
           <p>

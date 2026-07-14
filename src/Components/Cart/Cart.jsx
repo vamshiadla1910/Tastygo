@@ -35,7 +35,7 @@ function Cart() {
 
   return (
     <section className="cart-page">
-      <div className="cart-header">
+      <div className="cart-head">
         <div>
           <p className="cart-eyebrow">Shopping Cart</p>
           <h1>Your Cart</h1>
@@ -46,7 +46,7 @@ function Cart() {
         <div className="cart-empty-card">
           <h2>Your Cart is Empty</h2>
           <p>Pick your favourites from the menu and start enjoying delicious food.</p>
-          <button className="primary-btn" onClick={handleContinueShopping}>
+          <button className="primary-btn" onClick={"/menu"}>
             Continue Shopping
           </button>
         </div>
