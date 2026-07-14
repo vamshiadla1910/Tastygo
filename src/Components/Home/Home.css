@@ -73,7 +73,6 @@
 }
 
 .detail p {
-    margin: 0;
     color: var(--text);
     line-height: 1.7;
 }
@@ -86,14 +85,14 @@
     margin-top: 22px;
 }
 
-.map-location {
+.Tastygo-map {
     min-height: 270px;
     border-radius: 16px;
     overflow: hidden;
     border: 1px solid rgba(255, 255, 255, .08);
 }
 
-.map-location iframe {
+.Tastygo-map iframe {
     width: 100%;
     height: 100%;
     border: none;
@@ -132,16 +131,13 @@
         line-height: 1.6;
     }
 
-    .map-location {
+    .Tastygo-map {
         min-height: 220px;
     }
 }
 
 @media(max-width:480px) {
-    .restaurant-section {
-        padding: 0px;
-        margin: 0px;
-    }
+    
 
     .section-title {
         font-size: 36px;
@@ -188,10 +184,9 @@
     .detail p {
         font-size: 13px;
         padding: 10px;
-        margin: 0px;
     }
 
-    .map-location {
+    .Tastygo-map {
         min-height: 220px;
         padding: 0px;
         margin: 0px;
