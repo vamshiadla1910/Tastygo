@@ -10,7 +10,7 @@ import "./Dessert.css";
 function DessertMenu() {
   return (
     <section className="dessert-section">
-      <h2 className="dessert-heading">Desserts</h2>
+      <h2 className="dessert-title">Desserts</h2>
 
       <div className="menu-grid">
         {desserts.map((item, index) => (
