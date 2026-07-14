@@ -4,7 +4,7 @@
   width: 80%;
 }
 
-.dessert-heading {
+.dessert-title {
   text-align: center;
   margin: 0 0 24px;
   color: #e8562f;
@@ -95,7 +95,7 @@
     padding:20px 15px;
   }
 
-  .dessert-heading{
+  .dessert-title{
     font-size:56px;
   }
 
@@ -123,7 +123,7 @@
     padding:20px 15px;
   }
 
-  .dessert-heading{
+  .dessert-title{
     font-size:44px;
   }
 
@@ -176,7 +176,7 @@
     padding:15px 10px;
   }
 
-  .dessert-heading{
+  .dessert-title{
     font-size:34px;
   }
 
@@ -227,7 +227,7 @@
     padding:15px 10px;
   }
 
-  .dessert-heading{
+  .dessert-title{
     font-size:34px;
   }
 

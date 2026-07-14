@@ -34,19 +34,19 @@ function Cart() {
   const handleCheckout = () => navigate("/checkout");
 
   return (
-    <section className="cart">
+    <section className="cart-page">
       <div className="cart-header">
         <div>
-          <p className="cart-header">Shopping Cart</p>
+          <p className="cart-eyebrow">Shopping Cart</p>
           <h1>Your Cart</h1>
         </div>
       </div>
 
       {cartItems.length === 0 ? (
-        <div className="empty-card">
+        <div className="cart-empty-card">
           <h2>Your Cart is Empty</h2>
           <p>Pick your favourites from the menu and start enjoying delicious food.</p>
-          <button className="shop-btn" onClick={handleContinueShopping}>
+          <button className="primary-btn" onClick={handleContinueShopping}>
             Continue Shopping
           </button>
         </div>
@@ -61,8 +61,8 @@ function Cart() {
                 <article className="cart-item" key={item.key}>
                   <img src={item.image} alt={item.name} className="cart-item-image" />
 
-                  <div className="item-details">
-                    <div className="item-top">
+                  <div className="cart-item-details">
+                    <div className="cart-item-top">
                       <h2>{item.name}</h2>
                       <button
                         className="cart-remove"
@@ -72,11 +72,11 @@ function Cart() {
                       </button>
                     </div>
 
-                    <p className="item-price">
+                    <p className="cart-item-price">
                       Price: <span>{formatPrice(price)}</span>
                     </p>
 
-                    <div className="quantity">
+                    <div className="cart-quantity-row">
                       <div className="quantity-controls">
                         <button
                           className="quantity-btn"
@@ -95,7 +95,7 @@ function Cart() {
                         </button>
                       </div>
 
-                      <p className="item-total">
+                      <p className="cart-item-total">
                         Item Total: <strong>{formatPrice(itemTotal)}</strong>
                       </p>
                     </div>
